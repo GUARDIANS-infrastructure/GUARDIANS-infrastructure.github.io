@@ -1,0 +1,54 @@
+---
+interface Props {
+  partner: {
+    slug: string;
+    data: {
+      name: string;
+      shortRole: string;
+      contributionAreas: string[];
+      contributionTypes: string[];
+      relatedCatalogue: string[];
+      website?: string;
+      logo?: string;
+      draftInferred: boolean;
+    };
+  };
+  catalogueTitles: Record<string, string>;
+}
+
+const { partner, catalogueTitles } = Astro.props;
+---
+
+<article class="card" id={partner.slug}>
+  <div class="chips">
+    {partner.data.draftInferred && <span class="badge">Draft</span>}
+    {partner.data.contributionAreas.map((area) => (
+      <span class="badge badge-strong">{area}</span>
+    ))}
+  </div>
+  {partner.data.logo && (
+    <img src={partner.data.logo} alt="" style="max-height: 64px; width: auto;" />
+  )}
+  <div class="stack-md">
+    <h3>{partner.data.name}</h3>
+    <p>{partner.data.shortRole}</p>
+    <p>
+      <strong>Contribution types:</strong> {partner.data.contributionTypes.join(", ")}
+    </p>
+  </div>
+  <div class="stack-md">
+    <p><strong>Related services and resources</strong></p>
+    <div class="meta-list">
+      {partner.data.relatedCatalogue.map((slug) => (
+        <a class="chip" href={`/services-resources#${slug}`}>
+          {catalogueTitles[slug] ?? slug}
+        </a>
+      ))}
+    </div>
+  </div>
+  {partner.data.website && (
+    <div class="card__footer">
+      <a class="card__link" href={partner.data.website}>External link</a>
+    </div>
+  )}
+</article>

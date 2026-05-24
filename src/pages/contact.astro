@@ -1,0 +1,76 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { site } from "../data/site";
+---
+
+<MainLayout
+  title="Contact"
+  pathname={Astro.url.pathname}
+  description="Audience-based contact pathways for using services, discussing collaboration, media enquiries, and feedback."
+>
+  <section class="page-header stack-md">
+    <span class="eyebrow">Contact pathways</span>
+    <h1>Contact GUARDIANS</h1>
+    <p>
+      Use the pathway that best matches your reason for getting in touch. The prototype currently uses one shared contact route, labelled by audience need.
+    </p>
+  </section>
+
+  <section class="section section-card">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Audience-based pathways</span>
+        <h2 class="section-title">Choose a next step</h2>
+      </div>
+    </div>
+    <div class="contact-cards">
+      <article class="card">
+        <h3>Use a service or resource</h3>
+        <p>For researchers, data custodians, or infrastructure users looking for a specific service, resource, or delivery contact.</p>
+        <div class="card__footer">
+          <a class="card__link" href={`mailto:${site.contactEmail}`}>Email the team</a>
+          <a class="chip" href="/services-resources">Services &amp; resources</a>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Discuss collaboration</h3>
+        <p>For potential partners, peer programs, or organisations exploring coordinated delivery or alignment.</p>
+        <div class="card__footer">
+          <a class="card__link" href={`mailto:${site.contactEmail}`}>Email the team</a>
+          <a class="chip" href="/partners-contributions">Partners &amp; contributions</a>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Media or funder enquiry</h3>
+        <p>For communications, reporting, program background, or national coordination questions.</p>
+        <div class="card__footer">
+          <a class="card__link" href={`mailto:${site.contactEmail}`}>Email the team</a>
+          <a class="chip" href="/about">About</a>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Give feedback on this site</h3>
+        <p>For prototype feedback, content corrections, and suggestions on findability or representation.</p>
+        <div class="card__footer">
+          <a class="card__link" href={`mailto:${site.contactEmail}`}>Email the team</a>
+          <span class="chip">Draft prototype feedback</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section-card stack-md">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Contact mechanism</span>
+        <h2 class="section-title">Shared contact route</h2>
+      </div>
+    </div>
+    <p>
+      Email: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
+    </p>
+    <p>
+      Draft response expectation: the team reviews enquiries and routes them to the most relevant delivery lead or coordination contact.
+    </p>
+  </section>
+</MainLayout>

@@ -96,19 +96,18 @@ Infrastructure providers should be able to:
 
 The roadmap supports the FAIR data principles.
 
-| Principle | Example infrastructure capability |
-|-----------|-----------------------------------|
-| **Findable** | National dataset catalogues and discovery services |
-| **Accessible** | Data repositories and data access request systems |
-| **Interoperable** | Standardised metadata, APIs and authentication |
-| **Reusable** | Governance frameworks and analysis environments |
+| Principle         | Example infrastructure capability                  |
+| ----------------- | -------------------------------------------------- |
+| **Findable**      | National dataset catalogues and discovery services |
+| **Accessible**    | Data repositories and data access request systems  |
+| **Interoperable** | Standardised metadata, APIs and authentication     |
+| **Reusable**      | Governance frameworks and analysis environments    |
 
 ---
 
 # Future Infrastructure Capabilities
 
 The roadmap aims to enable several key national capabilities.
-
 
 ## National Data Repositories
 
@@ -176,8 +175,10 @@ https://github.com/GUARDIANS-infrastructure/architecture/blob/main/doc/stories/G
 
 # References
 
-[^NDRIS]: National Digital Research Infrastructure Strategy  
-https://www.education.gov.au/download/18373/national-digital-research-infrastructure-strategy/38409/document/pdf
+[^NDRIS]:
+    National Digital Research Infrastructure Strategy  
+    https://www.education.gov.au/download/18373/national-digital-research-infrastructure-strategy/38409/document/pdf
 
-[^G7SGuidelines]: GUARDIANS Guidelines  
-https://docs.google.com/document/d/1n5Fdks1WBJuVrn8O4XpQy7N5VTtTgX_EBFMKweqR0ek/edit?usp=sharing
+[^G7SGuidelines]:
+    GUARDIANS Guidelines  
+    https://docs.google.com/document/d/1n5Fdks1WBJuVrn8O4XpQy7N5VTtTgX_EBFMKweqR0ek/edit?usp=sharing

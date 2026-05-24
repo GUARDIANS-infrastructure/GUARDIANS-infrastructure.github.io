@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import { site } from "../data/site";
+
+interface Props {
+  title: string;
+  description?: string;
+  pathname: string;
+}
+
+const { title, description = site.description, pathname } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | {site.title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <SiteHeader pathname={pathname} />
+    <main class="shell">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

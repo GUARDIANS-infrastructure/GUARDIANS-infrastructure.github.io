@@ -1,0 +1,21 @@
+---
+import { funderLogos, site } from "../data/site";
+---
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="site-footer__meta">
+      <div class="site-footer__logos" aria-label="Funder logos">
+        {funderLogos.map((logo) => (
+          <div class="site-footer__logo-tile">
+            <img src={logo.src} alt={logo.alt} />
+          </div>
+        ))}
+      </div>
+      <div class="site-footer__meta-text">
+        <p>{site.fundingAcknowledgement}</p>
+        <p>{site.hostingAcknowledgement}</p>
+      </div>
+    </div>
+  </div>
+</footer>
