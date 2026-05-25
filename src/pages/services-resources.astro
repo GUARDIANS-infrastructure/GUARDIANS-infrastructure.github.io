@@ -24,7 +24,6 @@ const items = catalogue.map((item) => ({
   intendedUsers: item.data.intendedUsers
 }));
 
-const partners = [...new Set(catalogue.flatMap((item) => [item.data.leadPartner, ...item.data.contributingPartners]))].sort();
 ---
 
 <MainLayout
@@ -58,31 +57,7 @@ const partners = [...new Set(catalogue.flatMap((item) => [item.data.leadPartner,
       outputTypes={outputTypes}
       statusValues={statusValues}
       visibilityValues={visibilityValues}
-      partners={partners}
     />
-  </section>
-
-  <section class="section section-card">
-    <div class="section-heading">
-      <div>
-        <span class="eyebrow">Use the catalogue</span>
-        <h2 class="section-title">Interpreting status and visibility</h2>
-      </div>
-    </div>
-    <div class="grid grid-3">
-      <article class="card">
-        <h3>Status</h3>
-        <p>Availability is expressed separately from access conditions so pilot and in-development items are not mistaken for production services.</p>
-      </article>
-      <article class="card">
-        <h3>Visibility / access</h3>
-        <p>Some entries are public, some support limited cohorts, and some are internal enabling components that still matter for program transparency.</p>
-      </article>
-      <article class="card">
-        <h3>Partner attribution</h3>
-        <p>Each item names the lead partner and can link back to the partner contribution index for broader delivery context.</p>
-      </article>
-    </div>
   </section>
 
   <section class="section section-card">

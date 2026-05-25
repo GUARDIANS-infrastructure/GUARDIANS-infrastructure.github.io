@@ -1,0 +1,46 @@
+---
+import { organisationLogos } from "../data/projectContributions";
+
+interface Props {
+  project: {
+    title: string;
+    organisations: string[];
+    description: string;
+    capabilityAreas: string[];
+  };
+}
+
+const { project } = Astro.props;
+---
+
+<article class="project-card">
+  <div class="project-card__header">
+    <div class="project-card__logos" aria-label="Lead partner organisations">
+      {project.organisations.map((org) => {
+        const logo = organisationLogos[org];
+
+        return (
+          <div class="project-card__logo-tile">
+            {logo ? (
+              <img class={logo.className} src={logo.src} alt={logo.alt} />
+            ) : (
+              <span>{org}</span>
+            )}
+          </div>
+        );
+      })}
+    </div>
+    <div class="project-card__title">
+      <p class="project-card__label">Project</p>
+      <h3>{project.title}</h3>
+    </div>
+  </div>
+  <div class="project-card__body">
+    <p>{project.description}</p>
+    <div class="meta-list">
+      {project.capabilityAreas.map((area) => (
+        <span class="chip">{area}</span>
+      ))}
+    </div>
+  </div>
+</article>

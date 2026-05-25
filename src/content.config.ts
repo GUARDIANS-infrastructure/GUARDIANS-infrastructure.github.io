@@ -8,9 +8,9 @@ const catalogue = defineCollection({
     userValue: z.string(),
     capability: z.enum([
       "Data discovery",
-      "Secure access",
       "Data commons and repositories",
       "Federated and scalable analysis",
+      "Secure access",
       "Governance, policy and operations",
       "Training and community capability",
     ]),
@@ -57,9 +57,9 @@ const partners = defineCollection({
     contributionAreas: z.array(
       z.enum([
         "Data discovery",
-        "Secure access",
         "Data commons and repositories",
         "Federated and scalable analysis",
+        "Secure access",
         "Governance, policy and operations",
         "Training and community capability",
       ]),

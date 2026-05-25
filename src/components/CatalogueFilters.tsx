@@ -23,16 +23,59 @@ type Props = {
   outputTypes: string[];
   statusValues: string[];
   visibilityValues: string[];
-  partners: string[];
 };
 
 const emptyFilterState = {
-  capability: "",
-  outputType: "",
-  status: "",
-  visibility: "",
-  partner: "",
+  capability: [] as string[],
+  outputType: [] as string[],
+  status: [] as string[],
+  visibility: [] as string[],
 };
+
+const filterParamNames = {
+  capability: "capability",
+  outputType: "type",
+  status: "status",
+  visibility: "visibility",
+} as const;
+
+type FilterName = keyof typeof emptyFilterState;
+
+type FilterGroupProps = {
+  label: string;
+  name: FilterName;
+  options: string[];
+  selected: string[];
+  onToggle: (name: FilterName, value: string) => void;
+};
+
+function FilterGroup(props: FilterGroupProps) {
+  return (
+    <fieldset class="filters__group">
+      <legend>{props.label}</legend>
+      <div class="filters__chips">
+        {props.options.map((option) => {
+          const id = `${props.name}-${option.replace(/\W+/g, "-").toLowerCase()}`;
+
+          return (
+            <label class="filters__chip" for={id}>
+              <input
+                id={id}
+                type="checkbox"
+                checked={props.selected.includes(option)}
+                onChange={() => props.onToggle(props.name, option)}
+              />
+              <span>{option}</span>
+            </label>
+          );
+        })}
+      </div>
+    </fieldset>
+  );
+}
+
+const matchesOne = (selected: string[], value: string) =>
+  selected.length === 0 || selected.includes(value);
 
 export default function CatalogueFilters(props: Props) {
   const [filters, setFilters] = useState(emptyFilterState);
@@ -41,20 +84,23 @@ export default function CatalogueFilters(props: Props) {
     const params = new URLSearchParams(window.location.search);
 
     setFilters({
-      capability: params.get("capability") ?? "",
-      outputType: params.get("type") ?? "",
-      status: params.get("status") ?? "",
-      visibility: params.get("visibility") ?? "",
-      partner: params.get("partner") ?? "",
+      capability: params.getAll(filterParamNames.capability),
+      outputType: params.getAll(filterParamNames.outputType),
+      status: params.getAll(filterParamNames.status),
+      visibility: params.getAll(filterParamNames.visibility),
     });
   }, []);
 
   useEffect(() => {
     const params = new URLSearchParams();
 
-    for (const [key, value] of Object.entries(filters)) {
-      if (!value) continue;
-      params.set(key === "outputType" ? "type" : key, value);
+    for (const [key, values] of Object.entries(filters) as [
+      FilterName,
+      string[],
+    ][]) {
+      for (const value of values) {
+        params.append(filterParamNames[key], value);
+      }
     }
 
     const search = params.toString();
@@ -64,104 +110,71 @@ export default function CatalogueFilters(props: Props) {
 
   const filteredItems = useMemo(() => {
     return props.items.filter((item) => {
-      const partnerMatch =
-        !filters.partner ||
-        item.leadPartner === filters.partner ||
-        item.contributingPartners.includes(filters.partner);
-
       return (
-        (!filters.capability || item.capability === filters.capability) &&
-        (!filters.outputType || item.outputType === filters.outputType) &&
-        (!filters.status || item.status === filters.status) &&
-        (!filters.visibility || item.visibility === filters.visibility) &&
-        partnerMatch
+        matchesOne(filters.capability, item.capability) &&
+        matchesOne(filters.outputType, item.outputType) &&
+        matchesOne(filters.status, item.status) &&
+        matchesOne(filters.visibility, item.visibility)
       );
     });
   }, [filters, props.items]);
 
-  const updateFilter = (name: keyof typeof emptyFilterState, value: string) => {
-    setFilters((current) => ({ ...current, [name]: value }));
+  const toggleFilter = (name: FilterName, value: string) => {
+    setFilters((current) => {
+      const values = current[name];
+      const nextValues = values.includes(value)
+        ? values.filter((item) => item !== value)
+        : [...values, value];
+
+      return { ...current, [name]: nextValues };
+    });
   };
+
+  const activeFilterCount = Object.values(filters).reduce(
+    (count, values) => count + values.length,
+    0,
+  );
 
   return (
     <div class="filters">
       <div class="filters__toolbar">
-        <label>
-          Capability area
-          <select
-            value={filters.capability}
-            onChange={(event) =>
-              updateFilter("capability", event.currentTarget.value)
-            }
-          >
-            <option value="">All capability areas</option>
-            {props.capabilities.map((value) => (
-              <option value={value}>{value}</option>
-            ))}
-          </select>
-        </label>
-        <label>
-          Output type
-          <select
-            value={filters.outputType}
-            onChange={(event) =>
-              updateFilter("outputType", event.currentTarget.value)
-            }
-          >
-            <option value="">All output types</option>
-            {props.outputTypes.map((value) => (
-              <option value={value}>{value}</option>
-            ))}
-          </select>
-        </label>
-        <label>
-          Status
-          <select
-            value={filters.status}
-            onChange={(event) =>
-              updateFilter("status", event.currentTarget.value)
-            }
-          >
-            <option value="">All status values</option>
-            {props.statusValues.map((value) => (
-              <option value={value}>{value}</option>
-            ))}
-          </select>
-        </label>
-        <label>
-          Visibility / access
-          <select
-            value={filters.visibility}
-            onChange={(event) =>
-              updateFilter("visibility", event.currentTarget.value)
-            }
-          >
-            <option value="">All visibility values</option>
-            {props.visibilityValues.map((value) => (
-              <option value={value}>{value}</option>
-            ))}
-          </select>
-        </label>
-        <label>
-          Partner
-          <select
-            value={filters.partner}
-            onChange={(event) =>
-              updateFilter("partner", event.currentTarget.value)
-            }
-          >
-            <option value="">All partners</option>
-            {props.partners.map((value) => (
-              <option value={value}>{value}</option>
-            ))}
-          </select>
-        </label>
+        <FilterGroup
+          label="Capability area"
+          name="capability"
+          options={props.capabilities}
+          selected={filters.capability}
+          onToggle={toggleFilter}
+        />
+        <FilterGroup
+          label="Output type"
+          name="outputType"
+          options={props.outputTypes}
+          selected={filters.outputType}
+          onToggle={toggleFilter}
+        />
+        <FilterGroup
+          label="Status"
+          name="status"
+          options={props.statusValues}
+          selected={filters.status}
+          onToggle={toggleFilter}
+        />
+        <FilterGroup
+          label="Visibility / access"
+          name="visibility"
+          options={props.visibilityValues}
+          selected={filters.visibility}
+          onToggle={toggleFilter}
+        />
       </div>
 
       <div class="filters__summary">
         <p>
           {filteredItems.length} catalogue item
           {filteredItems.length === 1 ? "" : "s"} shown
+          {activeFilterCount > 0
+            ? ` across ${activeFilterCount} selected filter${activeFilterCount === 1 ? "" : "s"}`
+            : ""}
         </p>
         <button
           class="filters__button"

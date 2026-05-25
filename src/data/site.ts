@@ -24,11 +24,6 @@ export const capabilities = [
       "National catalogues and metadata patterns that help researchers find relevant human omics datasets.",
   },
   {
-    name: "Secure access",
-    summary:
-      "Shared identity, access, and controlled workflows that support responsible use of sensitive data.",
-  },
-  {
     name: "Data commons and repositories",
     summary:
       "Trusted repository and data commons capabilities for nationally significant omics collections.",
@@ -37,6 +32,11 @@ export const capabilities = [
     name: "Federated and scalable analysis",
     summary:
       "Secure compute environments and interoperable analysis pathways across institutional boundaries.",
+  },
+  {
+    name: "Secure access",
+    summary:
+      "Shared identity, access, and controlled workflows that support responsible use of sensitive data.",
   },
   {
     name: "Governance, policy and operations",
