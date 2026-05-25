@@ -13,17 +13,10 @@ interface Props {
       draftInferred: boolean;
     };
   };
-  relatedContributions?: Array<{
-    slug: string;
-    data: {
-      title: string;
-      projectName: string;
-    };
-  }>;
   catalogueTitles: Record<string, string>;
 }
 
-const { partner, relatedContributions = [], catalogueTitles } = Astro.props;
+const { partner, catalogueTitles } = Astro.props;
 ---
 
 <article class="card" id={partner.slug}>
@@ -43,18 +36,6 @@ const { partner, relatedContributions = [], catalogueTitles } = Astro.props;
       <strong>Contribution types:</strong> {partner.data.contributionTypes.join(", ")}
     </p>
   </div>
-  {relatedContributions.length > 0 && (
-    <div class="stack-md">
-      <p><strong>Project-level contributions</strong></p>
-      <div class="meta-list">
-        {relatedContributions.map((contribution) => (
-          <a class="chip" href={`#${contribution.slug}`}>
-            {contribution.data.projectName}
-          </a>
-        ))}
-      </div>
-    </div>
-  )}
   <div class="stack-md">
     <p><strong>Related services and resources</strong></p>
     <div class="meta-list">

@@ -84,47 +84,4 @@ const partners = defineCollection({
   }),
 });
 
-const contributions = defineCollection({
-  type: "content",
-  schema: z.object({
-    title: z.string(),
-    projectName: z.string(),
-    shortDescription: z.string(),
-    leadOrganisations: z.array(z.string()).min(1),
-    contributingOrganisations: z.array(z.string()).default([]),
-    capabilityAreas: z.array(
-      z.enum([
-        "Data discovery",
-        "Secure access",
-        "Data commons and repositories",
-        "Federated and scalable analysis",
-        "Governance, policy and operations",
-        "Training and community capability",
-      ]),
-    ),
-    contributionTypes: z.array(
-      z.enum([
-        "Technical delivery",
-        "Infrastructure operations",
-        "Data stewardship",
-        "Governance / ELSI expertise",
-        "Standards / interoperability",
-        "Research translation",
-        "Training / capability building",
-        "Community engagement",
-        "Program coordination",
-      ]),
-    ),
-    relatedCatalogue: z.array(z.string()).default([]),
-    status: z
-      .enum(["Available", "Pilot", "In development", "Planned"])
-      .optional(),
-    visibility: z
-      .enum(["Public", "Limited access", "Internal / enabling"])
-      .optional(),
-    externalLink: z.string().optional(),
-    draftInferred: z.boolean().default(true),
-  }),
-});
-
-export const collections = { catalogue, partners, contributions };
+export const collections = { catalogue, partners };
