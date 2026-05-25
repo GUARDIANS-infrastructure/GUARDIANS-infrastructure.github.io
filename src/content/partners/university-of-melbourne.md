@@ -15,5 +15,3 @@ website: https://www.unimelb.edu.au/
 logo: /assets/logos/uom.png
 draftInferred: true
 ---
-
-The IA lists University of Melbourne projects spanning ELSI and exemplar research-linked work.

@@ -19,5 +19,3 @@ website: https://www.biocommons.org.au/
 logo: /assets/logos/biocommons.png
 draftInferred: true
 ---
-
-Australian BioCommons is repeatedly named in the supplied materials as the coordinating organisation for GUARDIANS.

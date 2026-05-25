@@ -1,6 +1,6 @@
 ---
 name: Australian Access Federation
-shortRole: Contributes national identity and access capability needed for trusted researcher authentication and authorisation across services.
+shortRole: Contributes national trust and identity capability for secure access and authorisation across services and resources.
 contributionAreas:
   - Secure access
   - Governance, policy and operations
@@ -15,5 +15,3 @@ website: https://aaf.edu.au/
 logo: /assets/logos/aaf.png
 draftInferred: true
 ---
-
-The one-page and roadmap materials both point to shared identity and access management as core GUARDIANS capability.

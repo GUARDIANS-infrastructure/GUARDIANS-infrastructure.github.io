@@ -1,6 +1,6 @@
 ---
 name: Garvan Institute of Medical Research
-shortRole: Contributes nationally relevant human omics data infrastructure context, including discovery, repository, and translational research pathways.
+shortRole: Contributes human omics data infrastructure services and tooling, including data discovery, controlled access, consent management, and rare disease analysis.
 contributionAreas:
   - Data discovery
   - Data commons and repositories
@@ -17,5 +17,3 @@ website: https://www.garvan.org.au/
 logo: /assets/logos/garvan.png
 draftInferred: true
 ---
-
-Garvan is named in the supplied collaboration materials and the ABACBS abstract references real-world workflows in areas such as cancer genomics.

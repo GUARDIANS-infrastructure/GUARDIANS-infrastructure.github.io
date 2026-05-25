@@ -20,6 +20,7 @@ const { title, description = site.description, pathname } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title} | {site.title}</title>
     <meta name="description" content={description} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body>
     <SiteHeader pathname={pathname} />

@@ -2,11 +2,24 @@
 import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import PartnerCard from "../components/PartnerCard.astro";
+import ContributionCard from "../components/ContributionCard.astro";
 import { contributionTypes } from "../data/site";
 
 const partners = await getCollection("partners");
+const contributions = await getCollection("contributions");
 const catalogue = await getCollection("catalogue");
 const catalogueTitles = Object.fromEntries(catalogue.map((item) => [item.slug, item.data.title]));
+
+const contributionsByOrganisation = new Map(
+  partners.map((partner) => [
+    partner.data.name,
+    contributions.filter(
+      (contribution) =>
+        contribution.data.leadOrganisations.includes(partner.data.name) ||
+        contribution.data.contributingOrganisations.includes(partner.data.name),
+    ),
+  ]),
+);
 ---
 
 <MainLayout
@@ -18,7 +31,7 @@ const catalogueTitles = Object.fromEntries(catalogue.map((item) => [item.slug, i
     <span class="eyebrow">Attribution</span>
     <h1>Partners &amp; contributions</h1>
     <p>
-      GUARDIANS is coordinated by Australian BioCommons and delivered with national partners. This page focuses on contribution patterns and related outputs rather than partner marketing profiles.
+      GUARDIANS is coordinated by Australian BioCommons and delivered with national partners. This page separates organisation-level partner identity from project-level contribution records.
     </p>
     <p class="draft-note">
       Partner statements on this page are draft summaries inferred from the provided materials and linked sample catalogue entries.
@@ -33,7 +46,7 @@ const catalogueTitles = Object.fromEntries(catalogue.map((item) => [item.slug, i
       </div>
     </div>
     <p class="lede">
-      Contributions include public-facing services and enabling work such as access uplift, infrastructure operations, governance expertise, stewardship, standards alignment, and research translation.
+      Contributions include public-facing services and enabling work such as access uplift, infrastructure operations, governance expertise, stewardship, standards alignment, and research translation. Some projects are co-led by multiple organisations.
     </p>
   </section>
 
@@ -54,13 +67,33 @@ const catalogueTitles = Object.fromEntries(catalogue.map((item) => [item.slug, i
   <section class="section section-card">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">Partner index</span>
-        <h2 class="section-title">Structured partner entries</h2>
+        <span class="eyebrow">Organisation index</span>
+        <h2 class="section-title">Partner organisations</h2>
       </div>
       <a class="card__link" href="/services-resources">Browse catalogue items</a>
     </div>
     <div class="grid grid-2">
-      {partners.map((partner) => <PartnerCard partner={partner} catalogueTitles={catalogueTitles} />)}
+      {
+        partners.map((partner) => (
+          <PartnerCard
+            partner={partner}
+            relatedContributions={contributionsByOrganisation.get(partner.data.name)}
+            catalogueTitles={catalogueTitles}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section-card">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Project index</span>
+        <h2 class="section-title">Project-level contributions</h2>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      {contributions.map((contribution) => <ContributionCard contribution={contribution} catalogueTitles={catalogueTitles} />)}
     </div>
   </section>
 </MainLayout>
