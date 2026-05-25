@@ -1,8 +1,8 @@
 export const site = {
   title: "GUARDIANS",
   description:
-    "A national partnership building secure, interoperable infrastructure for discovering, responsibly accessing, and analysing sensitive human omics data.",
-  contactEmail: "contact@biocommons.org.au",
+    "A national partnership building secure, interoperable infrastructure for human omics research.",
+  contactEmail: "hgi@biocommons.org.au",
   fundingAcknowledgement:
     "Australian BioCommons and the GUARDIANS program are supported by Bioplatforms Australia. Bioplatforms Australia is enabled by NCRIS.",
   hostingAcknowledgement:

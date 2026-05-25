@@ -1,26 +1,23 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { homeContent } from "../data/home";
 import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
 ---
 
 <MainLayout title="Home" pathname={Astro.url.pathname}>
-  <p class="draft-note">
-    This prototype uses draft content inferred from the supplied background materials. Where the source materials do not support a fuller statement, the site keeps content deliberately minimal.
-  </p>
+  <p class="draft-note">{homeContent.draftNotice}</p>
 
   <section class="hero">
     <div class="hero__body">
-      <span class="eyebrow">National human omics infrastructure</span>
+      <span class="eyebrow">{homeContent.hero.eyebrow}</span>
       <h1>{site.description}</h1>
-      <p class="hero__lead">
-        GUARDIANS is an Australian BioCommons coordinated program working with national partners to improve discovery, access, governance, and analysis pathways for sensitive human omics data.
-      </p>
+      <p class="hero__lead">{homeContent.hero.intro}</p>
       <div class="button-row">
-        <a class="button button-primary" href="/services-resources">
-          Explore services &amp; resources
+        <a class="button button-primary" href={homeContent.hero.primaryCta.href}>
+          {homeContent.hero.primaryCta.label}
         </a>
-        <a class="button button-secondary" href="/partners-contributions">
-          See partner contributions
+        <a class="button button-secondary" href={homeContent.hero.secondaryCta.href}>
+          {homeContent.hero.secondaryCta.label}
         </a>
       </div>
     </div>
@@ -29,46 +26,36 @@ import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
   <section class="section section-card">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">Researcher view</span>
-        <h2 class="section-title">A draft user journey for discovering, accessing, and analysing data</h2>
+        <span class="eyebrow">{homeContent.journey.eyebrow}</span>
+        <h2 class="section-title">{homeContent.journey.title}</h2>
       </div>
     </div>
-    <p class="lede">
-      This draft diagram from the background materials shows the kind of end-to-end pathway GUARDIANS is intended to support for researchers working with sensitive human omics data.
-    </p>
+    <p class="lede">{homeContent.journey.intro}</p>
     <div class="journey-figure">
-      <img src="/assets/guardians-user-journey.png" alt="Draft researcher-centric GUARDIANS user journey" />
+      <img src={homeContent.journey.image.src} alt={homeContent.journey.image.alt} />
     </div>
   </section>
 
   <section class="section section-card">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">Why it matters</span>
-        <h2 class="section-title">Why GUARDIANS exists</h2>
+        <span class="eyebrow">{homeContent.why.eyebrow}</span>
+        <h2 class="section-title">{homeContent.why.title}</h2>
       </div>
     </div>
     <div class="stack-md">
-      <p>
-        Australian human omics research data is valuable but difficult to discover, access, and analyse consistently across institutions. Sensitive data, governance obligations, and fragmented infrastructure slow reuse.
-      </p>
-      <p>
-        GUARDIANS addresses that gap by aligning technical infrastructure with policy, stewardship, identity, and operational delivery models.
-      </p>
-      <p>
-        The aim is not just more infrastructure, but infrastructure that is interoperable, trusted, and usable in real research workflows.
-      </p>
-      <a class="card__link" href="/about">Read the program background</a>
+      {homeContent.why.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      <a class="card__link" href={homeContent.why.link.href}>{homeContent.why.link.label}</a>
     </div>
   </section>
 
   <section class="section section-card">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">What is being built</span>
-        <h2 class="section-title">Capability areas</h2>
+        <span class="eyebrow">{homeContent.capabilities.eyebrow}</span>
+        <h2 class="section-title">{homeContent.capabilities.title}</h2>
       </div>
-      <p class="lede">Capability-first navigation helps researchers understand the program through outcomes rather than partner structures.</p>
+      <p class="lede">{homeContent.capabilities.intro}</p>
     </div>
     <div class="grid grid-3">
       {
@@ -77,7 +64,7 @@ import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
             <h3>{capability.name}</h3>
             <p>{capability.summary}</p>
             <a class="card__link" href={`/services-resources?capability=${encodeURIComponent(capability.name)}#catalogue`}>
-              View matching catalogue items
+              {homeContent.capabilities.itemLinkLabel}
             </a>
           </article>
         ))
@@ -88,14 +75,12 @@ import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
   <section class="section section-card">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">Delivered with partners</span>
-        <h2 class="section-title">National coordination, distributed delivery</h2>
+        <span class="eyebrow">{homeContent.partners.eyebrow}</span>
+        <h2 class="section-title">{homeContent.partners.title}</h2>
       </div>
-      <a class="card__link" href="/partners-contributions">Browse partner entries</a>
+      <a class="card__link" href={homeContent.partners.link.href}>{homeContent.partners.link.label}</a>
     </div>
-    <p class="lede">
-      GUARDIANS is coordinated by Australian BioCommons and delivered with national partners contributing infrastructure operations, stewardship, governance expertise, secure access capability, and research translation.
-    </p>
+    <p class="lede">{homeContent.partners.intro}</p>
     <div class="partner-logo-strip">
       {partnerLogos.map((logo) => (
         <div class={`logo-tile ${logo.tileClassName ?? ""}`.trim()}>
@@ -108,8 +93,8 @@ import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
   <section class="section section-card">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">Evidence of activity</span>
-        <h2 class="section-title">Recent public program outputs</h2>
+        <span class="eyebrow">{homeContent.evidence.eyebrow}</span>
+        <h2 class="section-title">{homeContent.evidence.title}</h2>
       </div>
     </div>
     <div class="grid grid-3">
@@ -117,7 +102,7 @@ import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
         <article class="card">
           <h3>{item.title}</h3>
           <p>{item.description}</p>
-          <a class="card__link" href={item.href}>View related entry</a>
+          <a class="card__link" href={item.href}>{homeContent.evidence.itemLinkLabel}</a>
         </article>
       ))}
     </div>
@@ -126,16 +111,14 @@ import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
   <section class="section section-card">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">Next step</span>
-        <h2 class="section-title">Need something specific?</h2>
+        <span class="eyebrow">{homeContent.nextStep.eyebrow}</span>
+        <h2 class="section-title">{homeContent.nextStep.title}</h2>
       </div>
     </div>
-    <p class="lede">
-      Start with the services and resources catalogue, or use the contact page if you need help finding the right pathway.
-    </p>
+    <p class="lede">{homeContent.nextStep.intro}</p>
     <div class="cta-row">
-      <a class="button button-primary" href="/services-resources">Explore services &amp; resources</a>
-      <a class="button button-secondary" href="/contact">Contact the GUARDIANS team</a>
+      <a class="button button-primary" href={homeContent.nextStep.primaryCta.href}>{homeContent.nextStep.primaryCta.label}</a>
+      <a class="button button-secondary" href={homeContent.nextStep.secondaryCta.href}>{homeContent.nextStep.secondaryCta.label}</a>
     </div>
   </section>
 </MainLayout>
