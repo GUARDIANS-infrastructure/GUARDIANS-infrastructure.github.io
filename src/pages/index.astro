@@ -2,6 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import { homeContent } from "../data/home";
 import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
+import { withBase } from "../utils/paths";
 ---
 
 <MainLayout title="Home" pathname={Astro.url.pathname}>
@@ -11,10 +12,10 @@ import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
       <h1>{site.description}</h1>
       <p class="hero__lead">{homeContent.hero.intro}</p>
       <div class="button-row">
-        <a class="button button-primary" href={homeContent.hero.primaryCta.href}>
+        <a class="button button-primary" href={withBase(homeContent.hero.primaryCta.href)}>
           {homeContent.hero.primaryCta.label}
         </a>
-        <a class="button button-secondary" href={homeContent.hero.secondaryCta.href}>
+        <a class="button button-secondary" href={withBase(homeContent.hero.secondaryCta.href)}>
           {homeContent.hero.secondaryCta.label}
         </a>
       </div>
@@ -30,7 +31,7 @@ import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
     </div>
     <p class="lede">{homeContent.journey.intro}</p>
     <div class="journey-figure">
-      <img src={homeContent.journey.image.src} alt={homeContent.journey.image.alt} />
+      <img src={withBase(homeContent.journey.image.src)} alt={homeContent.journey.image.alt} />
     </div>
   </section>
 
@@ -43,7 +44,7 @@ import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
     </div>
     <div class="stack-md">
       {homeContent.why.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-      <a class="card__link" href={homeContent.why.link.href}>{homeContent.why.link.label}</a>
+      <a class="card__link" href={withBase(homeContent.why.link.href)}>{homeContent.why.link.label}</a>
     </div>
   </section>
 
@@ -61,7 +62,7 @@ import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
           <article class="card">
             <h3>{capability.name}</h3>
             <p>{capability.summary}</p>
-            <a class="card__link" href={`/services-resources?capability=${encodeURIComponent(capability.name)}#catalogue`}>
+            <a class="card__link" href={withBase(`/services-resources?capability=${encodeURIComponent(capability.name)}#catalogue`)}>
               {homeContent.capabilities.itemLinkLabel}
             </a>
           </article>
@@ -76,13 +77,13 @@ import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
         <span class="eyebrow">{homeContent.partners.eyebrow}</span>
         <h2 class="section-title">{homeContent.partners.title}</h2>
       </div>
-      <a class="card__link" href={homeContent.partners.link.href}>{homeContent.partners.link.label}</a>
+      <a class="card__link" href={withBase(homeContent.partners.link.href)}>{homeContent.partners.link.label}</a>
     </div>
     <p class="lede">{homeContent.partners.intro}</p>
     <div class="partner-logo-strip">
       {partnerLogos.map((logo) => (
         <div class={`logo-tile ${logo.tileClassName ?? ""}`.trim()}>
-          <img class={logo.className} src={logo.src} alt={logo.alt} />
+          <img class={logo.className} src={withBase(logo.src)} alt={logo.alt} />
         </div>
       ))}
     </div>
@@ -100,7 +101,7 @@ import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
         <article class="card">
           <h3>{item.title}</h3>
           <p>{item.description}</p>
-          <a class="card__link" href={item.href}>{homeContent.evidence.itemLinkLabel}</a>
+          <a class="card__link" href={withBase(item.href)}>{homeContent.evidence.itemLinkLabel}</a>
         </article>
       ))}
     </div>
@@ -115,8 +116,8 @@ import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
     </div>
     <p class="lede">{homeContent.nextStep.intro}</p>
     <div class="cta-row">
-      <a class="button button-primary" href={homeContent.nextStep.primaryCta.href}>{homeContent.nextStep.primaryCta.label}</a>
-      <a class="button button-secondary" href={homeContent.nextStep.secondaryCta.href}>{homeContent.nextStep.secondaryCta.label}</a>
+      <a class="button button-primary" href={withBase(homeContent.nextStep.primaryCta.href)}>{homeContent.nextStep.primaryCta.label}</a>
+      <a class="button button-secondary" href={withBase(homeContent.nextStep.secondaryCta.href)}>{homeContent.nextStep.secondaryCta.label}</a>
     </div>
   </section>
 </MainLayout>

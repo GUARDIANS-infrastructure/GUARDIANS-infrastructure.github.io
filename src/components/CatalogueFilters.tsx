@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "preact/hooks";
+import { withBase } from "../utils/paths";
 
 type CatalogueItem = {
   slug: string;
@@ -103,7 +104,7 @@ export default function CatalogueFilters(props: Props) {
     }
 
     const search = params.toString();
-    const next = `${window.location.pathname}${search ? `?${search}` : ""}#catalogue`;
+    const next = `${withBase("/services-resources")}${search ? `?${search}` : ""}#catalogue`;
     window.history.replaceState({}, "", next);
   }, [filters]);
 
@@ -223,7 +224,7 @@ export default function CatalogueFilters(props: Props) {
                 </p>
                 <div class="meta-list">
                   {item.relatedPartners.map((partner) => (
-                    <a class="chip" href={`/partners-contributions#${partner}`}>
+                    <a class="chip" href={withBase(`/partners-contributions#${partner}`)}>
                       Partner entry
                     </a>
                   ))}
@@ -235,7 +236,7 @@ export default function CatalogueFilters(props: Props) {
                     <span class="chip">{user}</span>
                   ))}
                 </div>
-                <a class="card__link" href={item.href ?? "/contact"}>
+                <a class="card__link" href={withBase(item.href ?? "/contact")}>
                   {item.href
                     ? "Use or view resource"
                     : "Contact about this item"}

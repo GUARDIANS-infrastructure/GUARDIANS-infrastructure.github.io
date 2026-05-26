@@ -1,6 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import { site } from "../data/site";
+import { withBase } from "../utils/paths";
 ---
 
 <MainLayout
@@ -29,7 +30,7 @@ import { site } from "../data/site";
         <p>For researchers, data custodians, or infrastructure users looking for a specific service, resource, or delivery contact.</p>
         <div class="card__footer">
           <a class="card__link" href={`mailto:${site.contactEmail}`}>Email the team</a>
-          <a class="chip" href="/services-resources">Services &amp; resources</a>
+          <a class="chip" href={withBase("/services-resources")}>Services &amp; resources</a>
         </div>
       </article>
       <article class="card">
@@ -37,7 +38,7 @@ import { site } from "../data/site";
         <p>For potential partners, peer programs, or organisations exploring coordinated delivery or alignment.</p>
         <div class="card__footer">
           <a class="card__link" href={`mailto:${site.contactEmail}`}>Email the team</a>
-          <a class="chip" href="/partners-contributions">Partners &amp; contributions</a>
+          <a class="chip" href={withBase("/partners-contributions")}>Partners &amp; contributions</a>
         </div>
       </article>
       <article class="card">
@@ -45,7 +46,7 @@ import { site } from "../data/site";
         <p>For communications, reporting, program background, or national coordination questions.</p>
         <div class="card__footer">
           <a class="card__link" href={`mailto:${site.contactEmail}`}>Email the team</a>
-          <a class="chip" href="/about">About</a>
+          <a class="chip" href={withBase("/about")}>About</a>
         </div>
       </article>
       <article class="card">

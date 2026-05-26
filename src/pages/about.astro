@@ -1,6 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import { site } from "../data/site";
+import { withBase } from "../utils/paths";
 ---
 
 <MainLayout
@@ -45,7 +46,7 @@ import { site } from "../data/site";
       </div>
     </div>
     <p>
-      Australian BioCommons coordinates the program, with delivery distributed across <a href="/partners-contributions">national partners</a> contributing trusted researcher identity, data access management, infrastructure operations, repository and commons capability, stewardship, governance expertise, and research translation.
+      Australian BioCommons coordinates the program, with delivery distributed across <a href={withBase("/partners-contributions")}>national partners</a> contributing trusted researcher identity, data access management, infrastructure operations, repository and commons capability, stewardship, governance expertise, and research translation.
     </p>
   </section>
 
@@ -80,7 +81,7 @@ import { site } from "../data/site";
       </div>
     </div>
     <p>
-      GUARDIANS is led by Australian BioCommons and delivered with in-kind support from <a href="/partners-contributions">program partners</a>. Australian BioCommons and the GUARDIANS program are supported by <a href="https://bioplatforms.com/">Bioplatforms Australia</a>. Bioplatforms Australia is enabled by the National Collaborative Research Infrastructure Strategy (<a href="https://www.education.gov.au/ncris">NCRIS</a>).
+      GUARDIANS is led by Australian BioCommons and delivered with in-kind support from <a href={withBase("/partners-contributions")}>program partners</a>. Australian BioCommons and the GUARDIANS program are supported by <a href="https://bioplatforms.com/">Bioplatforms Australia</a>. Bioplatforms Australia is enabled by the National Collaborative Research Infrastructure Strategy (<a href="https://www.education.gov.au/ncris">NCRIS</a>).
     </p>
   </section>
 
@@ -95,12 +96,12 @@ import { site } from "../data/site";
       <article class="card">
         <h3>Services &amp; resources</h3>
         <p>Explore data, services, infrastructure and other resources generated through GUARDIANS.</p>
-        <a class="card__link" href="/services-resources">Open the catalogue</a>
+        <a class="card__link" href={withBase("/services-resources")}>Open the catalogue</a>
       </article>
       <article class="card">
         <h3>Partners &amp; contributions</h3>
         <p>See how national partner projects contribute to GUARDIANS capabilities and delivery.</p>
-        <a class="card__link" href="/partners-contributions">View partner entries</a>
+        <a class="card__link" href={withBase("/partners-contributions")}>View partner entries</a>
       </article>
       <article class="card">
         <h3>Contact</h3>

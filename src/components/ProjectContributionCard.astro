@@ -1,5 +1,6 @@
 ---
 import { organisationLogos } from "../data/projectContributions";
+import { withBase } from "../utils/paths";
 
 interface Props {
   project: {
@@ -22,7 +23,7 @@ const { project } = Astro.props;
         return (
           <div class="project-card__logo-tile">
             {logo ? (
-              <img class={logo.className} src={logo.src} alt={logo.alt} />
+              <img class={logo.className} src={withBase(logo.src)} alt={logo.alt} />
             ) : (
               <span>{org}</span>
             )}

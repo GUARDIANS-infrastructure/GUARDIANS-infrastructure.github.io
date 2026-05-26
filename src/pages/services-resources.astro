@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import CatalogueFilters from "../components/CatalogueFilters";
 import MainLayout from "../layouts/MainLayout.astro";
 import { capabilities, outputTypes, site, statusValues, visibilityValues } from "../data/site";
+import { withBase } from "../utils/paths";
 
 const catalogue = await getCollection("catalogue");
 
@@ -47,7 +48,7 @@ const items = catalogue.map((item) => ({
         <span class="eyebrow">Findability</span>
         <h2 class="section-title">Filter the catalogue</h2>
       </div>
-      <a class="card__link" href="/contact">Can’t find what you need?</a>
+      <a class="card__link" href={withBase("/contact")}>Can’t find what you need?</a>
     </div>
     <CatalogueFilters
       client:load
@@ -68,7 +69,7 @@ const items = catalogue.map((item) => ({
     </div>
     <div class="cta-row">
       <a class="button button-primary" href={`mailto:${site.contactEmail}`}>Contact the GUARDIANS team</a>
-      <a class="button button-secondary" href="/partners-contributions">See partner contributions</a>
+      <a class="button button-secondary" href={withBase("/partners-contributions")}>See partner contributions</a>
     </div>
   </section>
 </MainLayout>

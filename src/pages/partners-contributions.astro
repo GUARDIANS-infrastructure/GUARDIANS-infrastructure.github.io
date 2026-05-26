@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import ProjectContributionCard from "../components/ProjectContributionCard.astro";
 import { projectContributions } from "../data/projectContributions";
+import { withBase } from "../utils/paths";
 ---
 
 <MainLayout
@@ -24,7 +25,7 @@ import { projectContributions } from "../data/projectContributions";
         <span class="eyebrow">Project index</span>
         <h2 class="section-title">Project contributions</h2>
       </div>
-      <a class="card__link" href="/services-resources">Browse catalogue items</a>
+      <a class="card__link" href={withBase("/services-resources")}>Browse catalogue items</a>
     </div>
     <div class="grid grid-2">
       {projectContributions.map((project) => <ProjectContributionCard project={project} />)}
