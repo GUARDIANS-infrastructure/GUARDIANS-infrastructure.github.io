@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import LucideIcon from "../components/LucideIcon.astro";
 import { site } from "../data/site";
 import { withBase } from "../utils/paths";
 ---
@@ -26,7 +27,10 @@ import { withBase } from "../utils/paths";
     </div>
     <div class="contact-cards">
       <article class="card">
-        <h3>Use a service or resource</h3>
+        <div class="card__title-row">
+          <LucideIcon name="mouse-pointer-click" class="card__context-icon" />
+          <h3>Use a service or resource</h3>
+        </div>
         <p>For researchers, data custodians, or infrastructure users looking for a specific service, resource, or delivery contact.</p>
         <div class="card__footer">
           <a class="card__link" href={`mailto:${site.contactEmail}`}>Email the team</a>
@@ -34,7 +38,10 @@ import { withBase } from "../utils/paths";
         </div>
       </article>
       <article class="card">
-        <h3>Discuss collaboration</h3>
+        <div class="card__title-row">
+          <LucideIcon name="handshake" class="card__context-icon" />
+          <h3>Discuss collaboration</h3>
+        </div>
         <p>For potential partners, peer programs, or organisations exploring coordinated delivery or alignment.</p>
         <div class="card__footer">
           <a class="card__link" href={`mailto:${site.contactEmail}`}>Email the team</a>
@@ -42,7 +49,10 @@ import { withBase } from "../utils/paths";
         </div>
       </article>
       <article class="card">
-        <h3>Media or funder enquiry</h3>
+        <div class="card__title-row">
+          <LucideIcon name="megaphone" class="card__context-icon" />
+          <h3>Media or funder enquiry</h3>
+        </div>
         <p>For communications, reporting, program background, or national coordination questions.</p>
         <div class="card__footer">
           <a class="card__link" href={`mailto:${site.contactEmail}`}>Email the team</a>
@@ -50,7 +60,10 @@ import { withBase } from "../utils/paths";
         </div>
       </article>
       <article class="card">
-        <h3>Give feedback on this site</h3>
+        <div class="card__title-row">
+          <LucideIcon name="message-square" class="card__context-icon" />
+          <h3>Give feedback on this site</h3>
+        </div>
         <p>For feedback, content corrections, and suggestions on findability or representation.</p>
         <div class="card__footer">
           <a class="card__link" href={`mailto:${site.contactEmail}`}>Email the team</a>

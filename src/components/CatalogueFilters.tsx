@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "preact/hooks";
+import { lucideIconSegments, type LucideIconName } from "../icons/lucide";
 import { withBase } from "../utils/paths";
 
 type CatalogueItem = {
@@ -45,7 +46,7 @@ type FilterState = typeof emptyFilterState;
 type QuickFilter = {
   label: string;
   description: string;
-  icon: "database-search" | "workflow" | "book-open-check";
+  icon: LucideIconName;
   filters: Partial<FilterState>;
 };
 
@@ -129,37 +130,29 @@ const linkLabelForItem = (item: CatalogueItem) => {
   return "Open service";
 };
 
-function QuickFilterIcon(props: { icon: QuickFilter["icon"] }) {
-  const paths = {
-    "database-search": (
-      <>
-        <path d="M21 11.693V5" />
-        <path d="m22 22-1.875-1.875" />
-        <path d="M3 12a9 3 0 0 0 8.697 2.998" />
-        <path d="M3 5v14a9 3 0 0 0 9.28 2.999" />
-        <circle cx="18" cy="18" r="3" />
-        <ellipse cx="12" cy="5" rx="9" ry="3" />
-      </>
-    ),
-    workflow: (
-      <>
-        <rect width="8" height="8" x="3" y="3" rx="2" />
-        <path d="M7 11v4a2 2 0 0 0 2 2h4" />
-        <rect width="8" height="8" x="13" y="13" rx="2" />
-      </>
-    ),
-    "book-open-check": (
-      <>
-        <path d="M12 21V7" />
-        <path d="m16 12 2 2 4-4" />
-        <path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3" />
-      </>
-    ),
-  };
+const linkIconForItem = (item: CatalogueItem) => {
+  if (!item.href || item.href.startsWith("mailto:")) {
+    return "mail";
+  }
 
+  if (item.outputType === "Software / tool") {
+    return "code-xml";
+  }
+
+  if (
+    item.outputType === "Documentation / guidance" ||
+    item.outputType === "Publication / report"
+  ) {
+    return "file-text";
+  }
+
+  return "external-link";
+};
+
+function InlineLucideIcon(props: { className: string; icon: LucideIconName }) {
   return (
     <svg
-      class="filters__quick-icon"
+      class={props.className}
       aria-hidden="true"
       viewBox="0 0 24 24"
       fill="none"
@@ -168,7 +161,21 @@ function QuickFilterIcon(props: { icon: QuickFilter["icon"] }) {
       stroke-linecap="round"
       stroke-linejoin="round"
     >
-      {paths[props.icon]}
+      {lucideIconSegments[props.icon].map((segment) => {
+        if (segment.type === "circle") {
+          return <circle {...segment.attrs} />;
+        }
+
+        if (segment.type === "ellipse") {
+          return <ellipse {...segment.attrs} />;
+        }
+
+        if (segment.type === "rect") {
+          return <rect {...segment.attrs} />;
+        }
+
+        return <path {...segment.attrs} />;
+      })}
     </svg>
   );
 }
@@ -179,7 +186,7 @@ const quickFilters: QuickFilter[] = [
     description: "Discover public data records that are available or in pilot.",
     icon: "database-search",
     filters: {
-      capability: ["Data discovery"],
+      capability: ["Data discovery", "Data commons and repositories"],
       status: ["Available", "Pilot"],
       visibility: ["Public"],
     },
@@ -355,7 +362,7 @@ export default function CatalogueFilters(props: Props) {
                 onClick={() => applyQuickFilter(quickFilter)}
               >
                 <span class="filters__quick-title">
-                  <QuickFilterIcon icon={quickFilter.icon} />
+                  <InlineLucideIcon className="filters__quick-icon" icon={quickFilter.icon} />
                   <span>{quickFilter.label}</span>
                 </span>
                 <small>{quickFilter.description}</small>
@@ -457,6 +464,7 @@ export default function CatalogueFilters(props: Props) {
                 <div class="card__heading">
                   <h3>{item.title}</h3>
                   <a class="card__link" href={withBase(item.href ?? "/contact")}>
+                    <InlineLucideIcon className="card__link-icon" icon={linkIconForItem(item)} />
                     {linkLabelForItem(item)}
                   </a>
                 </div>

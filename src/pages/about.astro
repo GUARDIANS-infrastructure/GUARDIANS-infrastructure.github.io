@@ -1,113 +1,120 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import { site } from "../data/site";
+import { aboutContent } from "../data/about";
+import LucideIcon from "../components/LucideIcon.astro";
 import { withBase } from "../utils/paths";
+
+const hrefFor = (href: string) => href.startsWith("/") ? withBase(href) : href;
 ---
 
 <MainLayout
-  title="About"
+  title={aboutContent.meta.title}
   pathname={Astro.url.pathname}
-  description="Authoritative background on the GUARDIANS program, funding context, and coordination model."
+  description={aboutContent.meta.description}
 >
   <section class="page-header stack-md">
-    <span class="eyebrow">Program background</span>
-    <h1>About GUARDIANS</h1>
-    <p>
-      GUARDIANS is a national research infrastructure program focused on secure discovery, access, stewardship, and analysis pathways for sensitive human omics data in Australia.
-    </p>
+    <span class="eyebrow">{aboutContent.header.eyebrow}</span>
+    <h1>{aboutContent.header.title}</h1>
+    <p>{aboutContent.header.intro}</p>
   </section>
 
   <section class="section section-card stack-md">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">Overview</span>
-        <h2 class="section-title">Program overview</h2>
+        <span class="eyebrow">{aboutContent.overview.eyebrow}</span>
+        <h2 class="section-title">{aboutContent.overview.title}</h2>
       </div>
     </div>
     <blockquote class="pull-quote">
-      <p>User-centric design must lie at the heart of Australia's NDRI system.</p>
+      <p>{aboutContent.overview.quote.text}</p>
       <cite>
-        <a href="https://www.education.gov.au/download/18373/national-digital-research-infrastructure-strategy/38409/document/pdf">National Digital Research Infrastructure Strategy</a>
+        <a href={aboutContent.overview.quote.href}>{aboutContent.overview.quote.source}</a>
       </cite>
     </blockquote>
-    <p>
-      Australia's human genomics research datasets present unparalleled opportunities to enhance our understanding of health, disease mechanisms, and precision medicine. However, data fragmentation, access barriers, and governance complexity limit their use. GUARDIANS is addressing these challenges by developing standardised interfaces, harmonised data formats, ethical access rules, and interoperable institutional policies and technologies. Delivering these vital components will enable researchers to discover, access, and analyse critical data from multiple research datasets, unlocking opportunities for discovery.
-    </p>
-    <p>
-      GUARDIANS aligns with international standards, including those of the Global Alliance for Genomics and Health (GA4GH), while addressing Australia's specific ethical, legal, and social context. Inspired by the <a href="https://www.education.gov.au/national-research-infrastructure/2021-national-research-infrastructure-roadmap">NCRIS Roadmap</a> and <a href="https://www.australiangenomics.org.au/wp-content/uploads/2021/06/NAGIM-Implementation-Recommendations_January-2023.pdf">NAGIM Implementation Recommendations</a>, the program builds on previous initiatives such as the <a href="https://www.biocommons.org.au/hgpp">Human Genomes Platform Project</a>, and follows an iterative implementation model to ensure practical, scalable outcomes.
-    </p>
+    {aboutContent.overview.paragraphs.map((paragraph) => (
+      <p>
+        {paragraph.map((segment) =>
+          typeof segment === "string"
+            ? segment
+            : <a href={hrefFor(segment.href)}>{segment.text}</a>
+        )}
+      </p>
+    ))}
   </section>
 
   <section class="section section-card stack-md">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">Coordination</span>
-        <h2 class="section-title">Coordination and delivery</h2>
+        <span class="eyebrow">{aboutContent.coordination.eyebrow}</span>
+        <h2 class="section-title">{aboutContent.coordination.title}</h2>
       </div>
     </div>
     <p>
-      Australian BioCommons coordinates the program, with delivery distributed across <a href={withBase("/partners-contributions")}>national partners</a> contributing trusted researcher identity, data access management, infrastructure operations, repository and commons capability, stewardship, governance expertise, and standards alignment.
+      {aboutContent.coordination.paragraph.map((segment) =>
+        typeof segment === "string"
+          ? segment
+          : <a href={hrefFor(segment.href)}>{segment.text}</a>
+      )}
     </p>
   </section>
 
   <section class="section section-card">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">Timeline</span>
-        <h2 class="section-title">Program timeline</h2>
+        <span class="eyebrow">{aboutContent.timeline.eyebrow}</span>
+        <h2 class="section-title">{aboutContent.timeline.title}</h2>
       </div>
     </div>
     <div class="timeline">
-      <div class="timeline__item">
-        <strong>Delivery start</strong>
-        <p>GUARDIANS delivery began in late 2024, establishing a four-year program of work across national infrastructure, governance, access, and analysis capabilities.</p>
-      </div>
-      <div class="timeline__item">
-        <strong>Delivery milestones</strong>
-        <p>The program maintains a live <a href="https://github.com/GUARDIANS-infrastructure/roadmap/blob/main/tracker.md">milestone tracker</a> for delivery activities and progress updates.</p>
-      </div>
-      <div class="timeline__item">
-        <strong>Funding horizon</strong>
-        <p>The current funded delivery window runs to Q3 2028, supporting staged development, partner implementation, and transition planning for sustained national capability.</p>
-      </div>
+      {aboutContent.timeline.items.map((item) => (
+        <div class="timeline__item">
+          <LucideIcon name={item.icon} class="timeline__icon" />
+          <div>
+            <strong>{item.title}</strong>
+            <p>
+              {item.content.map((segment) =>
+                typeof segment === "string"
+                  ? segment
+                  : <a href={hrefFor(segment.href)}>{segment.text}</a>
+              )}
+            </p>
+          </div>
+        </div>
+      ))}
     </div>
   </section>
 
   <section class="section section-card stack-md">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">Funding</span>
-        <h2 class="section-title">Funding acknowledgement</h2>
+        <span class="eyebrow">{aboutContent.funding.eyebrow}</span>
+        <h2 class="section-title">{aboutContent.funding.title}</h2>
       </div>
     </div>
     <p>
-      GUARDIANS is led by Australian BioCommons and delivered with in-kind support from <a href={withBase("/partners-contributions")}>program partners</a>. Australian BioCommons and the GUARDIANS program are supported by <a href="https://bioplatforms.com/">Bioplatforms Australia</a>. Bioplatforms Australia is enabled by the National Collaborative Research Infrastructure Strategy (<a href="https://www.education.gov.au/ncris">NCRIS</a>).
+      {aboutContent.funding.paragraph.map((segment) =>
+        typeof segment === "string"
+          ? segment
+          : <a href={hrefFor(segment.href)}>{segment.text}</a>
+      )}
     </p>
   </section>
 
   <section class="section section-card stack-md">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">Related links</span>
-        <h2 class="section-title">Related program paths</h2>
+        <span class="eyebrow">{aboutContent.related.eyebrow}</span>
+        <h2 class="section-title">{aboutContent.related.title}</h2>
       </div>
     </div>
     <div class="grid grid-3">
-      <article class="card">
-        <h3>Services &amp; resources</h3>
-        <p>Explore data, services, infrastructure and other resources generated through GUARDIANS.</p>
-        <a class="card__link" href={withBase("/services-resources")}>Open the catalogue</a>
-      </article>
-      <article class="card">
-        <h3>Partners &amp; contributions</h3>
-        <p>See how national partner projects contribute to GUARDIANS capabilities and delivery.</p>
-        <a class="card__link" href={withBase("/partners-contributions")}>View partner entries</a>
-      </article>
-      <article class="card">
-        <h3>Contact</h3>
-        <p>Get in touch about using resources, collaboration, media, funding, or site feedback.</p>
-        <a class="card__link" href={`mailto:${site.contactEmail}`}>Email the team</a>
-      </article>
+      {aboutContent.related.cards.map((card) => (
+        <article class="card">
+          <h3>{card.title}</h3>
+          <p>{card.description}</p>
+          <a class="card__link" href={hrefFor(card.href)}>{card.linkLabel}</a>
+        </article>
+      ))}
     </div>
   </section>
 </MainLayout>
