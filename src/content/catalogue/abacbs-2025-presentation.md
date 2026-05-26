@@ -2,7 +2,7 @@
 title: ABACBS 2025 presentation
 summary: Public presentation abstract outlining GUARDIANS as a national model for secure human omics data sharing and analytics.
 userValue: Gives the community a concise overview of the program’s rationale, architecture themes, and current discussion areas.
-capability: Training and community capability
+capability: Trusted researcher identity
 outputType: Event / activity
 status: Available
 visibility: Public
@@ -22,7 +22,6 @@ relatedPartners:
   - garvan-institute
   - national-compute-infrastructure
 featured: false
-draftInferred: true
 ---
 
 This entry is based on the supplied ABACBS abstract and is included as lightweight evidence of public activity.

@@ -22,7 +22,6 @@ relatedPartners:
   - national-compute-infrastructure
   - australian-access-federation
 featured: false
-draftInferred: true
 ---
 
 This entry is based on the supplied roadmap document and captures it as a public report rather than a user-facing service.

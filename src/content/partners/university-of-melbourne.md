@@ -2,7 +2,7 @@
 name: University of Melbourne
 shortRole: Contributes ELSI and research translation capability, with linked work across analysis environments and policy-grounded infrastructure design.
 contributionAreas:
-  - Federated and scalable analysis
+  - Scalable analysis environments
   - Governance, policy and operations
 contributionTypes:
   - Governance / ELSI expertise
@@ -13,5 +13,4 @@ relatedCatalogue:
   - guardians-guidelines
 website: https://www.unimelb.edu.au/
 logo: /assets/logos/uom.png
-draftInferred: true
 ---

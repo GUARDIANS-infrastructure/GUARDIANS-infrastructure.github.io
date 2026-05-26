@@ -1,6 +1,4 @@
 export const homeContent = {
-  draftNotice:
-    "This prototype uses draft content inferred from the supplied background materials. Where the source materials do not support a fuller statement, the site keeps content deliberately minimal.",
   hero: {
     eyebrow: "National human omics infrastructure",
     intro:
@@ -22,14 +20,14 @@ export const homeContent = {
       "",
     image: {
       src: "/assets/guardians-user-journey.svg",
-      alt: "Draft researcher-centric GUARDIANS user journey",
+      alt: "Researcher-centric GUARDIANS user journey",
     },
   },
   why: {
     eyebrow: "Why it matters",
     title: "Why GUARDIANS exists",
     paragraphs: [
-      "Human omics research is at a transformative point, where massive data volumes and increasing clinical relevance demand robust digital infrastructure. Through BioPlatforms Australia and the NCRIS-funded GUARDIANS program, Australian BioCommons is delivering national-scale capabilities to support research using sensitive human omics data.",
+      "Human omics research is at a transformative point, where massive data volumes and increasing clinical relevance demand robust digital infrastructure. Through Bioplatforms Australia and the NCRIS-funded GUARDIANS program, Australian BioCommons is delivering national-scale capabilities to support research using sensitive human omics data.",
       "In partnership with organisations across the Australian research and data infrastructure ecosystem, we are establishing harmonised identity and access management, flagship research data commons, and platforms for data governance, sharing, and analytics across institutional boundaries. These services are enabling reproducible, secure, and FAIR-compliant use of key human omics data assets.",
       "GUARDIANS addresses not just the technical stack but the invisible foundations — trust and identity, standards compliance, and sustainable data stewardship — without which the promise of technologies like AI and population-scale analysis cannot be safely or equitably realised. By embedding best practices in platform architecture, governance, and community-led standards, GUARDIANS is creating a reusable model for secure human omics data sharing and analytics in the Australian context."
     ],
@@ -55,8 +53,8 @@ export const homeContent = {
     },
   },
   evidence: {
-    eyebrow: "Evidence of activity",
-    title: "Recent public program outputs",
+    eyebrow: "Activity",
+    title: "Public program outputs",
     itemLinkLabel: "View related entry",
   },
   nextStep: {

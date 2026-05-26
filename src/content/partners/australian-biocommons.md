@@ -4,7 +4,7 @@ shortRole: Coordinates the GUARDIANS program and connects delivery across discov
 contributionAreas:
   - Data discovery
   - Governance, policy and operations
-  - Training and community capability
+  - Trusted researcher identity
 contributionTypes:
   - Program coordination
   - Standards / interoperability
@@ -17,5 +17,4 @@ relatedCatalogue:
   - abacbs-2025-presentation
 website: https://www.biocommons.org.au/
 logo: /assets/logos/biocommons.png
-draftInferred: true
 ---

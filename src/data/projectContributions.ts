@@ -58,9 +58,9 @@ export const projectContributions = [
     description:
       "Australian BioCommons is leading the Core Services and Expertise Platform, spanning leadership and coordination, technical expertise, supporting infrastructure, training and community development.",
     capabilityAreas: [
+      "Data discovery",
+      "Data access management",
       "Governance, policy and operations",
-      "Training and community capability",
-      "Federated and scalable analysis",
     ],
   },
   {
@@ -70,8 +70,8 @@ export const projectContributions = [
       "The National Computational Infrastructure is developing a national repository capability for controlled-access human genomics data connected to high-performance computing.",
     capabilityAreas: [
       "Data commons and repositories",
-      "Federated and scalable analysis",
-      "Secure access",
+      "Data access management",
+      "Scalable analysis environments",
     ],
   },
   {
@@ -79,7 +79,10 @@ export const projectContributions = [
     organisations: ["AAF"],
     description:
       "The Australian Access Federation is contributing authentication and authorisation infrastructure, single sign-on, policy baselines and access pathways for researchers using GUARDIANS services.",
-    capabilityAreas: ["Secure access", "Governance, policy and operations"],
+    capabilityAreas: [
+      "Trusted researcher identity",
+      "Data access management",
+      "Governance, policy and operations"],
   },
   {
     title: "Omics data beyond Australia's borders: law, ethics and governance",
@@ -94,19 +97,20 @@ export const projectContributions = [
     description:
       "The Children's Cancer Institute ZERO Data Commons project is developing a standards-aligned data commons for paediatric cancer clinical, molecular and outcome data, supporting discovery while protecting privacy and consent conditions.",
     capabilityAreas: [
-      "Data commons and repositories",
       "Data discovery",
-      "Governance, policy and operations",
+      "Data commons and repositories",
+      "Data access management",
     ],
   },
   {
-    title: "A data commons for integrated human multi-omics data",
+    title: "A Data Commons for Integrated Human Multi-Omics Data",
     organisations: ["UniMelb PX4/OMIX3"],
     description:
       "The University of Melbourne OMIX3 data platform is establishing infrastructure for secure storage, sharing and analysis of clinically accredited human multi-omics datasets.",
     capabilityAreas: [
       "Data commons and repositories",
-      "Federated and scalable analysis",
+      "Scalable analysis environments",
+      "Data access management",
     ],
   },
   {
@@ -115,9 +119,9 @@ export const projectContributions = [
     description:
       "QIMR Berghofer Medical Research Institute is establishing an Australian genomic data sharing repository for major cancer genomics datasets, and documenting a reusable implementation pathway for other research groups.",
     capabilityAreas: [
-      "Data commons and repositories",
       "Data discovery",
-      "Secure access",
+      "Data commons and repositories",
+      "Data access management",
     ],
   },
   {
@@ -126,9 +130,9 @@ export const projectContributions = [
     description:
       "Garvan Institute of Medical Research is contributing open, connected and scalable infrastructure for rare disease data analysis, consent management, data governance and reuse.",
     capabilityAreas: [
-      "Data commons and repositories",
       "Data discovery",
-      "Governance, policy and operations",
+      "Scalable analysis environments",
+      "Data access management",
     ],
   },
   {
@@ -138,8 +142,8 @@ export const projectContributions = [
       "The Collaborative Centre for Genomic Cancer Medicine GDN project is piloting a framework for mutually trusted omics research environments, federated data exchange, shared services, access controls and operational reporting.",
     capabilityAreas: [
       "Data commons and repositories",
-      "Federated and scalable analysis",
-      "Secure access",
+      "Scalable analysis environments",
+      "Data access management",
     ],
   },
 ];

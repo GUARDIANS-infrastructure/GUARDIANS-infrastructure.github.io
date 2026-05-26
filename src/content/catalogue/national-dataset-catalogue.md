@@ -1,6 +1,6 @@
 ---
 title: National dataset catalogue
-summary: Draft catalogue capability for describing Australian human omics datasets and helping researchers understand access conditions.
+summary: Catalogue capability for describing Australian human omics datasets and helping researchers understand access conditions.
 userValue: Helps researchers discover relevant datasets and understand the next step for requesting access.
 capability: Data discovery
 outputType: Service
@@ -22,7 +22,6 @@ relatedPartners:
   - garvan-institute
   - qimr-berghofer
 featured: true
-draftInferred: true
 ---
 
 This sample entry is inferred from the roadmap and one-page materials, which both describe a national catalogue capability but do not yet provide a public product page.

@@ -1,8 +1,8 @@
 ---
 title: Shared access and identity uplift
-summary: Draft national identity and access capability supporting streamlined and responsible access to authorised human omics research services.
+summary: National data access management capability supporting streamlined and responsible access to authorised human omics research services.
 userValue: Reduces access friction across participating services while keeping identity assurance and governance obligations visible.
-capability: Secure access
+capability: Data access management
 outputType: Infrastructure component
 status: In development
 visibility: Internal / enabling
@@ -22,7 +22,6 @@ relatedPartners:
   - australian-biocommons
   - national-compute-infrastructure
 featured: true
-draftInferred: true
 ---
 
 The background materials consistently reference harmonised identity and access management, but do not include a public service endpoint yet.

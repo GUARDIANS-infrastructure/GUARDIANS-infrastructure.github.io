@@ -4,7 +4,7 @@ shortRole: Contributes human omics data infrastructure services and tooling, inc
 contributionAreas:
   - Data discovery
   - Data commons and repositories
-  - Training and community capability
+  - Trusted researcher identity
 contributionTypes:
   - Data stewardship
   - Research translation
@@ -15,5 +15,4 @@ relatedCatalogue:
   - abacbs-2025-presentation
 website: https://www.garvan.org.au/
 logo: /assets/logos/garvan.png
-draftInferred: true
 ---

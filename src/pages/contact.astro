@@ -12,7 +12,7 @@ import { site } from "../data/site";
     <span class="eyebrow">Contact pathways</span>
     <h1>Contact GUARDIANS</h1>
     <p>
-      Use the pathway that best matches your reason for getting in touch. The prototype currently uses one shared contact route, labelled by audience need.
+      Use the pathway that best matches your reason for getting in touch.
     </p>
   </section>
 
@@ -50,27 +50,11 @@ import { site } from "../data/site";
       </article>
       <article class="card">
         <h3>Give feedback on this site</h3>
-        <p>For prototype feedback, content corrections, and suggestions on findability or representation.</p>
+        <p>For feedback, content corrections, and suggestions on findability or representation.</p>
         <div class="card__footer">
           <a class="card__link" href={`mailto:${site.contactEmail}`}>Email the team</a>
-          <span class="chip">Draft prototype feedback</span>
         </div>
       </article>
     </div>
-  </section>
-
-  <section class="section section-card stack-md">
-    <div class="section-heading">
-      <div>
-        <span class="eyebrow">Contact mechanism</span>
-        <h2 class="section-title">Shared contact route</h2>
-      </div>
-    </div>
-    <p>
-      Email: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
-    </p>
-    <p>
-      Draft response expectation: the team reviews enquiries and routes them to the most relevant delivery lead or coordination contact.
-    </p>
   </section>
 </MainLayout>

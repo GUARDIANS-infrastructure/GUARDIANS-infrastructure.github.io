@@ -1,8 +1,8 @@
 ---
 title: Secure analysis environments
-summary: Draft secure compute environments for analysis of sensitive human omics data using national HPC and cloud infrastructure.
+summary: Secure compute environments for analysis of sensitive human omics data using national HPC and cloud infrastructure.
 userValue: Enables researchers to analyse authorised datasets without unnecessary data movement across institutions.
-capability: Federated and scalable analysis
+capability: Scalable analysis environments
 outputType: Service
 status: Pilot
 visibility: Limited access
@@ -22,7 +22,6 @@ relatedPartners:
   - australian-biocommons
   - university-of-melbourne
 featured: true
-draftInferred: true
 ---
 
 The roadmap names secure research environments as a future capability and explicitly mentions support for both HPC and cloud compute.

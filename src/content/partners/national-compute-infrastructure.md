@@ -2,8 +2,8 @@
 name: National Compute Infrastructure
 shortRole: Supports a national omics repository capability with scalable computing and analysis environments.
 contributionAreas:
-  - Federated and scalable analysis
-  - Secure access
+  - Scalable analysis environments
+  - Data access management
 contributionTypes:
   - Infrastructure operations
   - Technical delivery
@@ -14,5 +14,4 @@ relatedCatalogue:
   - human-omics-capability-roadmap
 website: https://nci.org.au/
 logo: /assets/logos/nci.png
-draftInferred: true
 ---

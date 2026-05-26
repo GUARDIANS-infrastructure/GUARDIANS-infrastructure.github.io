@@ -20,7 +20,6 @@ const items = catalogue.map((item) => ({
   contributionTypes: item.data.contributionTypes,
   relatedPartners: item.data.relatedPartners,
   href: item.data.href,
-  draftInferred: item.data.draftInferred,
   intendedUsers: item.data.intendedUsers
 }));
 
@@ -29,7 +28,7 @@ const items = catalogue.map((item) => ({
 <MainLayout
   title="Services & resources"
   pathname={Astro.url.pathname}
-  description="Discover GUARDIANS services, infrastructure components, guidance, reports, and other programme outputs."
+  description="Discover GUARDIANS services, infrastructure components, guidance, reports, and other program outputs."
 >
   <section class="page-header stack-md">
     <span class="eyebrow">Catalogue</span>
@@ -38,7 +37,7 @@ const items = catalogue.map((item) => ({
       This catalogue brings together public-facing services and the enabling resources, infrastructure components, guidance, publications, and pilot outputs that support GUARDIANS delivery.
     </p>
     <p class="draft-note">
-      Catalogue entries are draft sample records inferred from the supplied background documents. Unsupported items are intentionally omitted rather than guessed.
+      Catalogue entries are draft sample records quickly inferred from the supplied background documents. Not Final.
     </p>
   </section>
 

@@ -22,7 +22,6 @@ relatedPartners:
   - university-of-sydney
   - university-of-melbourne
 featured: false
-draftInferred: true
 ---
 
 This entry is based directly on the supplied guidelines document in the workspace.

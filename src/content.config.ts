@@ -9,10 +9,10 @@ const catalogue = defineCollection({
     capability: z.enum([
       "Data discovery",
       "Data commons and repositories",
-      "Federated and scalable analysis",
-      "Secure access",
+      "Scalable analysis environments",
+      "Data access management",
       "Governance, policy and operations",
-      "Training and community capability",
+      "Trusted researcher identity",
     ]),
     outputType: z.enum([
       "Service",
@@ -45,7 +45,6 @@ const catalogue = defineCollection({
     href: z.string().optional(),
     relatedPartners: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
-    draftInferred: z.boolean().default(true),
   }),
 });
 
@@ -58,10 +57,10 @@ const partners = defineCollection({
       z.enum([
         "Data discovery",
         "Data commons and repositories",
-        "Federated and scalable analysis",
-        "Secure access",
+        "Scalable analysis environments",
+        "Data access management",
         "Governance, policy and operations",
-        "Training and community capability",
+        "Trusted researcher identity",
       ]),
     ),
     contributionTypes: z.array(
@@ -80,7 +79,6 @@ const partners = defineCollection({
     relatedCatalogue: z.array(z.string()),
     website: z.string().optional(),
     logo: z.string().optional(),
-    draftInferred: z.boolean().default(true),
   }),
 });
 

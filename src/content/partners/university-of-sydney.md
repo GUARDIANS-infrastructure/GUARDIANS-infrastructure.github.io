@@ -10,7 +10,6 @@ relatedCatalogue:
   - guardians-guidelines
 website: https://www.sydney.edu.au/
 logo: /assets/logos/usyd.png
-draftInferred: true
 ---
 
 The IA explicitly identifies the University of Sydney as an ELSI project partner.

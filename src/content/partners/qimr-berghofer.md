@@ -12,5 +12,4 @@ relatedCatalogue:
   - national-genome-repository
 website: https://www.qimrberghofer.edu.au/
 logo: /assets/logos/qimrb.png
-draftInferred: true
 ---

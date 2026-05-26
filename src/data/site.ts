@@ -26,27 +26,27 @@ export const capabilities = [
   {
     name: "Data commons and repositories",
     summary:
-      "Trusted repository and data commons capabilities for nationally significant omics collections.",
+      "Repository and data commons capabilities for nationally significant human omics collections.",
   },
   {
-    name: "Federated and scalable analysis",
+    name: "Scalable analysis environments",
     summary:
-      "Secure compute environments and interoperable analysis pathways across institutional boundaries.",
+      "Controlled computing environments and workflows for human omics analysis at scale.",
   },
   {
-    name: "Secure access",
+    name: "Trusted researcher identity",
     summary:
-      "Shared identity, access, and controlled workflows that support responsible use of sensitive data.",
+      "Researcher identity, trust, and assurance capabilities that support access across national services.",
+  },
+  {
+    name: "Data access management",
+    summary:
+      "Technical and governance workflows for requests, approvals, entitlements, and controlled access.",
   },
   {
     name: "Governance, policy and operations",
     summary:
-      "Guidance, access models, and operational patterns that enable compliant national delivery.",
-  },
-  {
-    name: "Training and community capability",
-    summary:
-      "Reusable materials, events, and support that help users adopt GUARDIANS capabilities.",
+      "Guidance, access models, and operational patterns that enable ethical and compliant national delivery.",
   },
 ];
 

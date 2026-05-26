@@ -6,16 +6,13 @@ import { site } from "../data/site";
 <MainLayout
   title="About"
   pathname={Astro.url.pathname}
-  description="Authoritative background on the GUARDIANS program, funding context, coordination model, and current draft scope."
+  description="Authoritative background on the GUARDIANS program, funding context, and coordination model."
 >
   <section class="page-header stack-md">
     <span class="eyebrow">Program background</span>
     <h1>About GUARDIANS</h1>
     <p>
-      GUARDIANS is a national infrastructure program focused on secure discovery, access, stewardship, and analysis pathways for sensitive human omics data in Australia.
-    </p>
-    <p class="draft-note">
-      Funding wording and current-state details here are draft interpretations of the supplied background material and should be replaced with approved program copy when available.
+      GUARDIANS is a national research infrastructure program focused on secure discovery, access, stewardship, and analysis pathways for sensitive human omics data in Australia.
     </p>
   </section>
 
@@ -26,11 +23,29 @@ import { site } from "../data/site";
         <h2 class="section-title">Program overview</h2>
       </div>
     </div>
+    <blockquote class="pull-quote">
+      <p>User-centric design must lie at the heart of Australia's NDRI system.</p>
+      <cite>
+        <a href="https://www.education.gov.au/download/18373/national-digital-research-infrastructure-strategy/38409/document/pdf">National Digital Research Infrastructure Strategy</a>
+      </cite>
+    </blockquote>
     <p>
-      The program exists because Australian human omics research depends on nationally coordinated infrastructure that can support discovery, controlled access, and scalable analysis without weakening stewardship or governance obligations.
+      Australia's human genomics research datasets present unparalleled opportunities to enhance our understanding of health, disease mechanisms, and precision medicine. However, data fragmentation, access barriers, and governance complexity limit their use. GUARDIANS is addressing these challenges by developing standardised interfaces, harmonised data formats, ethical access rules, and interoperable institutional policies and technologies. Delivering these vital components will enable researchers to discover, access, and analyse critical data from multiple research datasets, unlocking opportunities for discovery.
     </p>
     <p>
-      The supplied materials consistently position GUARDIANS as infrastructure for researchers, data custodians, and delivery partners working with sensitive datasets that cross institutional boundaries.
+      GUARDIANS aligns with international standards, including those of the Global Alliance for Genomics and Health (GA4GH), while addressing Australia's specific ethical, legal, and social context. Inspired by the <a href="https://www.education.gov.au/national-research-infrastructure/2021-national-research-infrastructure-roadmap">NCRIS Roadmap</a> and <a href="https://www.australiangenomics.org.au/wp-content/uploads/2021/06/NAGIM-Implementation-Recommendations_January-2023.pdf">NAGIM Implementation Recommendations</a>, the program builds on previous initiatives such as the <a href="https://www.biocommons.org.au/hgpp">Human Genomes Platform Project</a>, and follows an iterative implementation model to ensure practical, scalable outcomes.
+    </p>
+  </section>
+
+  <section class="section section-card stack-md">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Coordination</span>
+        <h2 class="section-title">Coordination and delivery</h2>
+      </div>
+    </div>
+    <p>
+      Australian BioCommons coordinates the program, with delivery distributed across <a href="/partners-contributions">national partners</a> contributing trusted researcher identity, data access management, infrastructure operations, repository and commons capability, stewardship, governance expertise, and research translation.
     </p>
   </section>
 
@@ -43,33 +58,18 @@ import { site } from "../data/site";
     </div>
     <div class="timeline">
       <div class="timeline__item">
-        <strong>Total program length</strong>
-        <p>3.5 years across two phases, with Phase I covering two years and Phase II covering 18 months.</p>
+        <strong>Delivery start</strong>
+        <p>GUARDIANS delivery began in late 2024, establishing a four-year program of work across national infrastructure, governance, access, and analysis capabilities.</p>
       </div>
       <div class="timeline__item">
-        <strong>Current state</strong>
-        <p>The IA states the program is 18 months into Phase I. The background one-pager separately says implementation activities are underway and deployment continues through 2027.</p>
+        <strong>Delivery milestones</strong>
+        <p>The program maintains a live <a href="https://github.com/GUARDIANS-infrastructure/roadmap/blob/main/tracker.md">milestone tracker</a> for delivery activities and progress updates.</p>
       </div>
       <div class="timeline__item">
-        <strong>Roadmap baseline</strong>
-        <p>The supplied roadmap uses Q1 2026 as its strategic baseline for national capability planning.</p>
+        <strong>Funding horizon</strong>
+        <p>The current funded delivery window runs to Q3 2028, supporting staged development, partner implementation, and transition planning for sustained national capability.</p>
       </div>
     </div>
-  </section>
-
-  <section class="section section-card stack-md">
-    <div class="section-heading">
-      <div>
-        <span class="eyebrow">Coordination</span>
-        <h2 class="section-title">Coordination and delivery</h2>
-      </div>
-    </div>
-    <p>
-      Australian BioCommons coordinates the program, with delivery distributed across national partners contributing identity and access capability, infrastructure operations, repository and commons capability, stewardship, governance expertise, and research translation.
-    </p>
-    <p>
-      The background materials also frame GUARDIANS as part of the broader national digital research infrastructure ecosystem, aligning with international standards and Australian ethical, legal, and social requirements.
-    </p>
   </section>
 
   <section class="section section-card stack-md">
@@ -80,25 +80,7 @@ import { site } from "../data/site";
       </div>
     </div>
     <p>
-      Draft acknowledgement: the supplied materials state that GUARDIANS is funded by NCRIS through Bioplatforms Australia and coordinated by Australian BioCommons.
-    </p>
-    <p>
-      Approved acknowledgement text was not included in the workspace, so this wording should be replaced before publication.
-    </p>
-  </section>
-
-  <section class="section section-card stack-md">
-    <div class="section-heading">
-      <div>
-        <span class="eyebrow">Scope</span>
-        <h2 class="section-title">Program scope and guidelines</h2>
-      </div>
-    </div>
-    <p>
-      The current prototype catalogue covers services and resources that can be supported directly by the supplied materials, including infrastructure components, guidance, roadmap outputs, and public communication artefacts.
-    </p>
-    <p>
-      Program guidelines emphasise national focus, sustainability, interoperability, governance, security, training, and service operations. See the <a href="/services-resources#guardians-guidelines">guidelines entry</a> and the <a href="/services-resources#human-omics-capability-roadmap">roadmap entry</a>.
+      GUARDIANS is led by Australian BioCommons and delivered with in-kind support from <a href="/partners-contributions">program partners</a>. Australian BioCommons and the GUARDIANS program are supported by <a href="https://bioplatforms.com/">Bioplatforms Australia</a>. Bioplatforms Australia is enabled by the National Collaborative Research Infrastructure Strategy (<a href="https://www.education.gov.au/ncris">NCRIS</a>).
     </p>
   </section>
 
@@ -112,17 +94,17 @@ import { site } from "../data/site";
     <div class="grid grid-3">
       <article class="card">
         <h3>Services &amp; resources</h3>
-        <p>The catalogue is the most concrete view of program delivery in this prototype.</p>
+        <p>Explore data, services, infrastructure and other resources generated through GUARDIANS.</p>
         <a class="card__link" href="/services-resources">Open the catalogue</a>
       </article>
       <article class="card">
         <h3>Partners &amp; contributions</h3>
-        <p>Browse structured attribution and see how partner work maps to catalogue items.</p>
+        <p>See how national partner projects contribute to GUARDIANS capabilities and delivery.</p>
         <a class="card__link" href="/partners-contributions">View partner entries</a>
       </article>
       <article class="card">
         <h3>Contact</h3>
-        <p>Use the shared contact pathway for enquiries about collaboration, media, or access questions.</p>
+        <p>Get in touch about using resources, collaboration, media, funding, or site feedback.</p>
         <a class="card__link" href={`mailto:${site.contactEmail}`}>Email the team</a>
       </article>
     </div>

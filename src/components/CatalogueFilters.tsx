@@ -14,7 +14,6 @@ type CatalogueItem = {
   contributionTypes: string[];
   relatedPartners: string[];
   href?: string;
-  draftInferred: boolean;
 };
 
 type Props = {
@@ -199,7 +198,6 @@ export default function CatalogueFilters(props: Props) {
                 <span class="badge badge-strong">{item.status}</span>
                 <span class="badge">{item.visibility}</span>
                 <span class="badge">{item.outputType}</span>
-                {item.draftInferred && <span class="badge">Draft</span>}
               </div>
               <div class="stack-md">
                 <h3>{item.title}</h3>
