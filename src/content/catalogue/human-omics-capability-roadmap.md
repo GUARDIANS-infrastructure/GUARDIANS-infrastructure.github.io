@@ -3,13 +3,19 @@ title: Human omics capability roadmap
 summary: Q1 2026 roadmap describing the national capabilities required for discovery, access, stewardship, and analysis of human omics data.
 userValue: Helps delivery teams and external stakeholders understand the direction of travel for national infrastructure capability.
 capability: Governance, policy and operations
-outputType: Publication / report
+outputType: Documentation / guidance
 status: Available
 visibility: Public
-leadPartner: Australian BioCommons
-contributingPartners:
+leadOrganisations:
+  - Australian BioCommons
+contributingOrganisations:
   - National Compute Infrastructure
   - Australian Access Federation
+  - University of Melbourne
+  - University of Sydney
+  - Children's Cancer Institute / Zero Childhood Cancer
+  - QIMR Berghofer Medical Research Institute
+  - Garvan Institute of Medical Research
 contributionTypes:
   - Program coordination
   - Standards / interoperability
@@ -17,10 +23,7 @@ contributionTypes:
 intendedUsers:
   - Product owners and engineers
   - Funding agencies
-relatedPartners:
-  - australian-biocommons
-  - national-compute-infrastructure
-  - australian-access-federation
+href: https://github.com/GUARDIANS-infrastructure/roadmap/blob/main/README.md
 featured: false
 ---
 

@@ -56,26 +56,23 @@ export const outputTypes = [
   "Data resource",
   "Infrastructure component",
   "Documentation / guidance",
-  "Training material",
   "Publication / report",
-  "Event / activity",
 ];
 
-export const statusValues = ["Available", "Pilot", "In development", "Planned"];
+export const statusValues = ["Available", "Pilot", "In development"];
 
 export const visibilityValues = [
   "Public",
   "Limited access",
-  "Internal / enabling",
+  "Internal",
 ];
 
 export const contributionTypes = [
   "Technical delivery",
   "Infrastructure operations",
   "Data stewardship",
-  "Governance / ELSI expertise",
+  "Governance / expertise",
   "Standards / interoperability",
-  "Research translation",
   "Training / capability building",
   "Community engagement",
   "Program coordination",

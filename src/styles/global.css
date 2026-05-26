@@ -350,10 +350,25 @@ main {
   border: 1px solid rgba(216, 230, 225, 0.9);
 }
 
-.badge-strong {
-  background: var(--accent-soft);
-  color: var(--accent-strong);
-  border-color: rgba(17, 122, 139, 0.08);
+.badge--available,
+.badge--public {
+  background: #dcefdc;
+  color: #255d32;
+  border-color: #bddfbd;
+}
+
+.badge--pilot,
+.badge--limited-access {
+  background: #e6f5ed;
+  color: #27684d;
+  border-color: #cce8d8;
+}
+
+.badge--in-development,
+.badge--internal {
+  background: #fff3c9;
+  color: #7a5600;
+  border-color: #eedb94;
 }
 
 .card {
@@ -544,7 +559,105 @@ main {
 
 .filters {
   display: grid;
+  gap: 1.15rem;
+}
+
+.filters__quick {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+  border: 1px solid rgba(221, 227, 231, 0.95);
+  border-radius: var(--radius-sm);
+  background: #f8fafb;
+}
+
+.filters__quick-heading {
+  display: flex;
+  justify-content: space-between;
   gap: 1rem;
+  align-items: start;
+}
+
+.filters__quick-heading h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.filters__quick-heading p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.filters__quick-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.filters__quick-card {
+  display: grid;
+  gap: 0.28rem;
+  min-height: 5.1rem;
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius-sm) - 4px);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.filters__quick-card span {
+  font-weight: 700;
+}
+
+.filters__quick-card small {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
+.filters__quick-card:hover,
+.filters__quick-card:focus-visible {
+  border-color: rgba(17, 122, 139, 0.34);
+  box-shadow: 0 10px 24px rgba(24, 39, 44, 0.08);
+  transform: translateY(-1px);
+}
+
+.filters__quick-card.is-active {
+  border-color: rgba(17, 122, 139, 0.34);
+  background: var(--accent-soft);
+}
+
+.filters__quick-card.is-active small,
+.filters__quick-card.is-active span {
+  color: var(--accent-strong);
+}
+
+.filters__details {
+  display: grid;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.filters__details summary {
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.filters__details[open] summary {
+  margin-bottom: 1rem;
 }
 
 .filters__toolbar {
@@ -621,9 +734,34 @@ main {
 .filters__summary {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.filters__summary p {
+  margin: 0;
+}
+
+.filters__active {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.65rem;
+}
+
+.filters__active-chip {
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  border: 1px solid rgba(17, 122, 139, 0.22);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  padding: 0.4rem 0.62rem;
+  color: var(--accent-strong);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.86rem;
 }
 
 .filters__button {
@@ -707,6 +845,7 @@ main {
 @media (max-width: 960px) {
   .grid-2,
   .grid-3,
+  .filters__quick-grid,
   .filters__toolbar,
   .contact-cards {
     grid-template-columns: 1fr;

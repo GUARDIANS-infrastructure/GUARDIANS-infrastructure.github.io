@@ -6,22 +6,15 @@ capability: Governance, policy and operations
 outputType: Documentation / guidance
 status: Available
 visibility: Public
-leadPartner: Australian BioCommons
-contributingPartners:
-  - University of Sydney
-  - University of Melbourne
+leadOrganisations:
+  - Australian BioCommons
 contributionTypes:
   - Program coordination
-  - Governance / ELSI expertise
+  - Governance / expertise
   - Standards / interoperability
 intendedUsers:
   - Partners
   - Funders and media
-relatedPartners:
-  - australian-biocommons
-  - university-of-sydney
-  - university-of-melbourne
+href: https://docs.google.com/document/d/1o0ReKR4oKwBRs3ylb9zb4jyxF5_tUBbWwmjs07lwh4w/edit?usp=sharing
 featured: false
 ---
-
-This entry is based directly on the supplied guidelines document in the workspace.

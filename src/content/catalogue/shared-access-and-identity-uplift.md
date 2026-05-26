@@ -1,27 +1,26 @@
 ---
-title: Shared access and identity uplift
-summary: National data access management capability supporting streamlined and responsible access to authorised human omics research services.
+title: Shared identity and access uplift
+summary: National trusted identity and access management capability supporting streamlined and responsible access to authorised human omics research services.
 userValue: Reduces access friction across participating services while keeping identity assurance and governance obligations visible.
-capability: Data access management
+capability: Trusted researcher identity
 outputType: Infrastructure component
-status: In development
-visibility: Internal / enabling
-leadPartner: Australian Access Federation
-contributingPartners:
+status: Available
+visibility: Limited access
+leadOrganisations:
+  - Australian Access Federation
+contributingOrganisations:
   - Australian BioCommons
-  - National Compute Infrastructure
 contributionTypes:
   - Technical delivery
   - Infrastructure operations
+  - Governance / expertise
   - Standards / interoperability
+  - Program coordination
+
 intendedUsers:
   - Infrastructure providers
   - Researchers
-relatedPartners:
-  - australian-access-federation
-  - australian-biocommons
-  - national-compute-infrastructure
-featured: true
+href: https://registry.biocommons.org.au/registry/
 ---
 
 The background materials consistently reference harmonised identity and access management, but do not include a public service endpoint yet.

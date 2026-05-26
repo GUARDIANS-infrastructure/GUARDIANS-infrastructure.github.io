@@ -16,10 +16,9 @@ const items = catalogue.map((item) => ({
   outputType: item.data.outputType,
   status: item.data.status,
   visibility: item.data.visibility,
-  leadPartner: item.data.leadPartner,
-  contributingPartners: item.data.contributingPartners,
+  leadOrganisations: item.data.leadOrganisations,
+  contributingOrganisations: item.data.contributingOrganisations,
   contributionTypes: item.data.contributionTypes,
-  relatedPartners: item.data.relatedPartners,
   href: item.data.href,
   intendedUsers: item.data.intendedUsers
 }));
@@ -36,9 +35,6 @@ const items = catalogue.map((item) => ({
     <h1>Services &amp; resources</h1>
     <p>
       This catalogue brings together public-facing services and the enabling resources, infrastructure components, guidance, publications, and pilot outputs that support GUARDIANS delivery.
-    </p>
-    <p class="draft-note">
-      Catalogue entries are draft sample records quickly inferred from the supplied background documents. Not Final.
     </p>
   </section>
 

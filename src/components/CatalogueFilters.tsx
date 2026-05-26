@@ -10,10 +10,9 @@ type CatalogueItem = {
   outputType: string;
   status: string;
   visibility: string;
-  leadPartner: string;
-  contributingPartners: string[];
+  leadOrganisations: string[];
+  contributingOrganisations: string[];
   contributionTypes: string[];
-  relatedPartners: string[];
   href?: string;
 };
 
@@ -40,6 +39,14 @@ const filterParamNames = {
 } as const;
 
 type FilterName = keyof typeof emptyFilterState;
+
+type FilterState = typeof emptyFilterState;
+
+type QuickFilter = {
+  label: string;
+  description: string;
+  filters: Partial<FilterState>;
+};
 
 type FilterGroupProps = {
   label: string;
@@ -77,6 +84,93 @@ function FilterGroup(props: FilterGroupProps) {
 const matchesOne = (selected: string[], value: string) =>
   selected.length === 0 || selected.includes(value);
 
+const badgeClassForValue = (value: string) => {
+  const className = value
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+  return `badge badge--${className}`;
+};
+
+const linkLabelForHref = (href?: string) => {
+  if (!href) {
+    return "Contact about this item";
+  }
+
+  return href.startsWith("mailto:") ? "Contact by email" : "Use or view resource";
+};
+
+const quickFilters: QuickFilter[] = [
+  {
+    label: "Find data",
+    description: "Discover public data records that are available or in pilot.",
+    filters: {
+      capability: ["Data discovery"],
+      status: ["Available", "Pilot"],
+      visibility: ["Public"],
+    },
+  },
+  {
+    label: "Use a service",
+    description: "Show public services that are available or in pilot.",
+    filters: {
+      outputType: ["Service"],
+      status: ["Available", "Pilot"],
+      visibility: ["Public"],
+    },
+  },
+  {
+    label: "Access guidance",
+    description: "Find public, available guidance material.",
+    filters: {
+      capability: ["Governance, policy and operations"],
+      status: ["Available"],
+      visibility: ["Public"],
+    },
+  },
+];
+
+const filterEntries = Object.entries(filterParamNames) as [
+  FilterName,
+  (typeof filterParamNames)[FilterName],
+][];
+
+const formatFilterLabel = (name: FilterName) =>
+  ({
+    capability: "Capability",
+    outputType: "Output type",
+    status: "Status",
+    visibility: "Visibility",
+  })[name];
+
+const hasFilterValue = (filters: FilterState, name: FilterName, value: string) =>
+  filters[name].includes(value);
+
+const quickFilterIsActive = (filters: FilterState, quickFilter: QuickFilter) =>
+  Object.entries(quickFilter.filters).every(([name, values]) =>
+    (values ?? []).every((value) =>
+      hasFilterValue(filters, name as FilterName, value),
+    ),
+  );
+
+const quickFilterValuesByName = quickFilters.reduce(
+  (accumulator, quickFilter) => {
+    for (const [name, values] of Object.entries(quickFilter.filters) as [
+      FilterName,
+      string[],
+    ][]) {
+      accumulator[name] = Array.from(
+        new Set([...(accumulator[name] ?? []), ...values]),
+      );
+    }
+
+    return accumulator;
+  },
+  {} as Partial<FilterState>,
+);
+
 export default function CatalogueFilters(props: Props) {
   const [filters, setFilters] = useState(emptyFilterState);
 
@@ -94,10 +188,7 @@ export default function CatalogueFilters(props: Props) {
   useEffect(() => {
     const params = new URLSearchParams();
 
-    for (const [key, values] of Object.entries(filters) as [
-      FilterName,
-      string[],
-    ][]) {
+    for (const [key, values] of Object.entries(filters) as [FilterName, string[]][]) {
       for (const value of values) {
         params.append(filterParamNames[key], value);
       }
@@ -130,74 +221,159 @@ export default function CatalogueFilters(props: Props) {
     });
   };
 
+  const applyQuickFilter = (quickFilter: QuickFilter) => {
+    setFilters((current) => {
+      const isActive = quickFilterIsActive(current, quickFilter);
+      const next = { ...current };
+
+      for (const [name, values] of Object.entries(quickFilterValuesByName) as [
+        FilterName,
+        string[],
+      ][]) {
+        next[name] = current[name].filter((value) => !values.includes(value));
+      }
+
+      for (const [name, values] of Object.entries(quickFilter.filters) as [
+        FilterName,
+        string[],
+      ][]) {
+        next[name] = isActive ? next[name] : Array.from(new Set([...next[name], ...values]));
+      }
+
+      return next;
+    });
+  };
+
+  const removeFilter = (name: FilterName, value: string) => {
+    setFilters((current) => ({
+      ...current,
+      [name]: current[name].filter((item) => item !== value),
+    }));
+  };
+
   const activeFilterCount = Object.values(filters).reduce(
     (count, values) => count + values.length,
     0,
   );
 
+  const selectedDescriptions = filterEntries.flatMap(([name]) =>
+    filters[name].map((value) => ({ name, value })),
+  );
+
   return (
     <div class="filters">
-      <div class="filters__toolbar">
-        <FilterGroup
-          label="Capability area"
-          name="capability"
-          options={props.capabilities}
-          selected={filters.capability}
-          onToggle={toggleFilter}
-        />
-        <FilterGroup
-          label="Output type"
-          name="outputType"
-          options={props.outputTypes}
-          selected={filters.outputType}
-          onToggle={toggleFilter}
-        />
-        <FilterGroup
-          label="Status"
-          name="status"
-          options={props.statusValues}
-          selected={filters.status}
-          onToggle={toggleFilter}
-        />
-        <FilterGroup
-          label="Visibility / access"
-          name="visibility"
-          options={props.visibilityValues}
-          selected={filters.visibility}
-          onToggle={toggleFilter}
-        />
-      </div>
+      <section class="filters__quick" aria-labelledby="popular-pathways">
+        <div class="filters__quick-heading">
+          <div>
+            <h3 id="popular-pathways">Popular pathways</h3>
+            <p>Start with a common task, then refine the results if needed.</p>
+          </div>
+        </div>
+        <div class="filters__quick-grid">
+          {quickFilters.map((quickFilter) => {
+            const isActive = quickFilterIsActive(filters, quickFilter);
+
+            return (
+              <button
+                class={`filters__quick-card${isActive ? " is-active" : ""}`}
+                type="button"
+                aria-pressed={isActive}
+                onClick={() => applyQuickFilter(quickFilter)}
+              >
+                <span>{quickFilter.label}</span>
+                <small>{quickFilter.description}</small>
+              </button>
+            );
+          })}
+        </div>
+      </section>
 
       <div class="filters__summary">
-        <p>
-          {filteredItems.length} catalogue item
-          {filteredItems.length === 1 ? "" : "s"} shown
-          {activeFilterCount > 0
-            ? ` across ${activeFilterCount} selected filter${activeFilterCount === 1 ? "" : "s"}`
-            : ""}
-        </p>
-        <button
-          class="filters__button"
-          type="button"
-          onClick={() => setFilters(emptyFilterState)}
-        >
-          Clear filters
-        </button>
+        <div>
+          <p>
+            {filteredItems.length} catalogue item
+            {filteredItems.length === 1 ? "" : "s"} shown
+            {activeFilterCount > 0
+              ? ` across ${activeFilterCount} selected filter${activeFilterCount === 1 ? "" : "s"}`
+              : ""}
+          </p>
+          {selectedDescriptions.length > 0 && (
+            <div class="filters__active" aria-label="Selected filters">
+              {selectedDescriptions.map(({ name, value }) => (
+                <button
+                  class="filters__active-chip"
+                  type="button"
+                  onClick={() => removeFilter(name, value)}
+                >
+                  <span>{formatFilterLabel(name)}: {value}</span>
+                  <span aria-hidden="true">×</span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+        {activeFilterCount > 0 && (
+          <button
+            class="filters__button"
+            type="button"
+            onClick={() => setFilters(emptyFilterState)}
+          >
+            Clear filters
+          </button>
+        )}
       </div>
+
+      <details class="filters__details">
+        <summary>More filters</summary>
+        <div class="filters__toolbar">
+          <FilterGroup
+            label="Capability area"
+            name="capability"
+            options={props.capabilities}
+            selected={filters.capability}
+            onToggle={toggleFilter}
+          />
+          <FilterGroup
+            label="Output type"
+            name="outputType"
+            options={props.outputTypes}
+            selected={filters.outputType}
+            onToggle={toggleFilter}
+          />
+          <FilterGroup
+            label="Status"
+            name="status"
+            options={props.statusValues}
+            selected={filters.status}
+            onToggle={toggleFilter}
+          />
+          <FilterGroup
+            label="Visibility / access"
+            name="visibility"
+            options={props.visibilityValues}
+            selected={filters.visibility}
+            onToggle={toggleFilter}
+          />
+        </div>
+      </details>
+
+      <p class="draft-note">
+        Catalogue entries are draft sample records quickly inferred from the supplied background documents. Not Final.
+      </p>
 
       {filteredItems.length === 0 ? (
         <div class="filters__empty">
-          No sample items match the current filters. This prototype leaves
-          unsupported content areas empty rather than inventing additional
-          entries.
+          No catalogue items match the current filters. Try removing one or
+          more filters, or contact the GUARDIANS team if you need help finding
+          the right pathway.
         </div>
       ) : (
         <div class="grid grid-2">
           {filteredItems.map((item) => (
             <article class="card" id={item.slug}>
               <div class="chips">
-                <span class="badge badge-strong">{item.status}</span>
-                <span class="badge">{item.visibility}</span>
+                <span class={badgeClassForValue(item.status)}>{item.status}</span>
+                <span class={badgeClassForValue(item.visibility)}>{item.visibility}</span>
                 <span class="badge">{item.outputType}</span>
               </div>
               <div class="stack-md">
@@ -210,25 +386,21 @@ export default function CatalogueFilters(props: Props) {
               <div class="stack-md">
                 <div class="meta-list">
                   <span class="chip">{item.capability}</span>
-                  <span class="chip">Lead: {item.leadPartner}</span>
                 </div>
-                {item.contributingPartners.length > 0 && (
+                <p>
+                  <strong>Lead organisation{item.leadOrganisations.length === 1 ? "" : "s"}:</strong>{" "}
+                  {item.leadOrganisations.join(", ")}
+                </p>
+                {item.contributingOrganisations.length > 0 && (
                   <p>
-                    <strong>Contributing partners:</strong>{" "}
-                    {item.contributingPartners.join(", ")}
+                    <strong>Contributing organisation{item.contributingOrganisations.length === 1 ? "" : "s"}:</strong>{" "}
+                    {item.contributingOrganisations.join(", ")}
                   </p>
                 )}
                 <p>
                   <strong>Contribution types:</strong>{" "}
                   {item.contributionTypes.join(", ")}
                 </p>
-                <div class="meta-list">
-                  {item.relatedPartners.map((partner) => (
-                    <a class="chip" href={withBase(`/partners-contributions#${partner}`)}>
-                      Partner entry
-                    </a>
-                  ))}
-                </div>
               </div>
               <div class="card__footer">
                 <div class="meta-list">
@@ -237,9 +409,7 @@ export default function CatalogueFilters(props: Props) {
                   ))}
                 </div>
                 <a class="card__link" href={withBase(item.href ?? "/contact")}>
-                  {item.href
-                    ? "Use or view resource"
-                    : "Contact about this item"}
+                  {linkLabelForHref(item.href)}
                 </a>
               </div>
             </article>
