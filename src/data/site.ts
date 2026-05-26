@@ -1,3 +1,13 @@
+import { organisationByName, type OrganisationName } from "./vocabularies";
+
+export {
+  capabilities,
+  contributionTypes,
+  outputTypes,
+  statusValues,
+  visibilityValues,
+} from "./vocabularies";
+
 export const site = {
   title: "GUARDIANS",
   description:
@@ -17,67 +27,6 @@ export const navigation = [
   { href: "/contact", label: "Contact" },
 ];
 
-export const capabilities = [
-  {
-    name: "Data discovery",
-    summary:
-      "National catalogues and metadata patterns that help researchers find relevant human omics datasets.",
-  },
-  {
-    name: "Data commons and repositories",
-    summary:
-      "Repository and data commons capabilities for nationally significant human omics collections.",
-  },
-  {
-    name: "Scalable analysis environments",
-    summary:
-      "Controlled computing environments and workflows for human omics analysis at scale.",
-  },
-  {
-    name: "Trusted researcher identity",
-    summary:
-      "Researcher identity, trust, and assurance capabilities that support access across national services.",
-  },
-  {
-    name: "Data access management",
-    summary:
-      "Technical and governance workflows for requests, approvals, entitlements, and controlled access.",
-  },
-  {
-    name: "Governance, policy and operations",
-    summary:
-      "Guidance, access models, and operational patterns that enable ethical and compliant national delivery.",
-  },
-];
-
-export const outputTypes = [
-  "Service",
-  "Software / tool",
-  "Data resource",
-  "Infrastructure component",
-  "Documentation / guidance",
-  "Publication / report",
-];
-
-export const statusValues = ["Available", "Pilot", "In development"];
-
-export const visibilityValues = [
-  "Public",
-  "Limited access",
-  "Internal",
-];
-
-export const contributionTypes = [
-  "Technical delivery",
-  "Infrastructure operations",
-  "Data stewardship",
-  "Governance / expertise",
-  "Standards / interoperability",
-  "Training / capability building",
-  "Community engagement",
-  "Program coordination",
-];
-
 export const evidenceItems = [
   {
     title: "Current capability roadmap",
@@ -93,68 +42,38 @@ export const evidenceItems = [
   },
 ];
 
+const logoFor = (
+  name: OrganisationName,
+  className?: string,
+  tileClassName?: string,
+) => {
+  const organisation = organisationByName[name];
+
+  if (!organisation.logoSrc) {
+    throw new Error(`Missing logo source for ${name}`);
+  }
+
+  return {
+    alt: organisation.displayName ?? organisation.name,
+    src: organisation.logoSrc,
+    ...(className ? { className } : {}),
+    ...(tileClassName ? { tileClassName } : {}),
+  };
+};
+
 export const partnerLogos = [
-  {
-    alt: "Australian BioCommons",
-    src: "/assets/logos/biocommons.png",
-    className: "logo-mark--wide",
-    tileClassName: "logo-tile--wide",
-  },
-  {
-    alt: "Australian Access Federation",
-    src: "/assets/logos/aaf.png",
-    className: "logo-mark--compact",
-    tileClassName: "logo-tile--wide",
-  },
-  {
-    alt: "University of Melbourne",
-    src: "/assets/logos/uom.png",
-    className: "logo-mark--seal",
-    tileClassName: "logo-tile--square",
-  },
-  {
-    alt: "National Compute Infrastructure",
-    src: "/assets/logos/nci.png",
-    className: "logo-mark--compact",
-    tileClassName: "logo-tile--wide",
-  },
-  {
-    alt: "University of Sydney",
-    src: "/assets/logos/usyd.png",
-    className: "logo-mark--compact",
-    tileClassName: "logo-tile--wide",
-  },
-  {
-    alt: "Children's Cancer Institute / Zero Childhood Cancer",
-    src: "/assets/logos/zerocci.png",
-    className: "logo-mark--wide",
-    tileClassName: "logo-tile--wide",
-  },
-  {
-    alt: "QIMR Berghofer",
-    src: "/assets/logos/qimrb.png",
-    className: "logo-mark--wide",
-    tileClassName: "logo-tile--wide",
-  },
-  {
-    alt: "Garvan Institute of Medical Research",
-    src: "/assets/logos/garvan.png",
-    className: "logo-mark--wide",
-    tileClassName: "logo-tile--wide",
-  },
+  logoFor("Australian BioCommons", "logo-mark--wide", "logo-tile--wide"),
+  logoFor("Australian Access Federation", "logo-mark--compact", "logo-tile--wide"),
+  logoFor("University of Melbourne", "logo-mark--seal", "logo-tile--square"),
+  logoFor("National Compute Infrastructure", "logo-mark--compact", "logo-tile--wide"),
+  logoFor("University of Sydney", "logo-mark--compact", "logo-tile--wide"),
+  logoFor("Children's Cancer Institute / Zero Childhood Cancer", "logo-mark--wide", "logo-tile--wide"),
+  logoFor("QIMR Berghofer Medical Research Institute", "logo-mark--wide", "logo-tile--wide"),
+  logoFor("Garvan Institute of Medical Research", "logo-mark--wide", "logo-tile--wide"),
 ];
 
 export const funderLogos = [
-  {
-    alt: "Australian BioCommons",
-    src: "/assets/logos/biocommons.png",
-  },
-  {
-    alt: "Bioplatforms Australia",
-    src: "/assets/logos/bpa.png",
-  },
-  {
-    alt: "NCRIS",
-    src: "/assets/logos/ncris.png",
-  },
+  logoFor("Australian BioCommons"),
+  logoFor("Bioplatforms Australia"),
+  logoFor("National Collaborative Research Infrastructure Strategy"),
 ];

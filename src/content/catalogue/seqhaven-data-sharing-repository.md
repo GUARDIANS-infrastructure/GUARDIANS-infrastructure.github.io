@@ -20,5 +20,3 @@ intendedUsers:
 href: mailto:dac@qimrb.edu.au
 featured: true
 ---
-
-This draft entry is based on the Australian BioCommons press release describing SeqHaven as a QIMR Berghofer data sharing platform delivered through GUARDIANS: https://www.biocommons.org.au/news/seqhaven-guardians-qimr-berghofer

@@ -26,5 +26,3 @@ intendedUsers:
 href: https://github.com/GUARDIANS-infrastructure/roadmap/blob/main/README.md
 featured: false
 ---
-
-This entry is based on the supplied roadmap document and captures it as a public report rather than a user-facing service.

@@ -17,9 +17,7 @@ contributionTypes:
   - Governance / expertise
 intendedUsers:
   - Researchers
-  - Clinical researchers
+  - Clinician researchers
 href: https://seqr.populationgenomics.org.au/
 featured: true
 ---
-
-This draft entry is based on the GUARDIANS background material describing Garvan's scalable, open and connected genomics infrastructure work, with the public Seqr instance available at https://seqr.populationgenomics.org.au/.

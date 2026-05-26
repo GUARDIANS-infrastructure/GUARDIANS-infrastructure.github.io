@@ -1,54 +1,33 @@
+import {
+  organisationByShortName,
+  type OrganisationShortName,
+} from "./vocabularies";
+
+const projectLogo = (shortName: OrganisationShortName, className: string) => {
+  const organisation = organisationByShortName[shortName];
+
+  if (!organisation.logoSrc) {
+    throw new Error(`Missing logo source for ${shortName}`);
+  }
+
+  return {
+    alt: organisation.displayName ?? organisation.name,
+    src: organisation.logoSrc,
+    className,
+  };
+};
+
 export const organisationLogos: Record<string, { alt: string; src: string; className: string }> = {
-  BioCommons: {
-    alt: "Australian BioCommons",
-    src: "/assets/logos/biocommons.png",
-    className: "project-logo--wide",
-  },
-  NCI: {
-    alt: "National Compute Infrastructure",
-    src: "/assets/logos/nci.png",
-    className: "project-logo--compact",
-  },
-  AAF: {
-    alt: "Australian Access Federation",
-    src: "/assets/logos/aaf.png",
-    className: "project-logo--compact",
-  },
-  "UniMelb Law": {
-    alt: "University of Melbourne",
-    src: "/assets/logos/uom.png",
-    className: "project-logo--seal",
-  },
-  USyd: {
-    alt: "University of Sydney",
-    src: "/assets/logos/usyd.png",
-    className: "project-logo--compact",
-  },
-  "CCI/ZERO": {
-    alt: "Children's Cancer Institute / Zero Childhood Cancer",
-    src: "/assets/logos/zerocci.png",
-    className: "project-logo--wide",
-  },
-  "UniMelb PX4/OMIX3": {
-    alt: "University of Melbourne",
-    src: "/assets/logos/uom.png",
-    className: "project-logo--seal",
-  },
-  "QIMR Berghofer": {
-    alt: "QIMR Berghofer Medical Research Institute",
-    src: "/assets/logos/qimrb.png",
-    className: "project-logo--wide",
-  },
-  Garvan: {
-    alt: "Garvan Institute of Medical Research",
-    src: "/assets/logos/garvan.png",
-    className: "project-logo--wide",
-  },
-  "UniMelb CCGCM": {
-    alt: "University of Melbourne",
-    src: "/assets/logos/uom.png",
-    className: "project-logo--seal",
-  },
+  BioCommons: projectLogo("BioCommons", "project-logo--wide"),
+  NCI: projectLogo("NCI", "project-logo--compact"),
+  AAF: projectLogo("AAF", "project-logo--compact"),
+  "UniMelb Law": projectLogo("UniMelb Law", "project-logo--seal"),
+  USyd: projectLogo("USyd", "project-logo--compact"),
+  "CCI/ZERO": projectLogo("CCI/ZERO", "project-logo--wide"),
+  "PX4/OMIX3": projectLogo("PX4/OMIX3", "project-logo--seal"),
+  "QIMR Berghofer": projectLogo("QIMR Berghofer", "project-logo--wide"),
+  Garvan: projectLogo("Garvan", "project-logo--wide"),
+  "CCGCM": projectLogo("CCGCM", "project-logo--seal"),
 };
 
 export const projectContributions = [
@@ -104,7 +83,7 @@ export const projectContributions = [
   },
   {
     title: "A Data Commons for Integrated Human Multi-Omics Data",
-    organisations: ["UniMelb PX4/OMIX3"],
+    organisations: ["PX4/OMIX3"],
     description:
       "The University of Melbourne OMIX3 data platform is establishing infrastructure for secure storage, sharing and analysis of clinically accredited human multi-omics datasets.",
     capabilityAreas: [
@@ -137,7 +116,7 @@ export const projectContributions = [
   },
   {
     title: "Genomic Data Nodes",
-    organisations: ["UniMelb CCGCM"],
+    organisations: ["CCGCM"],
     description:
       "The Collaborative Centre for Genomic Cancer Medicine GDN project is piloting a framework for mutually trusted omics research environments, federated data exchange, shared services, access controls and operational reporting.",
     capabilityAreas: [

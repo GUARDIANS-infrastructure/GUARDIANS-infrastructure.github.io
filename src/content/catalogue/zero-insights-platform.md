@@ -15,7 +15,7 @@ contributionTypes:
   - Standards / interoperability
 intendedUsers:
   - Researchers
-  - Clinical researchers
+  - Clinician researchers
 href: https://beacon.zerochildhoodcancer.cloud/dashboard
 featured: true
 ---

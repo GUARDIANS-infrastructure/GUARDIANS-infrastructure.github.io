@@ -22,5 +22,3 @@ intendedUsers:
   - Researchers
 href: https://registry.biocommons.org.au/registry/
 ---
-
-The background materials consistently reference harmonised identity and access management, but do not include a public service endpoint yet.

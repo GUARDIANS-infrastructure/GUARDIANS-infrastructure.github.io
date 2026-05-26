@@ -21,5 +21,3 @@ intendedUsers:
 featured: true
 href: https://bn.test.biocommons.org.au/
 ---
-
-This sample entry is inferred from the roadmap and one-page materials, which both describe a national catalogue capability but do not yet provide a public product page.
