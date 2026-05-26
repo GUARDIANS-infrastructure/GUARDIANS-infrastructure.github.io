@@ -120,24 +120,6 @@ export const organisations = [
     logoSrc: "/assets/logos/uom.png",
   },
   {
-    name: "Collaborative Centre for Genomic Cancer Medicine",
-    shortName: "CCGCM",
-    displayName: "University of Melbourne",
-    logoSrc: "/assets/logos/uom.png",
-  },
-  {
-    name: "Melbourne Law School",
-    shortName: "UniMelb Law",
-    displayName: "University of Melbourne",
-    logoSrc: "/assets/logos/uom.png",
-  },
-  {
-    name: "PX4/OMIX3",
-    shortName: "PX4/OMIX3",
-    displayName: "University of Melbourne",
-    logoSrc: "/assets/logos/uom.png",
-  },
-  {
     name: "University of Sydney",
     shortName: "USyd",
     logoSrc: "/assets/logos/usyd.png",
@@ -148,6 +130,12 @@ export const organisationNames = organisations.map((organisation) => organisatio
   (typeof organisations)[number]["name"],
   ...(typeof organisations)[number]["name"][],
 ];
+
+export const deliveryUnitValues = [
+  "Bio21 Institute",
+  "Collaborative Centre for Genomic Cancer Medicine",
+  "Melbourne School of Psychological Sciences",
+] as const;
 
 export const intendedUserValues = [
   "Clinician researchers",
@@ -165,6 +153,7 @@ export const intendedUserValues = [
 
 export type OrganisationName = (typeof organisationNames)[number];
 export type OrganisationShortName = (typeof organisations)[number]["shortName"];
+export type DeliveryUnitName = (typeof deliveryUnitValues)[number];
 
 export const organisationByName = Object.fromEntries(
   organisations.map((organisation) => [organisation.name, organisation]),

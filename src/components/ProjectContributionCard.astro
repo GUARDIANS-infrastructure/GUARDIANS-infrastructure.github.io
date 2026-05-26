@@ -1,11 +1,14 @@
 ---
 import { organisationLogos } from "../data/partnersContributions";
+import type { DeliveryUnitName, OrganisationName } from "../data/vocabularies";
 import { withBase } from "../utils/paths";
 
 interface Props {
   project: {
     title: string;
-    organisations: string[];
+    leadOrganisations: OrganisationName[];
+    deliveryUnits?: DeliveryUnitName[];
+    collaboratingOrganisations?: OrganisationName[];
     description: string;
     capabilityAreas: string[];
   };
@@ -17,15 +20,15 @@ const { project } = Astro.props;
 <article class="project-card">
   <div class="project-card__header">
     <div class="project-card__logos" aria-label="Lead partner organisations">
-      {project.organisations.map((org) => {
-        const logo = organisationLogos[org];
+      {project.leadOrganisations.map((organisation) => {
+        const logo = organisationLogos[organisation];
 
         return (
           <div class="project-card__logo-tile">
             {logo ? (
               <img class={logo.className} src={withBase(logo.src)} alt={logo.alt} />
             ) : (
-              <span>{org}</span>
+              <span>{organisation}</span>
             )}
           </div>
         );
@@ -37,6 +40,23 @@ const { project } = Astro.props;
   </div>
   <div class="project-card__body">
     <p>{project.description}</p>
+    {(project.deliveryUnits?.length || project.collaboratingOrganisations?.length) && (
+      <p class="project-card__meta">
+        {project.deliveryUnits?.length && (
+          <>
+            <strong>Delivery unit{project.deliveryUnits.length === 1 ? "" : "s"}:</strong>{" "}
+            {project.deliveryUnits.join(", ")}
+          </>
+        )}
+        {project.deliveryUnits?.length && project.collaboratingOrganisations?.length ? " · " : ""}
+        {project.collaboratingOrganisations?.length && (
+          <>
+            <strong>Collaborating organisation{project.collaboratingOrganisations.length === 1 ? "" : "s"}:</strong>{" "}
+            {project.collaboratingOrganisations.join(", ")}
+          </>
+        )}
+      </p>
+    )}
     <div class="meta-list">
       {project.capabilityAreas.map((area) => (
         <span class="chip">{area}</span>

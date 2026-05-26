@@ -543,6 +543,14 @@ main {
   color: var(--muted);
 }
 
+.project-card__meta {
+  font-size: 0.92rem;
+}
+
+.project-card__meta strong {
+  color: var(--text);
+}
+
 .partner-logo-strip {
   display: flex;
   flex-wrap: wrap;

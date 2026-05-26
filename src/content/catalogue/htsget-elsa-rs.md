@@ -7,7 +7,7 @@ outputType: Software / tool
 status: Available
 visibility: Public
 leadOrganisations:
-  - University of Melbourne CCGCM
+  - University of Melbourne
 contributionTypes:
   - Technical delivery
   - Standards / interoperability
