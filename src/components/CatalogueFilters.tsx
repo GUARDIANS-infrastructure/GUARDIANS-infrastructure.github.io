@@ -94,12 +94,38 @@ const badgeClassForValue = (value: string) => {
   return `badge badge--${className}`;
 };
 
-const linkLabelForHref = (href?: string) => {
+const linkLabelForItem = (item: CatalogueItem) => {
+  const href = item.href;
+
   if (!href) {
     return "Contact about this item";
   }
 
-  return href.startsWith("mailto:") ? "Contact by email" : "Use or view resource";
+  if (href.startsWith("mailto:")) {
+    return "Contact by email";
+  }
+
+  if (item.outputType === "Software / tool") {
+    return "View code";
+  }
+
+  if (item.outputType === "Documentation / guidance") {
+    return "Read guidance";
+  }
+
+  if (item.outputType === "Publication / report") {
+    return "Read report";
+  }
+
+  if (item.outputType === "Data resource") {
+    return "View data resource";
+  }
+
+  if (item.outputType === "Infrastructure component") {
+    return "View component";
+  }
+
+  return "Open service";
 };
 
 const quickFilters: QuickFilter[] = [
@@ -377,8 +403,23 @@ export default function CatalogueFilters(props: Props) {
                 <span class="badge">{item.outputType}</span>
               </div>
               <div class="stack-md">
-                <h3>{item.title}</h3>
+                <div class="card__heading">
+                  <h3>{item.title}</h3>
+                  <a class="card__link" href={withBase(item.href ?? "/contact")}>
+                    {linkLabelForItem(item)}
+                  </a>
+                </div>
                 <p>{item.summary}</p>
+                {item.intendedUsers.length > 0 && (
+                  <div class="card__audience">
+                    <strong>For:</strong>
+                    <div class="meta-list">
+                      {item.intendedUsers.map((user: string) => (
+                        <span class="chip">{user}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
                 <p>
                   <strong>User value:</strong> {item.userValue}
                 </p>
@@ -401,16 +442,6 @@ export default function CatalogueFilters(props: Props) {
                   <strong>Contribution types:</strong>{" "}
                   {item.contributionTypes.join(", ")}
                 </p>
-              </div>
-              <div class="card__footer">
-                <div class="meta-list">
-                  {item.intendedUsers?.map?.((user: string) => (
-                    <span class="chip">{user}</span>
-                  ))}
-                </div>
-                <a class="card__link" href={withBase(item.href ?? "/contact")}>
-                  {linkLabelForHref(item.href)}
-                </a>
               </div>
             </article>
           ))}
