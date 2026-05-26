@@ -23,13 +23,15 @@ import { withBase } from "../utils/paths";
   </section>
 
   <section class="section section-card">
-    <div class="section-heading">
-      <div>
-        <span class="eyebrow">{homeContent.journey.eyebrow}</span>
-        <h2 class="section-title">{homeContent.journey.title}</h2>
+    {(homeContent.journey.eyebrow || homeContent.journey.title) && (
+      <div class="section-heading">
+        <div>
+          {homeContent.journey.eyebrow && <span class="eyebrow">{homeContent.journey.eyebrow}</span>}
+          {homeContent.journey.title && <h2 class="section-title">{homeContent.journey.title}</h2>}
+        </div>
       </div>
-    </div>
-    <p class="lede">{homeContent.journey.intro}</p>
+    )}
+    {homeContent.journey.intro && <p class="lede">{homeContent.journey.intro}</p>}
     <div class="journey-figure">
       <img src={withBase(homeContent.journey.image.src)} alt={homeContent.journey.image.alt} />
     </div>
@@ -54,7 +56,7 @@ import { withBase } from "../utils/paths";
         <span class="eyebrow">{homeContent.capabilities.eyebrow}</span>
         <h2 class="section-title">{homeContent.capabilities.title}</h2>
       </div>
-      <p class="lede">{homeContent.capabilities.intro}</p>
+      {homeContent.capabilities.intro && <p class="lede">{homeContent.capabilities.intro}</p>}
     </div>
     <div class="grid grid-3">
       {

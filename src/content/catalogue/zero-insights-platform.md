@@ -1,11 +1,11 @@
 ---
-title: ZERO Childhood Cancer Data Portal 
+title: ZERO Childhood Cancer Data Portal
 summary: Explore ZERO Childhood Cancer cohort-level data through a rich user interface and apply for access to controlled data.
 userValue: Enable researchers and clinicians to explore detailed paediatric cancer cohort data and metadata.
 capability: Data discovery
 outputType: Service
 status: Pilot
-visibility: Public 
+visibility: Public
 leadOrganisations:
   - Children's Cancer Institute / Zero Childhood Cancer
 contributionTypes:

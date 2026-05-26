@@ -80,13 +80,7 @@ export const contributionTypes = [
 
 export const evidenceItems = [
   {
-    title: "ABACBS 2025 presentation abstract",
-    description:
-      "A public presentation abstract describing GUARDIANS as national infrastructure for secure human omics data sharing and analytics.",
-    href: "/services-resources#abacbs-2025-presentation",
-  },
-  {
-    title: "Q1 2026 capability roadmap",
+    title: "Current capability roadmap",
     description:
       "A roadmap framing the national capabilities needed for discovery, access, stewardship, and secure analysis.",
     href: "/services-resources#human-omics-capability-roadmap",

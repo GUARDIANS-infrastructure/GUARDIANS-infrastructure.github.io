@@ -1,6 +1,6 @@
 ---
 title: Human omics capability roadmap
-summary: Q1 2026 roadmap describing the national capabilities required for discovery, access, stewardship, and analysis of human omics data.
+summary: Current roadmap describing the national capabilities required for discovery, access, stewardship, and analysis of human omics data.
 userValue: Helps delivery teams and external stakeholders understand the direction of travel for national infrastructure capability.
 capability: Governance, policy and operations
 outputType: Documentation / guidance

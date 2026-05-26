@@ -435,7 +435,7 @@ export default function CatalogueFilters(props: Props) {
       </details>
 
       <p class="draft-note">
-        Catalogue entries are draft sample records quickly inferred from the supplied background documents. Not Final.
+        Catalogue entries are draft text and may change as descriptions are refined and approved.
       </p>
 
       {filteredItems.length === 0 ? (
