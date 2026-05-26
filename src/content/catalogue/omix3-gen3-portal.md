@@ -5,7 +5,7 @@ userValue: Will support authorised researchers to discover, access and work with
 capability: Data commons and repositories
 outputType: Service
 status: In development
-visibility: Limited access
+visibility: Public
 leadOrganisations:
   - University of Melbourne
 contributingOrganisations:

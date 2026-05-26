@@ -638,8 +638,21 @@ main {
     transform 160ms ease;
 }
 
-.filters__quick-card span {
+.filters__quick-title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.filters__quick-title span {
   font-weight: 700;
+}
+
+.filters__quick-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  flex: 0 0 auto;
+  color: var(--accent-strong);
 }
 
 .filters__quick-card small {
@@ -661,7 +674,7 @@ main {
 }
 
 .filters__quick-card.is-active small,
-.filters__quick-card.is-active span {
+.filters__quick-card.is-active .filters__quick-title {
   color: var(--accent-strong);
 }
 

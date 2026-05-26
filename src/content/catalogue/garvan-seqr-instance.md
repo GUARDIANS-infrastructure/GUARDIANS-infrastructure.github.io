@@ -5,7 +5,7 @@ userValue: Supports authorised clinical and research teams to work with rare dis
 capability: Scalable analysis environments
 outputType: Service
 status: Available
-visibility: Limited access
+visibility: Public
 leadOrganisations:
   - Garvan Institute of Medical Research
   - Murdoch Children's Research Institute

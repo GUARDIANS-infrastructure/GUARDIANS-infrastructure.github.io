@@ -45,6 +45,7 @@ type FilterState = typeof emptyFilterState;
 type QuickFilter = {
   label: string;
   description: string;
+  icon: "database-search" | "workflow" | "book-open-check";
   filters: Partial<FilterState>;
 };
 
@@ -128,10 +129,55 @@ const linkLabelForItem = (item: CatalogueItem) => {
   return "Open service";
 };
 
+function QuickFilterIcon(props: { icon: QuickFilter["icon"] }) {
+  const paths = {
+    "database-search": (
+      <>
+        <path d="M21 11.693V5" />
+        <path d="m22 22-1.875-1.875" />
+        <path d="M3 12a9 3 0 0 0 8.697 2.998" />
+        <path d="M3 5v14a9 3 0 0 0 9.28 2.999" />
+        <circle cx="18" cy="18" r="3" />
+        <ellipse cx="12" cy="5" rx="9" ry="3" />
+      </>
+    ),
+    workflow: (
+      <>
+        <rect width="8" height="8" x="3" y="3" rx="2" />
+        <path d="M7 11v4a2 2 0 0 0 2 2h4" />
+        <rect width="8" height="8" x="13" y="13" rx="2" />
+      </>
+    ),
+    "book-open-check": (
+      <>
+        <path d="M12 21V7" />
+        <path d="m16 12 2 2 4-4" />
+        <path d="M22 6V4a1 1 0 0 0-1-1h-5a4 4 0 0 0-4 4 4 4 0 0 0-4-4H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h6a3 3 0 0 1 3 3 3 3 0 0 1 3-3h6a1 1 0 0 0 1-1v-1.3" />
+      </>
+    ),
+  };
+
+  return (
+    <svg
+      class="filters__quick-icon"
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      {paths[props.icon]}
+    </svg>
+  );
+}
+
 const quickFilters: QuickFilter[] = [
   {
     label: "Find data",
     description: "Discover public data records that are available or in pilot.",
+    icon: "database-search",
     filters: {
       capability: ["Data discovery"],
       status: ["Available", "Pilot"],
@@ -141,6 +187,7 @@ const quickFilters: QuickFilter[] = [
   {
     label: "Use a service",
     description: "Show public services that are available or in pilot.",
+    icon: "workflow",
     filters: {
       outputType: ["Service"],
       status: ["Available", "Pilot"],
@@ -150,6 +197,7 @@ const quickFilters: QuickFilter[] = [
   {
     label: "Access guidance",
     description: "Find public, available guidance material.",
+    icon: "book-open-check",
     filters: {
       capability: ["Governance, policy and operations"],
       status: ["Available"],
@@ -306,7 +354,10 @@ export default function CatalogueFilters(props: Props) {
                 aria-pressed={isActive}
                 onClick={() => applyQuickFilter(quickFilter)}
               >
-                <span>{quickFilter.label}</span>
+                <span class="filters__quick-title">
+                  <QuickFilterIcon icon={quickFilter.icon} />
+                  <span>{quickFilter.label}</span>
+                </span>
                 <small>{quickFilter.description}</small>
               </button>
             );
