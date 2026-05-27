@@ -107,7 +107,7 @@ const hrefFor = (href: string) => href.startsWith("/") ? withBase(href) : href;
         <h2 class="section-title">{aboutContent.related.title}</h2>
       </div>
     </div>
-    <div class="grid grid-3">
+    <div class="grid grid-3 related-paths">
       {aboutContent.related.cards.map((card) => (
         <article class="card">
           <h3>{card.title}</h3>

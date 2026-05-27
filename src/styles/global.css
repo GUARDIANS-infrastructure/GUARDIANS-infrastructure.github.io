@@ -873,6 +873,14 @@ main {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.related-paths > .card {
+  grid-template-rows: auto 1fr auto;
+}
+
+.related-paths > .card > .card__link {
+  margin-top: auto;
+}
+
 .site-footer {
   margin-top: 3.5rem;
   background: #eef2f4;
