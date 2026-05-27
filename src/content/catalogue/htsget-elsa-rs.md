@@ -16,5 +16,5 @@ intendedUsers:
   - Software developers
   - Data stewards and custodians
 href: https://github.com/elsa-data/htsget-elsa-rs
-featured: true
+featured: false
 ---

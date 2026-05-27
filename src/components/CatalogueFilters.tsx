@@ -15,6 +15,7 @@ type CatalogueItem = {
   contributingOrganisations: string[];
   contributionTypes: string[];
   href?: string;
+  featured: boolean;
 };
 
 type Props = {
@@ -86,6 +87,15 @@ function FilterGroup(props: FilterGroupProps) {
 const matchesOne = (selected: string[], value: string) =>
   selected.length === 0 || selected.includes(value);
 
+const sortFeaturedFirst = (items: CatalogueItem[]) =>
+  [...items].sort((first, second) => {
+    if (first.featured !== second.featured) {
+      return first.featured ? -1 : 1;
+    }
+
+    return first.title.localeCompare(second.title);
+  });
+
 const badgeClassForValue = (value: string) => {
   const className = value
     .toLowerCase()
@@ -99,12 +109,8 @@ const badgeClassForValue = (value: string) => {
 const linkLabelForItem = (item: CatalogueItem) => {
   const href = item.href;
 
-  if (!href) {
-    return "Contact about this item";
-  }
-
-  if (href.startsWith("mailto:")) {
-    return "Contact by email";
+  if (!href || href.startsWith("mailto:")) {
+    return "Enquire";
   }
 
   if (item.outputType === "Software / tool") {
@@ -183,32 +189,38 @@ function InlineLucideIcon(props: { className: string; icon: LucideIconName }) {
 const quickFilters: QuickFilter[] = [
   {
     label: "Find data",
-    description: "Discover public data records that are available or in pilot.",
+    description: "Discover available and pilot data records and repository capabilities.",
     icon: "database-search",
     filters: {
       capability: ["Data discovery", "Data commons and repositories"],
       status: ["Available", "Pilot"],
-      visibility: ["Public"],
     },
   },
   {
     label: "Use a service",
-    description: "Show public services that are available or in pilot.",
+    description: "Browse available and pilot services.",
     icon: "workflow",
     filters: {
       outputType: ["Service"],
       status: ["Available", "Pilot"],
-      visibility: ["Public"],
+    },
+  },
+  {
+    label: "Build infrastructure",
+    description: "Find available tools and infrastructure components for delivery teams.",
+    icon: "blocks",
+    filters: {
+      outputType: ["Software / tool", "Infrastructure component"],
+      status: ["Available"],
     },
   },
   {
     label: "Access guidance",
-    description: "Find public, available guidance material.",
+    description: "Find available guidance for governance, access, and operations.",
     icon: "book-open-check",
     filters: {
       capability: ["Governance, policy and operations"],
       status: ["Available"],
-      visibility: ["Public"],
     },
   },
 ];
@@ -235,22 +247,6 @@ const quickFilterIsActive = (filters: FilterState, quickFilter: QuickFilter) =>
       hasFilterValue(filters, name as FilterName, value),
     ),
   );
-
-const quickFilterValuesByName = quickFilters.reduce(
-  (accumulator, quickFilter) => {
-    for (const [name, values] of Object.entries(quickFilter.filters) as [
-      FilterName,
-      string[],
-    ][]) {
-      accumulator[name] = Array.from(
-        new Set([...(accumulator[name] ?? []), ...values]),
-      );
-    }
-
-    return accumulator;
-  },
-  {} as Partial<FilterState>,
-);
 
 export default function CatalogueFilters(props: Props) {
   const [filters, setFilters] = useState(emptyFilterState);
@@ -281,7 +277,7 @@ export default function CatalogueFilters(props: Props) {
   }, [filters]);
 
   const filteredItems = useMemo(() => {
-    return props.items.filter((item) => {
+    const matchingItems = props.items.filter((item) => {
       return (
         matchesOne(filters.capability, item.capability) &&
         matchesOne(filters.outputType, item.outputType) &&
@@ -289,6 +285,8 @@ export default function CatalogueFilters(props: Props) {
         matchesOne(filters.visibility, item.visibility)
       );
     });
+
+    return sortFeaturedFirst(matchingItems);
   }, [filters, props.items]);
 
   const toggleFilter = (name: FilterName, value: string) => {
@@ -305,20 +303,17 @@ export default function CatalogueFilters(props: Props) {
   const applyQuickFilter = (quickFilter: QuickFilter) => {
     setFilters((current) => {
       const isActive = quickFilterIsActive(current, quickFilter);
-      const next = { ...current };
+      const next = { ...emptyFilterState };
 
-      for (const [name, values] of Object.entries(quickFilterValuesByName) as [
-        FilterName,
-        string[],
-      ][]) {
-        next[name] = current[name].filter((value) => !values.includes(value));
+      if (isActive) {
+        return next;
       }
 
       for (const [name, values] of Object.entries(quickFilter.filters) as [
         FilterName,
         string[],
       ][]) {
-        next[name] = isActive ? next[name] : Array.from(new Set([...next[name], ...values]));
+        next[name] = [...values];
       }
 
       return next;

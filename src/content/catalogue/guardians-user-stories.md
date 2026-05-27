@@ -1,5 +1,5 @@
 ---
-title: GUARDIANS user stories
+title: Human omics research user stories
 summary: Architecture document describing representative user stories for national human omics research data infrastructure.
 userValue: Helps partners, product owners and delivery teams align on user roles, common workflows, system scope and future sources of value.
 capability: Governance, policy and operations

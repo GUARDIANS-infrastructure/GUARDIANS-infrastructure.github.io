@@ -21,4 +21,5 @@ intendedUsers:
   - Infrastructure providers
   - Researchers
 href: https://registry.biocommons.org.au/registry/
+featured: true
 ---

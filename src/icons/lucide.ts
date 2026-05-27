@@ -139,6 +139,11 @@ export const lucideIconSegments = {
       },
     },
   ],
+  blocks: [
+    { type: "rect", attrs: { width: "7", height: "7", x: "14", y: "3", rx: "1" } },
+    { type: "path", attrs: { d: "M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1z" } },
+    { type: "path", attrs: { d: "M21 21v-7a1 1 0 0 0-1-1h-5a1 1 0 0 0-1 1v7" } },
+  ],
   workflow: [
     { type: "rect", attrs: { width: "8", height: "8", x: "3", y: "3", rx: "2" } },
     { type: "path", attrs: { d: "M7 11v4a2 2 0 0 0 2 2h4" } },
