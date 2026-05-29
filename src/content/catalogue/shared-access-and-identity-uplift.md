@@ -16,7 +16,6 @@ contributionTypes:
   - Governance / expertise
   - Standards / interoperability
   - Program coordination
-
 intendedUsers:
   - Infrastructure providers
   - Researchers

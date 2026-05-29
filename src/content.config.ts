@@ -2,6 +2,7 @@ import { defineCollection, z } from "astro:content";
 import {
   capabilityValues,
   contributionTypes,
+  deliveryUnitValues,
   intendedUserValues,
   organisationNames,
   outputTypes,
@@ -39,4 +40,17 @@ const activity = defineCollection({
   }),
 });
 
-export const collections = { activity, catalogue };
+const partnerContributions = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    order: z.number(),
+    leadOrganisations: z.array(z.enum(organisationNames)),
+    deliveryUnits: z.array(z.enum(deliveryUnitValues)).default([]),
+    collaboratingOrganisations: z.array(z.enum(organisationNames)).default([]),
+    description: z.string(),
+    capabilityAreas: z.array(z.enum(capabilityValues)),
+  }),
+});
+
+export const collections = { activity, catalogue, "partner-contributions": partnerContributions };

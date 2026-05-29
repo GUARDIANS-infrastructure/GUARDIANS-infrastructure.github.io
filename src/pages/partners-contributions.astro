@@ -2,8 +2,11 @@
 import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import ProjectContributionCard from "../components/ProjectContributionCard.astro";
-import { projectContributions } from "../data/partnersContributions";
 import { withBase } from "../utils/paths";
+
+const projectContributions = (await getCollection("partner-contributions"))
+  .sort((first, second) => first.data.order - second.data.order)
+  .map((entry) => entry.data);
 ---
 
 <MainLayout

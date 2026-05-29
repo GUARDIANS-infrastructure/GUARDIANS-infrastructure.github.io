@@ -152,18 +152,3 @@ export const lucideIconSegments = {
 } as const satisfies Record<string, readonly IconSegment[]>;
 
 export type LucideIconName = keyof typeof lucideIconSegments;
-
-export const lucideIconMarkup = Object.fromEntries(
-  Object.entries(lucideIconSegments).map(([name, segments]) => [
-    name,
-    segments
-      .map((segment) => {
-        const attrs = Object.entries(segment.attrs)
-          .map(([key, value]) => `${key}="${value}"`)
-          .join(" ");
-
-        return `<${segment.type} ${attrs} />`;
-      })
-      .join(""),
-  ]),
-) as Record<LucideIconName, string>;
