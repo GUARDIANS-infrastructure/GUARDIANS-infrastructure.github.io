@@ -1,5 +1,3 @@
-import { site } from "./site";
-
 type TextSegment = string | {
   text: string;
   href: string;
@@ -137,8 +135,8 @@ export const aboutContent = {
         title: "Contact",
         description:
           "Get in touch about using resources, collaboration, media, funding, or site feedback.",
-        href: '/contact',
-        linkLabel: "Email the team",
+        href: "/contact",
+        linkLabel: "Contact the team",
       },
     ],
   },

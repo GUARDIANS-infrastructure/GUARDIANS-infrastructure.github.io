@@ -2,7 +2,8 @@
 import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import { homeContent } from "../data/home";
-import { capabilities, partnerLogos, site } from "../data/site";
+import { partnerLogos } from "../data/logos";
+import { capabilities, site } from "../data/site";
 import { withBase } from "../utils/paths";
 
 const activityItems = (await getCollection("activity"))

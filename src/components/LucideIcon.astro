@@ -1,5 +1,5 @@
 ---
-import { lucideIconMarkup, type LucideIconName } from "../icons/lucide";
+import { lucideIconSegments, type LucideIconName } from "../icons/lucide";
 
 interface Props {
   name: LucideIconName;
@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { name, class: className } = Astro.props;
+const segments = lucideIconSegments[name];
 ---
 
 <svg
@@ -18,5 +19,20 @@ const { name, class: className } = Astro.props;
   stroke-width="2"
   stroke-linecap="round"
   stroke-linejoin="round"
-  set:html={lucideIconMarkup[name]}
-/>
+>
+  {segments.map((segment) => {
+    if (segment.type === "circle") {
+      return <circle {...segment.attrs} />;
+    }
+
+    if (segment.type === "ellipse") {
+      return <ellipse {...segment.attrs} />;
+    }
+
+    if (segment.type === "rect") {
+      return <rect {...segment.attrs} />;
+    }
+
+    return <path {...segment.attrs} />;
+  })}
+</svg>

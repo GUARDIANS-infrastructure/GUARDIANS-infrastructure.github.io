@@ -1,5 +1,5 @@
 ---
-import { organisationLogos } from "../data/partnersContributions";
+import { projectOrganisationLogos } from "../data/logos";
 import type { DeliveryUnitName, OrganisationName } from "../data/vocabularies";
 import { withBase } from "../utils/paths";
 
@@ -15,13 +15,15 @@ interface Props {
 }
 
 const { project } = Astro.props;
+const hasDeliveryUnits = Boolean(project.deliveryUnits?.length);
+const hasCollaboratingOrganisations = Boolean(project.collaboratingOrganisations?.length);
 ---
 
 <article class="project-card">
   <div class="project-card__header">
     <div class="project-card__logos" aria-label="Lead partner organisations">
       {project.leadOrganisations.map((organisation) => {
-        const logo = organisationLogos[organisation];
+        const logo = projectOrganisationLogos[organisation];
 
         return (
           <div class="project-card__logo-tile">
@@ -40,16 +42,16 @@ const { project } = Astro.props;
   </div>
   <div class="project-card__body">
     <p>{project.description}</p>
-    {(project.deliveryUnits?.length || project.collaboratingOrganisations?.length) && (
+    {(hasDeliveryUnits || hasCollaboratingOrganisations) && (
       <p class="project-card__meta">
-        {project.deliveryUnits?.length && (
+        {hasDeliveryUnits && (
           <>
             <strong>Delivery unit{project.deliveryUnits.length === 1 ? "" : "s"}:</strong>{" "}
             {project.deliveryUnits.join(", ")}
           </>
         )}
-        {project.deliveryUnits?.length && project.collaboratingOrganisations?.length ? " · " : ""}
-        {project.collaboratingOrganisations?.length && (
+        {hasDeliveryUnits && hasCollaboratingOrganisations ? " · " : ""}
+        {hasCollaboratingOrganisations && (
           <>
             <strong>Collaborating organisation{project.collaboratingOrganisations.length === 1 ? "" : "s"}:</strong>{" "}
             {project.collaboratingOrganisations.join(", ")}

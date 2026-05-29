@@ -14,10 +14,6 @@ export const homeContent = {
   },
   journey: {
     eyebrow: "Researcher view",
-    title:
-      "",
-    intro:
-      "",
     image: {
       src: "/assets/guardians-user-journey.svg",
       alt: "Researcher-centric GUARDIANS user journey",

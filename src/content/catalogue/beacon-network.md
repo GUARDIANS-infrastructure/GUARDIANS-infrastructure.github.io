@@ -4,7 +4,7 @@ summary: Catalogue capability for locating and describing Australian human omics
 userValue: Helps researchers discover relevant datasets and understand the next step for requesting access.
 capability: Data discovery
 outputType: Service
-status: Pilot 
+status: Pilot
 visibility: Public
 leadOrganisations:
   - Australian BioCommons
