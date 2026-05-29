@@ -1,7 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import { homeContent } from "../data/home";
-import { capabilities, evidenceItems, partnerLogos, site } from "../data/site";
+import { activityItems, capabilities, partnerLogos, site } from "../data/site";
 import { withBase } from "../utils/paths";
 ---
 
@@ -94,16 +94,16 @@ import { withBase } from "../utils/paths";
   <section class="section section-card">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">{homeContent.evidence.eyebrow}</span>
-        <h2 class="section-title">{homeContent.evidence.title}</h2>
+        <span class="eyebrow">{homeContent.activity.eyebrow}</span>
+        <h2 class="section-title">{homeContent.activity.title}</h2>
       </div>
     </div>
     <div class="grid grid-3">
-      {evidenceItems.map((item) => (
+      {activityItems.map((item) => (
         <article class="card">
           <h3>{item.title}</h3>
           <p>{item.description}</p>
-          <a class="card__link" href={withBase(item.href)}>{homeContent.evidence.itemLinkLabel}</a>
+          <a class="card__link" href={withBase(item.href)}>{homeContent.activity.itemLinkLabel}</a>
         </article>
       ))}
     </div>

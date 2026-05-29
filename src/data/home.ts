@@ -52,10 +52,10 @@ export const homeContent = {
       href: "/partners-contributions",
     },
   },
-  evidence: {
+  activity: {
     eyebrow: "Activity",
-    title: "Public program outputs",
-    itemLinkLabel: "View related entry",
+    title: "Recent activity and outputs",
+    itemLinkLabel: "Read more",
   },
   nextStep: {
     eyebrow: "Next step",
