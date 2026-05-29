@@ -137,7 +137,7 @@ export const aboutContent = {
         title: "Contact",
         description:
           "Get in touch about using resources, collaboration, media, funding, or site feedback.",
-        href: `mailto:${site.contactEmail}`,
+        href: '/contact',
         linkLabel: "Email the team",
       },
     ],
