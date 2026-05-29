@@ -27,27 +27,6 @@ export const navigation = [
   { href: "/contact", label: "Contact" },
 ];
 
-export const activityItems = [
-  {
-    title: "Global collaboration on AI and biomedical data infrastructure",
-    description:
-      "BioCommons hosted Prof Robert Grossman and international research infrastructure experts for strategic discussions and technical demonstrations spanning Gen3, data commons, federated access, security, governance, and AI-ready biomedical infrastructure.",
-    href: "https://www.biocommons.org.au/news/gen3-robert-grossman",
-  },
-  {
-    title: "SeqHaven supports secure genomic data sharing",
-    description:
-      "QIMR Berghofer launched SeqHaven through GUARDIANS to support safe, controlled transfer of large human genomics datasets across Australian and international research collaborations.",
-    href: "https://www.biocommons.org.au/news/seqhaven-guardians-qimr-berghofer",
-  },
-  {
-    title: "GUARDIANS partners meet in Brisbane",
-    description:
-      "Partners gathered to review Year 1 progress, align Year 2 activities, and workshop data commons, access control, platform integration, ELSI, cybersecurity, and interoperability priorities.",
-    href: "https://www.biocommons.org.au/news/guardians-meeting-2025",
-  },
-];
-
 const logoFor = (
   name: OrganisationName,
   className?: string,

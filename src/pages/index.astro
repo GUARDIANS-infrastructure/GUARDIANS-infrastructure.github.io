@@ -1,8 +1,13 @@
 ---
+import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import { homeContent } from "../data/home";
-import { activityItems, capabilities, partnerLogos, site } from "../data/site";
+import { capabilities, partnerLogos, site } from "../data/site";
 import { withBase } from "../utils/paths";
+
+const activityItems = (await getCollection("activity"))
+  .sort((first, second) => second.data.date.getTime() - first.data.date.getTime())
+  .slice(0, 3);
 ---
 
 <MainLayout title="Home" pathname={Astro.url.pathname}>
@@ -101,9 +106,9 @@ import { withBase } from "../utils/paths";
     <div class="grid grid-3">
       {activityItems.map((item) => (
         <article class="card">
-          <h3>{item.title}</h3>
-          <p>{item.description}</p>
-          <a class="card__link" href={withBase(item.href)}>{homeContent.activity.itemLinkLabel}</a>
+          <h3>{item.data.title}</h3>
+          <p>{item.data.summary}</p>
+          <a class="card__link" href={withBase(item.data.href)}>{homeContent.activity.itemLinkLabel}</a>
         </article>
       ))}
     </div>

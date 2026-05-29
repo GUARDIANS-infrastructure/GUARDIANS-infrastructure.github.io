@@ -28,4 +28,15 @@ const catalogue = defineCollection({
   }),
 });
 
-export const collections = { catalogue };
+const activity = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    summary: z.string(),
+    date: z.date(),
+    type: z.enum(["Meeting", "News", "Output", "Release"]),
+    href: z.string(),
+  }),
+});
+
+export const collections = { activity, catalogue };
