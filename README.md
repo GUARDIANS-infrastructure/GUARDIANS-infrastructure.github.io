@@ -9,4 +9,5 @@ The [deploy-pages](https://github.com/GUARDIANS-infrastructure/website/actions/w
 ## Structure
 
 * Design documentation lives in `/design`
+* Editor and maintainer notes live in `/docs`
 * Website source lives in `/src`
