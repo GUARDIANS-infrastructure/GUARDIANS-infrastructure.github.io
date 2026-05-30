@@ -1,1 +1,1 @@
-Follow the instructions in `design/02.implementation-brief.md`.
+Follow the instructions in `docs/design/02.implementation-brief.md`.
