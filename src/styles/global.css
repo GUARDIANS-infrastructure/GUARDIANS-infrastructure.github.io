@@ -10,8 +10,9 @@
   --accent: #205a86;
   --accent-strong: #173f5f;
   --accent-soft: #e7f0f6;
+  --link-accent: #2b6f9f;
   --accent-glow: rgba(32, 90, 134, 0.12);
-  --accent-underline: rgba(32, 90, 134, 0.35);
+  --accent-underline: rgba(43, 111, 159, 0.38);
   --accent-border: rgba(32, 90, 134, 0.24);
   --accent-border-strong: rgba(32, 90, 134, 0.34);
   --accent-wash: rgba(32, 90, 134, 0.06);
@@ -41,7 +42,7 @@ body {
 }
 
 a {
-  color: var(--accent-strong);
+  color: var(--link-accent);
   text-decoration-color: var(--accent-underline);
   text-underline-offset: 0.18em;
 }
@@ -433,7 +434,7 @@ main {
   align-items: center;
   gap: 0.35rem;
   flex: 0 0 auto;
-  color: var(--accent-strong);
+  color: var(--link-accent);
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
