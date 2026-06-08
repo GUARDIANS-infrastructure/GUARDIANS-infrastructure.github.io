@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
+import LucideIcon from "../components/LucideIcon.astro";
 import { homeContent } from "../data/home";
 import { partnerLogos } from "../data/logos";
 import { capabilities, site } from "../data/site";
@@ -68,7 +69,10 @@ const activityItems = (await getCollection("activity"))
       {
         capabilities.map((capability) => (
           <article class="card">
-            <h3>{capability.name}</h3>
+            <div class="card__title-row">
+              <LucideIcon name={capability.icon} class="card__context-icon" />
+              <h3>{capability.name}</h3>
+            </div>
             <p>{capability.summary}</p>
             <a class="card__link" href={withBase(`/services-resources?capability=${encodeURIComponent(capability.name)}#catalogue`)}>
               {homeContent.capabilities.itemLinkLabel}
@@ -76,24 +80,6 @@ const activityItems = (await getCollection("activity"))
           </article>
         ))
       }
-    </div>
-  </section>
-
-  <section class="section section-card">
-    <div class="section-heading">
-      <div>
-        <span class="eyebrow">{homeContent.partners.eyebrow}</span>
-        <h2 class="section-title">{homeContent.partners.title}</h2>
-      </div>
-      <a class="card__link" href={withBase(homeContent.partners.link.href)}>{homeContent.partners.link.label}</a>
-    </div>
-    <p class="lede">{homeContent.partners.intro}</p>
-    <div class="partner-logo-strip">
-      {partnerLogos.map((logo) => (
-        <div class={`logo-tile ${logo.tileClassName ?? ""}`.trim()}>
-          <img class={logo.className} src={withBase(logo.src)} alt={logo.alt} />
-        </div>
-      ))}
     </div>
   </section>
 
@@ -111,6 +97,24 @@ const activityItems = (await getCollection("activity"))
           <p>{item.data.summary}</p>
           <a class="card__link" href={withBase(item.data.href)}>{homeContent.activity.itemLinkLabel}</a>
         </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-card">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">{homeContent.partners.eyebrow}</span>
+        <h2 class="section-title">{homeContent.partners.title}</h2>
+      </div>
+      <a class="card__link" href={withBase(homeContent.partners.link.href)}>{homeContent.partners.link.label}</a>
+    </div>
+    <p class="lede">{homeContent.partners.intro}</p>
+    <div class="partner-logo-strip">
+      {partnerLogos.map((logo) => (
+        <div class={`logo-tile ${logo.tileClassName ?? ""}`.trim()}>
+          <img class={logo.className} src={withBase(logo.src)} alt={logo.alt} />
+        </div>
       ))}
     </div>
   </section>

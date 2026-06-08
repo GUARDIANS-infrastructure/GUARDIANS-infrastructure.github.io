@@ -36,9 +36,18 @@ export const partnerLogos = [
 ];
 
 export const funderLogos = [
-  logoFor("Australian BioCommons"),
-  logoFor("Bioplatforms Australia"),
-  logoFor("National Collaborative Research Infrastructure Strategy"),
+  {
+    ...logoFor("Australian BioCommons"),
+    href: "https://www.biocommons.org.au/",
+  },
+  {
+    ...logoFor("Bioplatforms Australia"),
+    href: "https://bioplatforms.com/",
+  },
+  {
+    ...logoFor("National Collaborative Research Infrastructure Strategy"),
+    href: "https://www.education.gov.au/ncris",
+  },
 ];
 
 export const projectOrganisationLogos: Partial<Record<OrganisationName, { alt: string; src: string; className: string }>> = {

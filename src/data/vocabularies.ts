@@ -1,35 +1,47 @@
+import type { LucideIconName } from "../icons/lucide";
+
 export const capabilities = [
   {
     name: "Data discovery",
+    icon: "database-search",
     summary:
       "National catalogues and metadata patterns that help researchers find relevant human omics datasets.",
   },
   {
     name: "Data commons and repositories",
+    icon: "database",
     summary:
       "Repository and data commons capabilities for nationally significant human omics collections.",
   },
   {
     name: "Scalable analysis environments",
+    icon: "workflow",
     summary:
       "Controlled computing environments and workflows for human omics analysis at scale.",
   },
   {
     name: "Trusted researcher identity",
+    icon: "badge-check",
     summary:
       "Researcher identity, trust, and assurance capabilities that support access across national services.",
   },
   {
     name: "Data access management",
+    icon: "key-round",
     summary:
       "Technical and governance workflows for requests, approvals, entitlements, and controlled access.",
   },
   {
     name: "Governance, policy and operations",
+    icon: "book-open-check",
     summary:
       "Guidance, access models, and operational patterns that enable ethical and compliant national delivery.",
   },
-] as const;
+] as const satisfies readonly {
+  name: string;
+  icon: LucideIconName;
+  summary: string;
+}[];
 
 export const capabilityValues = capabilities.map((capability) => capability.name) as [
   (typeof capabilities)[number]["name"],

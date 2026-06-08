@@ -56,6 +56,13 @@ const hrefFor = (href: string) => href.startsWith("/") ? withBase(href) : href;
           : <a href={hrefFor(segment.href)}>{segment.text}</a>
       )}
     </p>
+    <figure class="section-photo">
+      <img
+        src={withBase("/assets/meeting_02_welcome.jpg")}
+        alt="GUARDIANS partners attending a 2025 Brisbane meeting session"
+        loading="lazy"
+      />
+    </figure>
   </section>
 
   <section class="section section-card">

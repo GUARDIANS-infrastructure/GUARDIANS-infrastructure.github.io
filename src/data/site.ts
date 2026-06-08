@@ -9,7 +9,7 @@ export {
 export const site = {
   title: "GUARDIANS",
   description:
-    "A national partnership building secure, interoperable infrastructure for human omics research.",
+    "A national partnership building digital infrastructure for human omics research.",
   siteFeedbackEmail: "conrad@biocommons.org.au",
   collaborationEnquiryEmail: "bernie@biocommons.org.au",
   coordinationEnquiryEmail: "jess@biocommons.org.au",
