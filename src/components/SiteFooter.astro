@@ -9,9 +9,14 @@ import { withBase } from "../utils/paths";
     <div class="site-footer__meta">
       <div class="site-footer__logos" aria-label="Funder logos">
         {funderLogos.map((logo) => (
-          <div class="site-footer__logo-tile">
+          <a
+            class="site-footer__logo-tile"
+            href={logo.href}
+            target="_blank"
+            rel="noreferrer"
+          >
             <img src={withBase(logo.src)} alt={logo.alt} />
-          </div>
+          </a>
         ))}
       </div>
       <div class="site-footer__meta-text">

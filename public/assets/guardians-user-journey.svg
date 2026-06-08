@@ -7,7 +7,7 @@
    aria-labelledby="title desc"
    version="1.1"
    id="svg65"
-   sodipodi:docname="guardians-user-journey-text-optimized.svg"
+   sodipodi:docname="guardians-user-journey.svg"
    inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -22,9 +22,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="2.6863177"
-     inkscape:cx="239.54724"
-     inkscape:cy="170.49361"
+     inkscape:zoom="1.8995135"
+     inkscape:cx="442.48172"
+     inkscape:cy="200.05122"
      inkscape:window-width="2560"
      inkscape:window-height="1318"
      inkscape:window-x="0"
@@ -112,37 +112,43 @@
      width="896.02209"
      height="56.1"
      fill="#186f94"
-     id="rect6" />
+     id="rect6"
+     style="fill:#205a86;fill-opacity:1" />
   <text
      class="font"
-     x="448.011"
+     x="448.01099"
      y="36"
      text-anchor="middle"
-     font-size="24"
-     fill="#fff"
+     font-size="24px"
+     fill="#ffffff"
      font-weight="700"
-     id="text6">A user journey for Australian human omics research</text>
+     id="text6">A researcher user journey for Australian human omics data</text>
   <!-- Stage banners -->
   <polygon
      points="15,69.8 185,69.8 185,104 100,112.5 15,104"
      fill="#ec0078"
-     id="polygon6" />
+     id="polygon6"
+     style="fill:#ed087c;fill-opacity:1" />
   <polygon
      points="192.5,69.8 362,69.8 362,104 277,112.5 192.5,104"
      fill="#b7198f"
-     id="polygon7" />
+     id="polygon7"
+     style="fill:#b21e8d;fill-opacity:1" />
   <polygon
      points="369.5,69.8 539,69.8 539,104 454,112.5 369.5,104"
      fill="#5cc0b2"
-     id="polygon8" />
+     id="polygon8"
+     style="fill:#5ac3b1;fill-opacity:1" />
   <polygon
      points="546.5,69.8 716,69.8 716,104 631,112.5 546.5,104"
      fill="#2eb67d"
-     id="polygon9" />
+     id="polygon9"
+     style="fill:#2cb77c;fill-opacity:1" />
   <polygon
      points="723.5,69.8 893,69.8 893,104 808,112.5 723.5,104"
      fill="#ffa31a"
-     id="polygon10" />
+     id="polygon10"
+     style="fill:#f49f1d;fill-opacity:1" />
   <text
      class="font"
      x="100"
@@ -225,7 +231,8 @@
   <path
      d="M22 245h84l25 18-15 10v35c0 9-7 16-16 16H22c-9 0-16-7-16-16v-47c0-9 7-16 16-16z"
      fill="#ec0078"
-     id="path18" />
+     id="path18"
+     style="fill:#ed087c;fill-opacity:1" />
   <text
      class="bubbleText"
      x="61"
@@ -305,7 +312,8 @@
      height="35"
      rx="5"
      fill="#b7198f"
-     id="rect27" />
+     id="rect27"
+     style="fill:#b21e8d;fill-opacity:1" />
   <text
      class="boxText"
      x="274.5"
@@ -322,7 +330,8 @@
   <path
      d="M352 136h75c9 0 16 7 16 16v73c0 9-7 16-16 16h-75c-9 0-16-7-16-16v-49l-34-13 36-15c2-7 7-12 14-12z"
      fill="#5cc0b2"
-     id="path28" />
+     id="path28"
+     style="fill:#5ac3b1;fill-opacity:1" />
   <text
      class="bubbleText"
      x="390"
@@ -357,7 +366,8 @@
      height="35"
      rx="5"
      fill="#5cc0b2"
-     id="rect35" />
+     id="rect35"
+     style="fill:#5ac3b1;fill-opacity:1" />
   <text
      class="boxText"
      x="449.5"
@@ -374,7 +384,8 @@
   <path
      d="M491 156h68c9 0 16 7 16 16v35c0 9-7 16-16 16h-40v22l-25-22h-3c-9 0-16-7-16-16v-35c0-9 7-16 16-16z"
      fill="#2eb67d"
-     id="path37" />
+     id="path37"
+     style="fill:#2cb77c;fill-opacity:1" />
   <text
      class="bubbleText"
      x="525"
@@ -418,7 +429,8 @@
   <path
      d="M598 127h76c9 0 16 7 16 16v60c0 9-7 16-16 16h-44l-4 28-20-28h-8c-9 0-16-7-16-16v-60c0-9 7-16 16-16z"
      fill="#2eb67d"
-     id="path44" />
+     id="path44"
+     style="fill:#2cb77c;fill-opacity:1" />
   <text
      class="bubbleText"
      x="636"
@@ -469,7 +481,8 @@
      height="35"
      rx="5"
      fill="#2eb67d"
-     id="rect52" />
+     id="rect52"
+     style="fill:#2cb77c;fill-opacity:1" />
   <text
      class="boxText"
      x="697"
@@ -499,7 +512,8 @@
   <path
      d="M787 124h86c9 0 16 7 16 16v90c0 9-7 16-16 16h-70c-9 0-16-7-16-16v-43l-15-13 15-18z"
      fill="#ffa31a"
-     id="path55" />
+     id="path55"
+     style="fill:#f49f1d;fill-opacity:1" />
   <text
      class="bubbleText"
      x="837"

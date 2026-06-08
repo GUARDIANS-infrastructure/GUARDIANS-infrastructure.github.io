@@ -1,8 +1,8 @@
 export const homeContent = {
   hero: {
-    eyebrow: "National human omics infrastructure",
+    eyebrow: "National human omics digital infrastructure",
     intro:
-      "GUARDIANS is an Australian BioCommons coordinated program working with national partners to improve discovery, access, governance, and analysis pathways for sensitive human omics data.",
+      "GUARDIANS is an Australian BioCommons-coordinated program working with national partners to improve data discovery, governance, secure access, and scalable analysis pathways for sensitive human omics data.",
     primaryCta: {
       label: "Explore services & resources",
       href: "/services-resources",
@@ -13,7 +13,6 @@ export const homeContent = {
     },
   },
   journey: {
-    eyebrow: "Researcher view",
     image: {
       src: "/assets/guardians-user-journey.svg",
       alt: "Researcher-centric GUARDIANS user journey",
@@ -21,11 +20,10 @@ export const homeContent = {
   },
   why: {
     eyebrow: "Why it matters",
-    title: "Why GUARDIANS exists",
+    title: "Why GUARDIANS matters",
     paragraphs: [
-      "Human omics research is at a transformative point, where massive data volumes and increasing clinical relevance demand robust digital infrastructure. Through Bioplatforms Australia and the NCRIS-funded GUARDIANS program, Australian BioCommons is delivering national-scale capabilities to support research using sensitive human omics data.",
-      "In partnership with organisations across the Australian research and data infrastructure ecosystem, we are establishing harmonised identity and access management, flagship research data commons, and platforms for data governance, sharing, and analytics across institutional boundaries. These services are enabling reproducible, secure, and FAIR-compliant use of key human omics data assets.",
-      "GUARDIANS addresses not just the technical stack but the invisible foundations — trust and identity, standards compliance, and sustainable data stewardship — without which the promise of technologies like AI and population-scale analysis cannot be safely or equitably realised. By embedding best practices in platform architecture, governance, and community-led standards, GUARDIANS is creating a reusable model for secure human omics data sharing and analytics in the Australian context."
+      "Human omics research is at a transformative point, where massive data volumes and increasing clinical relevance demand robust digital infrastructure. Through Bioplatforms Australia and the NCRIS-funded GUARDIANS program, Australian BioCommons and partner organisations are delivering national-scale capabilities to support biomedical research using sensitive human omics data.",
+      "GUARDIANS addresses not just the technical stack but the invisible foundations — trust and identity, protocols and standards compliance, and sustainable data stewardship — without which the promise of technologies like AI and population-scale analysis cannot be safely or equitably realised. By embedding best practices in platform architecture, governance, and community-led standards, GUARDIANS is creating a reusable model for secure human omics data sharing and analytics in the Australian context."
     ],
     link: {
       label: "Read the program background",
@@ -38,6 +36,11 @@ export const homeContent = {
     intro: "",
     itemLinkLabel: "View matching catalogue items",
   },
+  activity: {
+    eyebrow: "Activity",
+    title: "Recent activity and outputs",
+    itemLinkLabel: "Read more",
+  },
   partners: {
     eyebrow: "Delivered with partners",
     title: "National coordination, distributed delivery",
@@ -47,11 +50,6 @@ export const homeContent = {
       label: "Browse partner entries",
       href: "/partners-contributions",
     },
-  },
-  activity: {
-    eyebrow: "Activity",
-    title: "Recent activity and outputs",
-    itemLinkLabel: "Read more",
   },
   nextStep: {
     eyebrow: "Next step",

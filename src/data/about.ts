@@ -28,7 +28,12 @@ export const aboutContent = {
         "Australia's human genomics research datasets present unparalleled opportunities to enhance our understanding of health, disease mechanisms, and precision medicine. However, data fragmentation, access barriers, and governance complexity limit their use. GUARDIANS is addressing these challenges by developing standardised interfaces, harmonised data formats, ethical access rules, and interoperable institutional policies and technologies. Delivering these vital components will enable researchers to discover, access, and analyse critical data from multiple research datasets, unlocking opportunities for discovery.",
       ],
       [
-        "GUARDIANS aligns with international standards, including those of the Global Alliance for Genomics and Health (GA4GH), while addressing Australia's specific ethical, legal, and social context. Inspired by the ",
+        "GUARDIANS aligns with international standards, including those of the ",
+        {
+          text: "Global Alliance for Genomics and Health (GA4GH)",
+          href: "https://www.ga4gh.org/",
+        },
+        ", while addressing Australia's specific ethical, legal, and social context. Inspired by the ",
         {
           text: "NCRIS Roadmap",
           href: "https://www.education.gov.au/national-research-infrastructure/2021-national-research-infrastructure-roadmap",
