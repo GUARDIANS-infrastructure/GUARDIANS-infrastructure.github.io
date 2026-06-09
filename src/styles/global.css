@@ -928,6 +928,10 @@ main {
   color: var(--text);
 }
 
+.site-footer__meta-text p:last-child {
+  font-size: 0.88rem;
+}
+
 .site-footer__logos {
   display: flex;
   flex-wrap: wrap;
