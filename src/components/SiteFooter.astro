@@ -7,7 +7,7 @@ import { withBase } from "../utils/paths";
 <footer class="site-footer">
   <div class="shell">
     <div class="site-footer__meta">
-      <div class="site-footer__logos" aria-label="Funder logos">
+      <nav class="site-footer__logos" aria-label="Funder logos">
         {funderLogos.map((logo) => (
           <a
             class="site-footer__logo-tile"
@@ -18,7 +18,7 @@ import { withBase } from "../utils/paths";
             <img src={withBase(logo.src)} alt={logo.alt} />
           </a>
         ))}
-      </div>
+      </nav>
       <div class="site-footer__meta-text">
         <p>{site.fundingAcknowledgement}</p>
         <p>{site.hostingAcknowledgement}</p>
