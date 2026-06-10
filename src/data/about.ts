@@ -56,7 +56,7 @@ export const aboutContent = {
     eyebrow: "Coordination",
     title: "Coordination and delivery",
     paragraph: [
-      "Australian BioCommons coordinates the program, with delivery distributed across ",
+      "Australian BioCommons coordinates the program, with delivery shared across ",
       {
         text: "national partners",
         href: "/partners-contributions",

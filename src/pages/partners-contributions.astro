@@ -17,9 +17,29 @@ const projectContributions = (await getCollection("partner-contributions"))
   <section class="page-header stack-md">
     <span class="eyebrow">Attribution</span>
     <h1>Partners &amp; contributions</h1>
-    <p>
-      GUARDIANS is coordinated by Australian BioCommons and delivered with national partners. Contributions include public-facing services, data resources, software tools and infrastructure components, documentation, guidance, training materials, and enabling work such as access uplift, infrastructure operations, governance expertise, stewardship, and standards alignment.
-    </p>
+    <div class="partner-intro">
+      <p>
+        GUARDIANS is coordinated by Australian BioCommons and delivered with national partners. Contributions include public-facing services, data resources, software tools and infrastructure components, documentation, guidance, training materials, and enabling work such as access uplift, infrastructure operations, governance expertise, stewardship, and standards alignment.
+      </p>
+      <div class="partner-meeting-photos" aria-label="GUARDIANS in-person meeting photos">
+        <figure class="partner-meeting-photo">
+          <img
+            src={withBase("/assets/meeting_01_group_small_square.jpg")}
+            alt="GUARDIANS partners gathered at the 2025 Sydney in-person meeting"
+            loading="lazy"
+          />
+          <figcaption>Sydney, 2025</figcaption>
+        </figure>
+        <figure class="partner-meeting-photo">
+          <img
+            src={withBase("/assets/meeting_02_group.jpg")}
+            alt="GUARDIANS partners gathered at the 2025 Brisbane in-person meeting"
+            loading="lazy"
+          />
+          <figcaption>Brisbane, 2025</figcaption>
+        </figure>
+      </div>
+    </div>
   </section>
 
   <section class="section section-card">
