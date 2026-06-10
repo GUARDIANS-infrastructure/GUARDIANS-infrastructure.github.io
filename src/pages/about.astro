@@ -56,13 +56,29 @@ const hrefFor = (href: string) => href.startsWith("/") ? withBase(href) : href;
           : <a href={hrefFor(segment.href)}>{segment.text}</a>
       )}
     </p>
-    <figure class="section-photo">
-      <img
-        src={withBase("/assets/meeting_02_welcome.jpg")}
-        alt="GUARDIANS partners attending a 2025 Brisbane meeting session"
-        loading="lazy"
-      />
-    </figure>
+    <div class="coordination-photo-strip">
+      <figure class="coordination-photo-strip__side">
+        <img
+          src={withBase("/assets/meeting_01_group.jpg")}
+          alt="GUARDIANS partners gathered at the Sydney in-person meeting"
+          loading="lazy"
+        />
+      </figure>
+      <figure class="section-photo">
+        <img
+          src={withBase("/assets/meeting_02_welcome.jpg")}
+          alt="GUARDIANS partners attending a 2025 Brisbane meeting session"
+          loading="lazy"
+        />
+      </figure>
+      <figure class="coordination-photo-strip__side">
+        <img
+          src={withBase("/assets/meeting_02_group.jpg")}
+          alt="GUARDIANS partners gathered at the Brisbane in-person meeting"
+          loading="lazy"
+        />
+      </figure>
+    </div>
   </section>
 
   <section class="section section-card">
