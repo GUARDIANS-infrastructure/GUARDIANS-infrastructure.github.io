@@ -118,6 +118,27 @@ img {
   box-shadow: inset 0 0 0 1px var(--accent-glow);
 }
 
+.draft-banner {
+  border-bottom: 1px solid rgba(216, 230, 225, 0.9);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.88rem;
+}
+
+.draft-banner .shell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+  text-align: center;
+}
+
+.draft-banner strong {
+  letter-spacing: 0.02em;
+}
+
 main {
   padding: 2.25rem 0 4.5rem;
 }

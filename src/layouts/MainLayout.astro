@@ -27,6 +27,12 @@ const { title, description = site.description, pathname } = Astro.props;
   </head>
   <body>
     <SiteHeader pathname={pathname} />
+    <div class="draft-banner" role="status">
+      <div class="shell">
+        <strong>Draft site</strong>
+        <span>Content and catalogue entries are under active review.</span>
+      </div>
+    </div>
     <main class="shell">
       <slot />
     </main>
