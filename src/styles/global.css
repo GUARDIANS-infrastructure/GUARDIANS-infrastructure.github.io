@@ -426,6 +426,20 @@ main {
   gap: 0.65rem;
 }
 
+.card__title-link {
+  color: inherit;
+  text-decoration-color: transparent;
+  transition:
+    color 160ms ease,
+    text-decoration-color 160ms ease;
+}
+
+.card__title-link:hover,
+.card__title-link:focus-visible {
+  color: var(--link-accent);
+  text-decoration-color: var(--accent-underline);
+}
+
 .card p {
   margin: 0;
   color: var(--muted);
@@ -794,16 +808,23 @@ main {
 }
 
 .filters__group legend {
-  padding: 0;
-  color: var(--text);
+  width: fit-content;
+  padding: 0.18rem 0.5rem;
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.78rem;
   font-weight: 700;
+  letter-spacing: 0.025em;
 }
 
 .filters__chips {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.55rem 0.5rem;
+  margin-top: 0.15rem;
 }
 
 .filters__chip {
@@ -928,6 +949,8 @@ main {
 .site-footer p {
   margin: 0;
   color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .site-footer__meta {
@@ -940,17 +963,9 @@ main {
 .site-footer__meta-text {
   display: grid;
   gap: 0.55rem;
-  max-width: 78ch;
+  max-width: 104ch;
   margin: 0 auto;
   text-align: center;
-}
-
-.site-footer__meta-text p:first-child {
-  color: var(--text);
-}
-
-.site-footer__meta-text p:last-child {
-  font-size: 0.88rem;
 }
 
 .site-footer__logos {

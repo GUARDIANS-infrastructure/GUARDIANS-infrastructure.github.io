@@ -10,27 +10,15 @@ import { withBase } from "../utils/paths";
   pathname={Astro.url.pathname}
   description="Audience-based contact pathways for using services, discussing collaboration, media enquiries, and feedback."
 >
-  <section class="page-header stack-md">
-    <span class="eyebrow">Contact pathways</span>
+  <section class="page-header section section-card stack-md">
     <h1>Contact GUARDIANS</h1>
-    <p>
-      Use the pathway that best matches your reason for getting in touch.
-    </p>
-  </section>
-
-  <section class="section section-card">
-    <div class="section-heading">
-      <div>
-        <h2 class="section-title">Choose a next step</h2>
-      </div>
-    </div>
     <div class="contact-cards">
       <article class="card">
         <div class="card__title-row">
           <LucideIcon name="mouse-pointer-click" class="card__context-icon" />
-          <h3>Use a service or resource</h3>
+          <h3>Using services and resources</h3>
         </div>
-        <p>For researchers, data custodians, or infrastructure users looking for a specific service, resource, or delivery contact.</p>
+        <p>For researchers, data custodians, or infrastructure operators looking for a specific service, resource, or delivery contact.</p>
         <div class="card__footer">
           <a class="card__link" href={`mailto:${site.serviceResourceEmail}`}>Email the team</a>
           <a class="chip" href={withBase("/services-resources")}>Services &amp; resources</a>
@@ -50,7 +38,7 @@ import { withBase } from "../utils/paths";
       <article class="card">
         <div class="card__title-row">
           <LucideIcon name="megaphone" class="card__context-icon" />
-          <h3>Media or funder enquiry</h3>
+          <h3>Communications and operations</h3>
         </div>
         <p>For communications, reporting, program background, or national coordination questions.</p>
         <div class="card__footer">

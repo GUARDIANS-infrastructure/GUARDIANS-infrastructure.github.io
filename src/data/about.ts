@@ -16,10 +16,10 @@ export const aboutContent = {
       "GUARDIANS is a national research infrastructure program focused on secure discovery, access, stewardship, and analysis pathways for sensitive human omics data in Australia.",
   },
   overview: {
-    eyebrow: "Overview",
+    eyebrow: "National context",
     title: "Program overview",
     quote: {
-      text: "User-centric design must lie at the heart of Australia's NDRI system.",
+      text: "“User-centric design must lie at the heart of Australia's NDRI system.”",
       source: "National Digital Research Infrastructure Strategy",
       href: "https://www.education.gov.au/download/18373/national-digital-research-infrastructure-strategy/38409/document/pdf",
     },
@@ -53,19 +53,19 @@ export const aboutContent = {
     ] satisfies TextSegment[][],
   },
   coordination: {
-    eyebrow: "Coordination",
+    eyebrow: "Shared delivery",
     title: "Coordination and delivery",
     paragraph: [
-      "Australian BioCommons coordinates the program, with delivery shared across ",
+      "Australian BioCommons coordinates the program in partnership with Australia’s national human omics research and research infrastructure community. Delivery is shared across ",
       {
-        text: "national partners",
+        text: "program partners",
         href: "/partners-contributions",
       },
-      " contributing trusted researcher identity, data access management, infrastructure operations, repository and commons capability, stewardship, governance expertise, and standards alignment.",
+      " bringing capability in trusted researcher identity, computational infrastructure, data access management, software engineering and systems design, cloud engineering, data repositories and commons, and ethical, legal, and governance expertise.",
     ] satisfies TextSegment[],
   },
   timeline: {
-    eyebrow: "Timeline",
+    eyebrow: "Delivery progress",
     title: "Program timeline",
     items: [
       {
@@ -97,7 +97,7 @@ export const aboutContent = {
     ],
   },
   funding: {
-    eyebrow: "Funding",
+    eyebrow: "NCRIS-enabled infrastructure",
     title: "Funding acknowledgement",
     paragraph: [
       "GUARDIANS is led by Australian BioCommons and delivered with in-kind support from ",
@@ -119,7 +119,7 @@ export const aboutContent = {
     ] satisfies TextSegment[],
   },
   related: {
-    eyebrow: "Related links",
+    eyebrow: "Continue exploring",
     title: "Related program paths",
     cards: [
       {
@@ -134,7 +134,7 @@ export const aboutContent = {
         description:
           "See how national partner projects contribute to GUARDIANS capabilities and delivery.",
         href: "/partners-contributions",
-        linkLabel: "View partner entries",
+        linkLabel: "View partner contributions",
       },
       {
         title: "Contact",

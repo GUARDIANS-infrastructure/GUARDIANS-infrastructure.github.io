@@ -20,8 +20,15 @@ import { withBase } from "../utils/paths";
         ))}
       </nav>
       <div class="site-footer__meta-text">
-        <p>{site.fundingAcknowledgement}</p>
-        <p>{site.hostingAcknowledgement}</p>
+        {site.footerAcknowledgements.map((line) => (
+          <p>
+            {line.map((segment) =>
+              typeof segment === "string"
+                ? segment
+                : <a href={segment.href}>{segment.text}</a>
+            )}
+          </p>
+        ))}
       </div>
     </div>
   </div>

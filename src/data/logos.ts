@@ -28,7 +28,7 @@ export const partnerLogos = [
   logoFor("Australian BioCommons", "logo-mark--wide", "logo-tile--wide"),
   logoFor("Australian Access Federation", "logo-mark--compact", "logo-tile--wide"),
   logoFor("University of Melbourne", "logo-mark--seal", "logo-tile--square"),
-  logoFor("National Compute Infrastructure", "logo-mark--compact", "logo-tile--wide"),
+  logoFor("National Computational Infrastructure", "logo-mark--compact", "logo-tile--wide"),
   logoFor("University of Sydney", "logo-mark--compact", "logo-tile--wide"),
   logoFor("Children's Cancer Institute / Zero Childhood Cancer", "logo-mark--wide", "logo-tile--wide"),
   logoFor("QIMR Berghofer Medical Research Institute", "logo-mark--wide", "logo-tile--wide"),
@@ -52,7 +52,7 @@ export const funderLogos = [
 
 export const projectOrganisationLogos: Partial<Record<OrganisationName, { alt: string; src: string; className: string }>> = {
   "Australian BioCommons": projectLogo("Australian BioCommons", "project-logo--wide"),
-  "National Compute Infrastructure": projectLogo("National Compute Infrastructure", "project-logo--compact"),
+  "National Computational Infrastructure": projectLogo("National Computational Infrastructure", "project-logo--compact"),
   "Australian Access Federation": projectLogo("Australian Access Federation", "project-logo--compact"),
   "University of Melbourne": projectLogo("University of Melbourne", "project-logo--seal"),
   "University of Sydney": projectLogo("University of Sydney", "project-logo--compact"),

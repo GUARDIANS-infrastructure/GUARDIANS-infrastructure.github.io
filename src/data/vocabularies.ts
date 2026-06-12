@@ -117,7 +117,7 @@ export const organisations = [
     logoSrc: "/assets/logos/ncris.png",
   },
   {
-    name: "National Compute Infrastructure",
+    name: "National Computational Infrastructure",
     shortName: "NCI",
     logoSrc: "/assets/logos/nci.png",
   },

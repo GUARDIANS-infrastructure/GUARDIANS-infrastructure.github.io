@@ -9,7 +9,7 @@ visibility: Public
 leadOrganisations:
   - Australian BioCommons
 contributingOrganisations:
-  - National Compute Infrastructure
+  - National Computational Infrastructure
   - Australian Access Federation
   - University of Melbourne
   - University of Sydney

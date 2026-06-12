@@ -29,6 +29,19 @@ const activityItems = (await getCollection("activity"))
     </div>
   </section>
 
+  <section class="section section-card">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">{homeContent.why.eyebrow}</span>
+        <h2 class="section-title">{homeContent.why.title}</h2>
+      </div>
+    </div>
+    <div class="stack-md">
+      {homeContent.why.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      <a class="card__link" href={withBase(homeContent.why.link.href)}>{homeContent.why.link.label}</a>
+    </div>
+  </section>
+
   <div class="section section-card">
     {(homeContent.journey.eyebrow || homeContent.journey.title) && (
       <div class="section-heading">
@@ -47,19 +60,6 @@ const activityItems = (await getCollection("activity"))
   <section class="section section-card">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">{homeContent.why.eyebrow}</span>
-        <h2 class="section-title">{homeContent.why.title}</h2>
-      </div>
-    </div>
-    <div class="stack-md">
-      {homeContent.why.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-      <a class="card__link" href={withBase(homeContent.why.link.href)}>{homeContent.why.link.label}</a>
-    </div>
-  </section>
-
-  <section class="section section-card">
-    <div class="section-heading">
-      <div>
         <span class="eyebrow">{homeContent.capabilities.eyebrow}</span>
         <h2 class="section-title">{homeContent.capabilities.title}</h2>
       </div>
@@ -71,12 +71,13 @@ const activityItems = (await getCollection("activity"))
           <article class="card">
             <div class="card__title-row">
               <LucideIcon name={capability.icon} class="card__context-icon" />
-              <h3>{capability.name}</h3>
+              <h3>
+                <a class="card__title-link" href={withBase(`/services-resources?capability=${encodeURIComponent(capability.name)}#catalogue`)}>
+                  {capability.name}
+                </a>
+              </h3>
             </div>
             <p>{capability.summary}</p>
-            <a class="card__link" href={withBase(`/services-resources?capability=${encodeURIComponent(capability.name)}#catalogue`)}>
-              {homeContent.capabilities.itemLinkLabel}
-            </a>
           </article>
         ))
       }

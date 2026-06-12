@@ -436,10 +436,6 @@ export default function CatalogueFilters(props: Props) {
         </div>
       </details>
 
-      <p class="draft-note">
-        Catalogue entries are draft text and may change as descriptions are refined and approved.
-      </p>
-
       {filteredItems.length === 0 ? (
         <div class="filters__empty">
           No catalogue items match the current filters. Try removing one or

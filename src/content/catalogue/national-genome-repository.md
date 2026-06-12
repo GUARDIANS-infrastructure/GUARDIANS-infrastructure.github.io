@@ -7,7 +7,7 @@ outputType: Data resource
 status: In development
 visibility: Internal
 leadOrganisations:
-  - National Compute Infrastructure
+  - National Computational Infrastructure
 contributionTypes:
   - Technical delivery
   - Infrastructure operations
