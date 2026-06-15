@@ -26,8 +26,8 @@ const projectLogo = (name: OrganisationName, className: string) => ({
 
 export const partnerLogos = [
   logoFor("Australian BioCommons", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("Australian Access Federation", "logo-mark--compact", "logo-tile--wide"),
   logoFor("University of Melbourne", "logo-mark--seal", "logo-tile--square"),
+  logoFor("Australian Access Federation", "logo-mark--compact", "logo-tile--wide"),
   logoFor("National Computational Infrastructure", "logo-mark--compact", "logo-tile--wide"),
   logoFor("University of Sydney", "logo-mark--compact", "logo-tile--wide"),
   logoFor("Children's Cancer Institute / Zero Childhood Cancer", "logo-mark--wide", "logo-tile--wide"),
