@@ -640,19 +640,39 @@ main {
   object-fit: contain;
 }
 
-.logo-mark--wide {
+.logo-tile .logo-mark--wide {
   max-width: 92%;
   max-height: 64px;
 }
 
-.logo-mark--compact {
+.logo-tile .logo-mark--compact {
   max-width: 96%;
   max-height: 72px;
 }
 
-.logo-mark--seal {
+.logo-tile .logo-mark--seal {
   max-width: 92px;
   max-height: 92px;
+}
+
+.logo-tile .logo-mark--seal-balanced {
+  max-width: 112px;
+  max-height: 82px;
+}
+
+.logo-tile .logo-mark--biocommons-wall {
+  max-width: 96%;
+  max-height: 76px;
+}
+
+.logo-tile .logo-mark--uom-wall {
+  max-width: 132px;
+  max-height: 88px;
+}
+
+.logo-tile .logo-mark--aaf-wall {
+  max-width: 98%;
+  max-height: 82px;
 }
 
 .timeline {
