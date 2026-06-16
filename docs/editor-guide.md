@@ -23,6 +23,8 @@ For activity, catalogue, and partner contribution items, copy an existing Markdo
 
 Use controlled vocabulary values exactly as defined in `src/data/vocabularies.ts`. The build will fail if values such as `capability`, `outputType`, `status`, `leadOrganisations`, or `intendedUsers` do not match the allowed lists.
 
+For contributor-facing workflows, templates, and the current controlled vocabulary list, see `docs/content-contribution-guide.md`.
+
 Homepage activity items are sorted by `date`, newest first, and the homepage shows the latest three.
 
 Partner contribution items are sorted by the numeric `order` field.
