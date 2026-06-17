@@ -1,4 +1,5 @@
 ---
+projectSlug: scalable-open-connected-genomics-infrastructure
 title: Scalable, Open and Connected Genomics Infrastructure
 order: 8
 leadOrganisations:

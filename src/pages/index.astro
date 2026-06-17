@@ -4,7 +4,8 @@ import MainLayout from "../layouts/MainLayout.astro";
 import LucideIcon from "../components/LucideIcon.astro";
 import { homeContent } from "../data/home";
 import { partnerLogos } from "../data/logos";
-import { capabilities, site } from "../data/site";
+import { site } from "../data/site";
+import { capabilities } from "../data/vocabularies";
 import { withBase } from "../utils/paths";
 
 const activityItems = (await getCollection("activity"))

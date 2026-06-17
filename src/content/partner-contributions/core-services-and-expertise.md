@@ -1,4 +1,5 @@
 ---
+projectSlug: core-services-and-expertise
 title: Core Services and Expertise
 order: 1
 leadOrganisations:

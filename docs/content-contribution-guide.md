@@ -76,7 +76,8 @@ Use this for services, software, data resources, infrastructure components, docu
 title: Short catalogue item title
 summary: One sentence describing what the item is.
 userValue: One sentence explaining what this helps users do.
-capability: Data access management
+capabilities:
+  - Data access management
 outputType: Software / tool
 status: Available
 visibility: Public
@@ -90,6 +91,8 @@ contributionTypes:
 intendedUsers:
   - Researchers
   - Product owners and engineers
+partnerContributions:
+  - trust-and-identity
 href: https://example.org/item
 featured: false
 ---
@@ -100,12 +103,13 @@ Required fields:
 - `title`: short display title.
 - `summary`: what the item is.
 - `userValue`: what the item helps users do.
-- `capability`: one controlled capability value.
+- `capabilities`: one or more controlled capability values.
 - `outputType`: one controlled output type.
 - `status`: one controlled status.
 - `visibility`: one controlled visibility/access value.
 - `leadOrganisations`: one or more controlled organisation names.
 - `contributionTypes`: one or more controlled contribution types.
+- `partnerContributions`: one or more `projectSlug` values from existing files in `src/content/partner-contributions/`.
 
 Optional fields:
 
@@ -122,6 +126,7 @@ Use this for project-level descriptions of partner work contributing to GUARDIAN
 
 ```md
 ---
+projectSlug: trust-and-identity
 title: Partner project title
 order: 10
 leadOrganisations:
@@ -140,6 +145,7 @@ capabilityAreas:
 Required fields:
 
 - `title`: project or contribution title.
+- `projectSlug`: a unique kebab-case slug for this partner contribution entry.
 - `order`: number controlling display order.
 - `leadOrganisations`: one or more controlled organisation names.
 - `description`: one concise sentence.
@@ -153,6 +159,8 @@ Optional fields:
 ## Controlled Vocabulary
 
 Values must match exactly, including capitalisation, punctuation, slashes, and apostrophes. The source of truth is `src/data/vocabularies.ts`.
+
+Partner contribution slugs are defined by the `projectSlug` values present in `src/content/partner-contributions/`. The build will fail if a catalogue entry references a slug that does not exist, or if two partner contribution entries reuse the same slug.
 
 ### Capability Values
 
@@ -181,7 +189,7 @@ Values must match exactly, including capitalisation, punctuation, slashes, and a
 ### Visibility / Access Values
 
 - `Public`
-- `Limited access`
+- `Controlled access`
 - `Internal`
 
 ### Contribution Types

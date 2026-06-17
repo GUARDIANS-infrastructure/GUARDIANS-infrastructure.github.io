@@ -1,4 +1,5 @@
 ---
+projectSlug: genomic-data-commons
 title: Genomic Data Commons
 order: 7
 leadOrganisations:

@@ -2,7 +2,8 @@
 title: Beacon network service
 summary: Catalogue capability for locating and describing Australian human omics datasets.
 userValue: Helps researchers discover relevant datasets and understand the next step for requesting access.
-capability: Data discovery
+capabilities:
+  - Data discovery
 outputType: Service
 status: Pilot
 visibility: Public
@@ -18,6 +19,11 @@ contributionTypes:
   - Standards / interoperability
 intendedUsers:
   - Researchers
+partnerContributions:
+  - core-services-and-expertise
+  - genomic-data-commons
+  - scalable-open-connected-genomics-infrastructure
+  - zero-data-commons
 featured: true
 href: https://bn.test.biocommons.org.au/
 ---

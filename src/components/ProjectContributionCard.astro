@@ -5,6 +5,7 @@ import { withBase } from "../utils/paths";
 
 interface Props {
   project: {
+    projectSlug: string;
     title: string;
     leadOrganisations: OrganisationName[];
     deliveryUnits?: DeliveryUnitName[];
@@ -61,7 +62,12 @@ const hasCollaboratingOrganisations = Boolean(project.collaboratingOrganisations
     )}
     <div class="meta-list">
       {project.capabilityAreas.map((area) => (
-        <span class="chip">{area}</span>
+        <a
+          class="chip chip-link"
+          href={withBase(`/services-resources?capability=${encodeURIComponent(area)}&project=${encodeURIComponent(project.projectSlug)}#catalogue`)}
+        >
+          {area}
+        </a>
       ))}
     </div>
   </div>

@@ -61,7 +61,7 @@ export const statusValues = ["Available", "Pilot", "In development"] as const;
 
 export const visibilityValues = [
   "Public",
-  "Limited access",
+  "Controlled access",
   "Internal",
 ] as const;
 

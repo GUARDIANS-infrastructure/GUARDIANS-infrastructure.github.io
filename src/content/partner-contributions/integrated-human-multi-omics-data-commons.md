@@ -1,4 +1,5 @@
 ---
+projectSlug: integrated-human-multi-omics-data-commons
 title: A Data Commons for Integrated Human Multi-Omics Data
 order: 6
 leadOrganisations:

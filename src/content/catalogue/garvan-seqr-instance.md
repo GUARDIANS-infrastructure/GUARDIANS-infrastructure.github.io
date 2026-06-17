@@ -2,7 +2,8 @@
 title: Rare disease omics analysis platform
 summary: Controlled-access rare disease genomics platform for reviewing and analysing candidate variants.
 userValue: Supports authorised clinical and research teams to work with rare disease genomic data in a shared analysis environment.
-capability: Scalable analysis environments
+capabilities:
+  - Scalable analysis environments
 outputType: Service
 status: Available
 visibility: Public
@@ -18,6 +19,8 @@ contributionTypes:
 intendedUsers:
   - Researchers
   - Clinician researchers
+partnerContributions:
+  - scalable-open-connected-genomics-infrastructure
 href: https://seqr.populationgenomics.org.au/
 featured: true
 ---

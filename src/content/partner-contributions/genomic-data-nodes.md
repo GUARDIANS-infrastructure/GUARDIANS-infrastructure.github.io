@@ -1,4 +1,5 @@
 ---
+projectSlug: genomic-data-nodes
 title: Genomic Data Nodes
 order: 9
 leadOrganisations:

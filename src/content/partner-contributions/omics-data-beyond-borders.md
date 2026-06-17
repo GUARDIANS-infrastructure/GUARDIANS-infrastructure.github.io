@@ -1,4 +1,5 @@
 ---
+projectSlug: omics-data-beyond-borders
 title: "Omics data beyond Australia's borders: law, ethics and governance"
 order: 4
 leadOrganisations:

@@ -21,7 +21,7 @@ This site is an Astro project. Most day-to-day edits are content or data changes
 
 For activity, catalogue, and partner contribution items, copy an existing Markdown file in the matching `src/content/...` directory and edit the frontmatter values.
 
-Use controlled vocabulary values exactly as defined in `src/data/vocabularies.ts`. The build will fail if values such as `capability`, `outputType`, `status`, `leadOrganisations`, or `intendedUsers` do not match the allowed lists.
+Use controlled vocabulary values exactly as defined in `src/data/vocabularies.ts`. The build will fail if values such as `capabilities`, `outputType`, `status`, `leadOrganisations`, or `intendedUsers` do not match the allowed lists.
 
 For contributor-facing workflows, templates, and the current controlled vocabulary list, see `docs/content-contribution-guide.md`.
 

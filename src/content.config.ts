@@ -16,7 +16,7 @@ const catalogue = defineCollection({
     title: z.string(),
     summary: z.string(),
     userValue: z.string(),
-    capability: z.enum(capabilityValues),
+    capabilities: z.array(z.enum(capabilityValues)).min(1),
     outputType: z.enum(outputTypes),
     status: z.enum(statusValues),
     visibility: z.enum(visibilityValues),
@@ -24,6 +24,9 @@ const catalogue = defineCollection({
     contributingOrganisations: z.array(z.enum(organisationNames)).default([]),
     contributionTypes: z.array(z.enum(contributionTypes)),
     intendedUsers: z.array(z.enum(intendedUserValues)).default([]),
+    partnerContributions: z
+      .array(z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/))
+      .default([]),
     href: z.string().optional(),
     featured: z.boolean().default(false),
   }),
@@ -43,6 +46,7 @@ const activity = defineCollection({
 const partnerContributions = defineCollection({
   type: "content",
   schema: z.object({
+    projectSlug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
     title: z.string(),
     order: z.number(),
     leadOrganisations: z.array(z.enum(organisationNames)),

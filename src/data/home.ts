@@ -34,7 +34,6 @@ export const homeContent = {
     eyebrow: "Essential services & resources",
     title: "Capability areas",
     intro: "",
-    itemLinkLabel: "View matching catalogue items",
   },
   activity: {
     eyebrow: "Progress",

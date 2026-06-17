@@ -7,14 +7,16 @@ type CatalogueItem = {
   title: string;
   summary: string;
   userValue: string;
-  capability: string;
+  capabilities: string[];
   outputType: string;
   status: string;
   visibility: string;
   leadOrganisations: string[];
   contributingOrganisations: string[];
   contributionTypes: string[];
+  intendedUsers: string[];
   href?: string;
+  partnerContributionSlugs: string[];
   featured: boolean;
 };
 
@@ -24,6 +26,7 @@ type Props = {
   outputTypes: string[];
   statusValues: string[];
   visibilityValues: string[];
+  projectOptions: { value: string; label: string }[];
 };
 
 const emptyFilterState = {
@@ -31,6 +34,7 @@ const emptyFilterState = {
   outputType: [] as string[],
   status: [] as string[],
   visibility: [] as string[],
+  project: [] as string[],
 };
 
 const filterParamNames = {
@@ -38,6 +42,7 @@ const filterParamNames = {
   outputType: "type",
   status: "status",
   visibility: "visibility",
+  project: "project",
 } as const;
 
 type FilterName = keyof typeof emptyFilterState;
@@ -86,6 +91,9 @@ function FilterGroup(props: FilterGroupProps) {
 
 const matchesOne = (selected: string[], value: string) =>
   selected.length === 0 || selected.includes(value);
+
+const matchesAny = (selected: string[], values: string[]) =>
+  selected.length === 0 || selected.some((value) => values.includes(value));
 
 const sortFeaturedFirst = (items: CatalogueItem[]) =>
   [...items].sort((first, second) => {
@@ -236,6 +244,7 @@ const formatFilterLabel = (name: FilterName) =>
     outputType: "Output type",
     status: "Status",
     visibility: "Visibility",
+    project: "Project",
   })[name];
 
 const hasFilterValue = (filters: FilterState, name: FilterName, value: string) =>
@@ -259,6 +268,7 @@ export default function CatalogueFilters(props: Props) {
       outputType: params.getAll(filterParamNames.outputType),
       status: params.getAll(filterParamNames.status),
       visibility: params.getAll(filterParamNames.visibility),
+      project: params.getAll(filterParamNames.project),
     });
   }, []);
 
@@ -279,10 +289,11 @@ export default function CatalogueFilters(props: Props) {
   const filteredItems = useMemo(() => {
     const matchingItems = props.items.filter((item) => {
       return (
-        matchesOne(filters.capability, item.capability) &&
+        matchesAny(filters.capability, item.capabilities) &&
         matchesOne(filters.outputType, item.outputType) &&
         matchesOne(filters.status, item.status) &&
-        matchesOne(filters.visibility, item.visibility)
+        matchesOne(filters.visibility, item.visibility) &&
+        matchesAny(filters.project, item.partnerContributionSlugs)
       );
     });
 
@@ -335,6 +346,11 @@ export default function CatalogueFilters(props: Props) {
   const selectedDescriptions = filterEntries.flatMap(([name]) =>
     filters[name].map((value) => ({ name, value })),
   );
+  const projectLabelByValue = Object.fromEntries(
+    props.projectOptions.map((option) => [option.value, option.label]),
+  ) as Record<string, string>;
+  const displayValueForFilter = (name: FilterName, value: string) =>
+    name === "project" ? (projectLabelByValue[value] ?? value) : value;
 
   return (
     <div class="filters">
@@ -384,7 +400,7 @@ export default function CatalogueFilters(props: Props) {
                   type="button"
                   onClick={() => removeFilter(name, value)}
                 >
-                  <span>{formatFilterLabel(name)}: {value}</span>
+                  <span>{formatFilterLabel(name)}: {displayValueForFilter(name, value)}</span>
                   <span aria-hidden="true">×</span>
                 </button>
               ))}
@@ -446,11 +462,6 @@ export default function CatalogueFilters(props: Props) {
         <div class="grid grid-2">
           {filteredItems.map((item) => (
             <article class="card" id={item.slug}>
-              <div class="chips">
-                <span class={badgeClassForValue(item.status)}>{item.status}</span>
-                <span class={badgeClassForValue(item.visibility)}>{item.visibility}</span>
-                <span class="badge">{item.outputType}</span>
-              </div>
               <div class="stack-md">
                 <div class="card__heading">
                   <h3>{item.title}</h3>
@@ -473,26 +484,34 @@ export default function CatalogueFilters(props: Props) {
                 <p>
                   <strong>User value:</strong> {item.userValue}
                 </p>
-              </div>
-              <div class="stack-md">
-                <div class="meta-list">
-                  <span class="chip">{item.capability}</span>
+                <div class="card__meta-row">
+                  <span class={badgeClassForValue(item.status)}>{item.status}</span>
+                  <span class={badgeClassForValue(item.visibility)}>{item.visibility}</span>
+                  <span class="badge">{item.outputType}</span>
                 </div>
-                <p>
-                  <strong>Lead organisation{item.leadOrganisations.length === 1 ? "" : "s"}:</strong>{" "}
-                  {item.leadOrganisations.join(", ")}
-                </p>
-                {item.contributingOrganisations.length > 0 && (
-                  <p>
-                    <strong>Contributing organisation{item.contributingOrganisations.length === 1 ? "" : "s"}:</strong>{" "}
-                    {item.contributingOrganisations.join(", ")}
-                  </p>
-                )}
-                <p>
-                  <strong>Contribution types:</strong>{" "}
-                  {item.contributionTypes.join(", ")}
-                </p>
               </div>
+              <details class="card__details">
+                <summary>Details</summary>
+                <div class="card__details-body">
+                  <p>
+                    <strong>Capabilities:</strong> {item.capabilities.join(", ")}
+                  </p>
+                  <p>
+                    <strong>Lead organisation{item.leadOrganisations.length === 1 ? "" : "s"}:</strong>{" "}
+                    {item.leadOrganisations.join(", ")}
+                  </p>
+                  {item.contributingOrganisations.length > 0 && (
+                    <p>
+                      <strong>Contributing organisation{item.contributingOrganisations.length === 1 ? "" : "s"}:</strong>{" "}
+                      {item.contributingOrganisations.join(", ")}
+                    </p>
+                  )}
+                  <p>
+                    <strong>Contribution types:</strong>{" "}
+                    {item.contributionTypes.join(", ")}
+                  </p>
+                </div>
+              </details>
             </article>
           ))}
         </div>

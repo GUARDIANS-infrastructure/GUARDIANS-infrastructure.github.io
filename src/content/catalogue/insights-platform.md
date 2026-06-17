@@ -2,7 +2,9 @@
 title: ZERO Childhood Cancer Data Portal
 summary: Explore ZERO Childhood Cancer cohort-level data through a rich user interface and apply for access to controlled data.
 userValue: Enables researchers and clinicians to explore detailed paediatric cancer cohort data and metadata.
-capability: Data commons and repositories
+capabilities:
+  - Data commons and repositories
+  - Data access management
 outputType: Service
 status: Pilot
 visibility: Public
@@ -16,6 +18,8 @@ contributionTypes:
 intendedUsers:
   - Researchers
   - Clinician researchers
+partnerContributions:
+  - zero-data-commons
 href: https://beacon.zerochildhoodcancer.cloud/dashboard
 featured: true
 ---

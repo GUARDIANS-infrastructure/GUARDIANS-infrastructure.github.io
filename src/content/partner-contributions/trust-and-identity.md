@@ -1,4 +1,5 @@
 ---
+projectSlug: trust-and-identity
 title: Trust and Identity for Human Genomics Research Infrastructure
 order: 3
 leadOrganisations:

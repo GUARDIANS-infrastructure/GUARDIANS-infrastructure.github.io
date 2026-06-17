@@ -1,11 +1,3 @@
-export {
-  capabilities,
-  contributionTypes,
-  outputTypes,
-  statusValues,
-  visibilityValues,
-} from "./vocabularies";
-
 type TextSegment = string | {
   text: string;
   href: string;

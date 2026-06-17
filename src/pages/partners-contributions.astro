@@ -2,11 +2,12 @@
 import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import ProjectContributionCard from "../components/ProjectContributionCard.astro";
-import { withBase } from "../utils/paths";
 
 const projectContributions = (await getCollection("partner-contributions"))
   .sort((first, second) => first.data.order - second.data.order)
-  .map((entry) => entry.data);
+  .map((entry) => ({
+    ...entry.data,
+  }));
 ---
 
 <MainLayout
@@ -15,7 +16,7 @@ const projectContributions = (await getCollection("partner-contributions"))
   description="Structured partner entries showing how GUARDIANS delivery maps to capabilities and catalogue items."
 >
   <section class="page-header stack-md">
-    <span class="eyebrow">Attribution</span>
+    <span class="eyebrow">Partner network</span>
     <h1>Partners &amp; contributions</h1>
     <p>
       GUARDIANS is coordinated by Australian BioCommons and delivered with national partners. Contributions include public-facing services, data resources, software tools and infrastructure components, documentation, guidance, training materials, and enabling work such as access uplift, infrastructure operations, governance expertise, stewardship, and standards alignment.
@@ -28,7 +29,6 @@ const projectContributions = (await getCollection("partner-contributions"))
         <span class="eyebrow">Project index</span>
         <h2 class="section-title">Project contributions</h2>
       </div>
-      <a class="card__link" href={withBase("/services-resources")}>Browse catalogue items</a>
     </div>
     <div class="grid grid-2">
       {projectContributions.map((project) => <ProjectContributionCard project={project} />)}

@@ -1,18 +1,21 @@
 ---
 import { getCollection } from "astro:content";
 import CatalogueFilters from "../components/CatalogueFilters";
+import { validatePartnerContributionIntegrity } from "../data/content-integrity";
+import { capabilities, outputTypes, statusValues, visibilityValues } from "../data/vocabularies";
 import MainLayout from "../layouts/MainLayout.astro";
-import { capabilities, outputTypes, site, statusValues, visibilityValues } from "../data/site";
+import { site } from "../data/site";
 import { withBase } from "../utils/paths";
 
 const catalogue = await getCollection("catalogue");
+const partnerContributions = await getCollection("partner-contributions");
 
 const items = catalogue.map((item) => ({
   slug: item.slug,
   title: item.data.title,
   summary: item.data.summary,
   userValue: item.data.userValue,
-  capability: item.data.capability,
+  capabilities: item.data.capabilities,
   outputType: item.data.outputType,
   status: item.data.status,
   visibility: item.data.visibility,
@@ -21,8 +24,11 @@ const items = catalogue.map((item) => ({
   contributionTypes: item.data.contributionTypes,
   href: item.data.href,
   intendedUsers: item.data.intendedUsers,
+  partnerContributionSlugs: item.data.partnerContributions,
   featured: item.data.featured,
 }));
+
+const projectOptions = validatePartnerContributionIntegrity(catalogue, partnerContributions);
 
 ---
 
@@ -54,6 +60,7 @@ const items = catalogue.map((item) => ({
       outputTypes={outputTypes}
       statusValues={statusValues}
       visibilityValues={visibilityValues}
+      projectOptions={projectOptions}
     />
   </section>
 

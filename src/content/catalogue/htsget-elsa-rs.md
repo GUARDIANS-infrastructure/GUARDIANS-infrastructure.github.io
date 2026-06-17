@@ -2,7 +2,8 @@
 title: htsget-elsa-rs
 summary: Extension that connects Elsa data manifests to htsget-rs for selective genomic data access.
 userValue: Enables data sharing systems that use Elsa manifests to expose controlled subsets of genomic files through htsget queries.
-capability: Data access management
+capabilities:
+  - Data access management
 outputType: Software / tool
 status: Available
 visibility: Public
@@ -15,6 +16,9 @@ intendedUsers:
   - Infrastructure operators
   - Software developers
   - Data stewards and custodians
+partnerContributions:
+  - genomic-data-nodes
+  - integrated-human-multi-omics-data-commons
 href: https://github.com/elsa-data/htsget-elsa-rs
 featured: false
 ---
