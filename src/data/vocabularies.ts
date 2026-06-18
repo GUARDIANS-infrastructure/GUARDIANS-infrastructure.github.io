@@ -99,7 +99,7 @@ export const organisations = [
   {
     name: "Children's Cancer Institute / Zero Childhood Cancer",
     shortName: "CCI/ZERO",
-    logoSrc: "/assets/logos/zerocci.png",
+    logoSrc: "/assets/logos/ccizero.png",
   },
   {
     name: "Garvan Institute of Medical Research",
