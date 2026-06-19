@@ -31,6 +31,8 @@ Partner contribution items are sorted by the numeric `order` field.
 
 Catalogue entries can set `featured: true`; this promotes them in filter result ordering but does not currently add a visual badge.
 
+When replacing logo assets, use tightly cropped transparent-background files where available. The detailed logo handling approach is documented in `docs/design/02.implementation-brief.md`.
+
 ## Local Checks
 
 Run:
