@@ -722,19 +722,9 @@ main {
   max-height: 82px;
 }
 
-.logo-tile .logo-mark--biocommons-wall {
-  max-width: 96%;
-  max-height: 76px;
-}
-
 .logo-tile .logo-mark--uom-wall {
   max-width: 132px;
   max-height: 88px;
-}
-
-.logo-tile .logo-mark--aaf-wall {
-  max-width: 98%;
-  max-height: 82px;
 }
 
 .timeline {
