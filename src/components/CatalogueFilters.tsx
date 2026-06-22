@@ -68,19 +68,20 @@ function FilterGroup(props: FilterGroupProps) {
   return (
     <fieldset class="filters__group">
       <legend>{props.label}</legend>
-      <div class="filters__chips">
+      <div class={`filters__options${props.options.length > 3 ? " filters__options--columns" : ""}`}>
         {props.options.map((option) => {
           const id = `${props.name}-${option.replace(/\W+/g, "-").toLowerCase()}`;
 
           return (
-            <label class="filters__chip" for={id}>
+            <label class="filters__option" for={id}>
               <input
                 id={id}
                 type="checkbox"
                 checked={props.selected.includes(option)}
                 onChange={() => props.onToggle(props.name, option)}
               />
-              <span>{option}</span>
+              <span class="filters__option-box" aria-hidden="true" />
+              <span class="filters__option-label">{option}</span>
             </label>
           );
         })}
@@ -162,6 +163,16 @@ const linkIconForItem = (item: CatalogueItem) => {
 
   return "external-link";
 };
+
+const outputTypeIconForItem = (item: CatalogueItem): LucideIconName =>
+  ({
+    Service: "workflow",
+    "Software / tool": "code-xml",
+    "Data resource": "database",
+    "Infrastructure component": "blocks",
+    "Documentation / guidance": "file-text",
+    "Publication / report": "file-text",
+  })[item.outputType] ?? "file-text";
 
 function InlineLucideIcon(props: { className: string; icon: LucideIconName }) {
   return (
@@ -461,7 +472,7 @@ export default function CatalogueFilters(props: Props) {
       ) : (
         <div class="grid grid-2">
           {filteredItems.map((item) => (
-            <article class="card" id={item.slug}>
+            <article class="card card--catalogue" id={item.slug}>
               <div class="stack-md">
                 <div class="card__heading">
                   <h3>{item.title}</h3>
@@ -484,14 +495,19 @@ export default function CatalogueFilters(props: Props) {
                 <p>
                   <strong>User value:</strong> {item.userValue}
                 </p>
-                <div class="card__meta-row">
-                  <span class={badgeClassForValue(item.status)}>{item.status}</span>
-                  <span class={badgeClassForValue(item.visibility)}>{item.visibility}</span>
-                  <span class="badge">{item.outputType}</span>
-                </div>
               </div>
               <details class="card__details">
-                <summary>Details</summary>
+                <summary>
+                  <span class="card__meta-row">
+                    <span class={badgeClassForValue(item.status)}>{item.status}</span>
+                    <span class={badgeClassForValue(item.visibility)}>{item.visibility}</span>
+                    <span class="badge badge--with-icon">
+                      <InlineLucideIcon className="badge__icon" icon={outputTypeIconForItem(item)} />
+                      <span>{item.outputType}</span>
+                    </span>
+                  </span>
+                  <span class="card__details-toggle">Details</span>
+                </summary>
                 <div class="card__details-body">
                   <p>
                     <strong>Capabilities:</strong> {item.capabilities.join(", ")}
