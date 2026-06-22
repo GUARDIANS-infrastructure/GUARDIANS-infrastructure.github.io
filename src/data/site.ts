@@ -7,10 +7,10 @@ export const site = {
   title: "GUARDIANS",
   description:
     "A national partnership building digital infrastructure for human omics research.",
-  siteFeedbackEmail: "conrad@biocommons.org.au",
-  collaborationEnquiryEmail: "bernie@biocommons.org.au",
-  coordinationEnquiryEmail: "jess@biocommons.org.au",
-  serviceResourceEmail: "conrad@biocommons.org.au",
+  siteFeedbackEmail: "guardians-site-feedback@biocommons.org.au",
+  collaborationEnquiryEmail: "guardians-collaboration@biocommons.org.au",
+  coordinationEnquiryEmail: "guardians-coordination@biocommons.org.au",
+  serviceResourceEmail: "guardians-services@biocommons.org.au",
   footerAcknowledgements: [
     [
       "The GUARDIANS program is led by ",
