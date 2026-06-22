@@ -1,5 +1,5 @@
 ---
-title: Rare disease omics analysis platform
+title: CaRDinal rare disease omics analysis platform
 summary: Controlled-access rare disease genomics platform for reviewing and analysing candidate variants.
 userValue: Supports authorised clinical and research teams to work with rare disease genomic data in a shared analysis environment.
 capabilities:
@@ -21,6 +21,6 @@ intendedUsers:
   - Clinician researchers
 partnerContributions:
   - scalable-open-connected-genomics-infrastructure
-href: https://seqr.populationgenomics.org.au/
+href: https://populationgenomics.org.au/cardinal/
 featured: true
 ---
