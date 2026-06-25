@@ -4,7 +4,10 @@ summary: Current roadmap describing the national capabilities required for disco
 userValue: Helps delivery teams and external stakeholders understand the direction of travel for national infrastructure capability.
 capabilities:
   - Governance, policy and operations
-outputType: Documentation / guidance
+primaryCapability: Governance, policy and operations
+primaryOutputType: Documentation / guidance
+outputTypes:
+  - Documentation / guidance
 status: Available
 visibility: Public
 leadOrganisations:

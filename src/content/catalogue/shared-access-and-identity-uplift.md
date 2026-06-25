@@ -5,7 +5,10 @@ userValue: Reduces access friction across participating services while keeping i
 capabilities:
   - Trusted researcher identity
   - Governance, policy and operations
-outputType: Infrastructure component
+primaryCapability: Trusted researcher identity
+primaryOutputType: Infrastructure component
+outputTypes:
+  - Infrastructure component
 status: Available
 visibility: Controlled access
 leadOrganisations:

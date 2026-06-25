@@ -393,27 +393,6 @@ main {
   color: var(--accent-strong);
 }
 
-.badge--available,
-.badge--public {
-  background: #dcefdc;
-  color: #255d32;
-  border-color: #bddfbd;
-}
-
-.badge--pilot,
-.badge--limited-access {
-  background: #e6f5ed;
-  color: #27684d;
-  border-color: #cce8d8;
-}
-
-.badge--in-development,
-.badge--internal {
-  background: #fff3c9;
-  color: #7a5600;
-  border-color: #eedb94;
-}
-
 .card {
   display: grid;
   align-content: start;
@@ -427,6 +406,40 @@ main {
 .card--catalogue {
   align-content: stretch;
   grid-template-rows: 1fr auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.card--catalogue::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--capability-accent, var(--line));
+}
+
+.card--capability-data-discovery {
+  --capability-accent: #8aa8bd;
+}
+
+.card--capability-data-commons-and-repositories {
+  --capability-accent: #9ccdc4;
+}
+
+.card--capability-scalable-analysis-environments {
+  --capability-accent: #97c4a8;
+}
+
+.card--capability-trusted-researcher-identity {
+  --capability-accent: #b7a1b3;
+}
+
+.card--capability-data-access-management {
+  --capability-accent: #b0b99a;
+}
+
+.card--capability-governance-policy-and-operations {
+  --capability-accent: #d8bf7a;
 }
 
 .card--catalogue > .stack-md {
@@ -542,6 +555,12 @@ main {
 
 .card__meta-row .badge {
   font-size: 0.72rem;
+}
+
+.filters__option-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
 }
 
 .badge--with-icon {
@@ -1062,6 +1081,12 @@ main {
   cursor: pointer;
   font: inherit;
   font-size: 0.86rem;
+}
+
+.filters__active-chip--capability {
+  border-color: color-mix(in srgb, var(--capability-accent) 70%, var(--line));
+  background: color-mix(in srgb, var(--capability-accent) 26%, var(--surface));
+  color: var(--text);
 }
 
 .filters__button {

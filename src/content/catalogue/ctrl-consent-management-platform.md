@@ -4,7 +4,10 @@ summary: Open-source dynamic consent platform for managing participant consent p
 userValue: Helps research organisations replace paper-based consent records with auditable electronic workflows, while giving participants a web portal to review and update consent decisions.
 capabilities:
   - Data access management
-outputType: Software / tool
+primaryCapability: Data access management
+primaryOutputType: Software / tool
+outputTypes:
+  - Software / tool
 status: Available
 visibility: Public
 leadOrganisations:

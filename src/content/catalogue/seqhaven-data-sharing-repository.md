@@ -5,7 +5,11 @@ userValue: Helps verified researchers access and share large genomic datasets wh
 capabilities:
   - Data commons and repositories
   - Data access management
-outputType: Service
+primaryCapability: Data commons and repositories
+primaryOutputType: Data resource
+outputTypes:
+  - Service
+  - Data resource
 status: Available
 visibility: Controlled access
 leadOrganisations:

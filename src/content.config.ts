@@ -12,24 +12,44 @@ import {
 
 const catalogue = defineCollection({
   type: "content",
-  schema: z.object({
-    title: z.string(),
-    summary: z.string(),
-    userValue: z.string(),
-    capabilities: z.array(z.enum(capabilityValues)).min(1),
-    outputType: z.enum(outputTypes),
-    status: z.enum(statusValues),
-    visibility: z.enum(visibilityValues),
-    leadOrganisations: z.array(z.enum(organisationNames)),
-    contributingOrganisations: z.array(z.enum(organisationNames)).default([]),
-    contributionTypes: z.array(z.enum(contributionTypes)),
-    intendedUsers: z.array(z.enum(intendedUserValues)).default([]),
-    partnerContributions: z
-      .array(z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/))
-      .default([]),
-    href: z.string().optional(),
-    featured: z.boolean().default(false),
-  }),
+  schema: z
+    .object({
+      title: z.string(),
+      summary: z.string(),
+      userValue: z.string(),
+      capabilities: z.array(z.enum(capabilityValues)).min(1),
+      primaryCapability: z.enum(capabilityValues),
+      primaryOutputType: z.enum(outputTypes),
+      outputTypes: z.array(z.enum(outputTypes)).min(1),
+      status: z.enum(statusValues),
+      visibility: z.enum(visibilityValues),
+      leadOrganisations: z.array(z.enum(organisationNames)),
+      contributingOrganisations: z.array(z.enum(organisationNames)).default([]),
+      contributionTypes: z.array(z.enum(contributionTypes)),
+      intendedUsers: z.array(z.enum(intendedUserValues)).default([]),
+      partnerContributions: z
+        .array(z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/))
+        .default([]),
+      href: z.string().optional(),
+      featured: z.boolean().default(false),
+    })
+    .superRefine((data, context) => {
+      if (!data.outputTypes.includes(data.primaryOutputType)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["outputTypes"],
+          message: "outputTypes must include primaryOutputType",
+        });
+      }
+
+      if (!data.capabilities.includes(data.primaryCapability)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["capabilities"],
+          message: "capabilities must include primaryCapability",
+        });
+      }
+    }),
 });
 
 const activity = defineCollection({

@@ -4,7 +4,10 @@ summary: Rust server implementation of the GA4GH htsget protocol for streaming g
 userValue: Helps infrastructure teams provide standards-based, region-level access to large BAM, CRAM, VCF and BCF files without requiring users to download full datasets.
 capabilities:
   - Data access management
-outputType: Software / tool
+primaryCapability: Data access management
+primaryOutputType: Software / tool
+outputTypes:
+  - Software / tool
 status: Available
 visibility: Public
 leadOrganisations:

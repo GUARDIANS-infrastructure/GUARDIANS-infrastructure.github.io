@@ -4,7 +4,10 @@ summary: Examination of legal and governance challenges in genomic data sharing 
 userValue: Supports data custodians and infrastructure operators in ethical and legally robust omics data governance and practices.
 capabilities:
   - Governance, policy and operations
-outputType: Documentation / guidance
+primaryCapability: Governance, policy and operations
+primaryOutputType: Documentation / guidance
+outputTypes:
+  - Documentation / guidance
 status: Available
 visibility: Internal 
 leadOrganisations:

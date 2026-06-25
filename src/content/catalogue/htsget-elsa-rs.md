@@ -4,7 +4,10 @@ summary: Extension that connects Elsa data manifests to htsget-rs for selective 
 userValue: Enables data sharing systems that use Elsa manifests to expose controlled subsets of genomic files through htsget queries.
 capabilities:
   - Data access management
-outputType: Software / tool
+primaryCapability: Data access management
+primaryOutputType: Software / tool
+outputTypes:
+  - Software / tool
 status: Available
 visibility: Public
 leadOrganisations:

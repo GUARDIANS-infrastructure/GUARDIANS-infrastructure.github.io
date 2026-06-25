@@ -78,7 +78,10 @@ summary: One sentence describing what the item is.
 userValue: One sentence explaining what this helps users do.
 capabilities:
   - Data access management
-outputType: Software / tool
+primaryCapability: Data access management
+primaryOutputType: Software / tool
+outputTypes:
+  - Software / tool
 status: Available
 visibility: Public
 leadOrganisations:
@@ -104,7 +107,9 @@ Required fields:
 - `summary`: what the item is.
 - `userValue`: what the item helps users do.
 - `capabilities`: one or more controlled capability values.
-- `outputType`: one controlled output type.
+- `primaryCapability`: the main controlled capability value used for card visual treatment.
+- `primaryOutputType`: the main controlled output type used for CTA wording and icon treatment.
+- `outputTypes`: one or more controlled output types used for filtering and metadata display.
 - `status`: one controlled status.
 - `visibility`: one controlled visibility/access value.
 - `leadOrganisations`: one or more controlled organisation names.

@@ -8,7 +8,9 @@ type CatalogueItem = {
   summary: string;
   userValue: string;
   capabilities: string[];
-  outputType: string;
+  primaryCapability: string;
+  primaryOutputType: string;
+  outputTypes: string[];
   status: string;
   visibility: string;
   leadOrganisations: string[];
@@ -105,15 +107,17 @@ const sortFeaturedFirst = (items: CatalogueItem[]) =>
     return first.title.localeCompare(second.title);
   });
 
-const badgeClassForValue = (value: string) => {
-  const className = value
+const modifierClassForValue = (prefix: string, value: string) =>
+  `${prefix}${value
     .toLowerCase()
     .replace(/&/g, "and")
     .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
+    .replace(/^-|-$/g, "")}`;
 
-  return `badge badge--${className}`;
-};
+const selectedFilterClass = (name: FilterName, value: string) =>
+  name === "capability"
+    ? `filters__active-chip filters__active-chip--capability ${modifierClassForValue("card--capability-", value)}`
+    : "filters__active-chip";
 
 const linkLabelForItem = (item: CatalogueItem) => {
   const href = item.href;
@@ -122,23 +126,23 @@ const linkLabelForItem = (item: CatalogueItem) => {
     return "Enquire";
   }
 
-  if (item.outputType === "Software / tool") {
+  if (item.primaryOutputType === "Software / tool") {
     return "View code";
   }
 
-  if (item.outputType === "Documentation / guidance") {
+  if (item.primaryOutputType === "Documentation / guidance") {
     return "Read guidance";
   }
 
-  if (item.outputType === "Publication / report") {
+  if (item.primaryOutputType === "Publication / report") {
     return "Read report";
   }
 
-  if (item.outputType === "Data resource") {
+  if (item.primaryOutputType === "Data resource") {
     return "View data resource";
   }
 
-  if (item.outputType === "Infrastructure component") {
+  if (item.primaryOutputType === "Infrastructure component") {
     return "View component";
   }
 
@@ -150,13 +154,13 @@ const linkIconForItem = (item: CatalogueItem) => {
     return "mail";
   }
 
-  if (item.outputType === "Software / tool") {
+  if (item.primaryOutputType === "Software / tool") {
     return "code-xml";
   }
 
   if (
-    item.outputType === "Documentation / guidance" ||
-    item.outputType === "Publication / report"
+    item.primaryOutputType === "Documentation / guidance" ||
+    item.primaryOutputType === "Publication / report"
   ) {
     return "file-text";
   }
@@ -164,7 +168,7 @@ const linkIconForItem = (item: CatalogueItem) => {
   return "external-link";
 };
 
-const outputTypeIconForItem = (item: CatalogueItem): LucideIconName =>
+const outputTypeIconForValue = (outputType: string): LucideIconName =>
   ({
     Service: "workflow",
     "Software / tool": "code-xml",
@@ -172,7 +176,7 @@ const outputTypeIconForItem = (item: CatalogueItem): LucideIconName =>
     "Infrastructure component": "blocks",
     "Documentation / guidance": "file-text",
     "Publication / report": "file-text",
-  })[item.outputType] ?? "file-text";
+  })[outputType] ?? "file-text";
 
 function InlineLucideIcon(props: { className: string; icon: LucideIconName }) {
   return (
@@ -301,7 +305,7 @@ export default function CatalogueFilters(props: Props) {
     const matchingItems = props.items.filter((item) => {
       return (
         matchesAny(filters.capability, item.capabilities) &&
-        matchesOne(filters.outputType, item.outputType) &&
+        matchesAny(filters.outputType, item.outputTypes) &&
         matchesOne(filters.status, item.status) &&
         matchesOne(filters.visibility, item.visibility) &&
         matchesAny(filters.project, item.partnerContributionSlugs)
@@ -407,7 +411,7 @@ export default function CatalogueFilters(props: Props) {
             <div class="filters__active" aria-label="Selected filters">
               {selectedDescriptions.map(({ name, value }) => (
                 <button
-                  class="filters__active-chip"
+                  class={selectedFilterClass(name, value)}
                   type="button"
                   onClick={() => removeFilter(name, value)}
                 >
@@ -472,7 +476,10 @@ export default function CatalogueFilters(props: Props) {
       ) : (
         <div class="grid grid-2">
           {filteredItems.map((item) => (
-            <article class="card card--catalogue" id={item.slug}>
+            <article
+              class={`card card--catalogue ${modifierClassForValue("card--capability-", item.primaryCapability)}`}
+              id={item.slug}
+            >
               <div class="stack-md">
                 <div class="card__heading">
                   <h3>{item.title}</h3>
@@ -499,12 +506,14 @@ export default function CatalogueFilters(props: Props) {
               <details class="card__details">
                 <summary>
                   <span class="card__meta-row">
-                    <span class={badgeClassForValue(item.status)}>{item.status}</span>
-                    <span class={badgeClassForValue(item.visibility)}>{item.visibility}</span>
-                    <span class="badge badge--with-icon">
-                      <InlineLucideIcon className="badge__icon" icon={outputTypeIconForItem(item)} />
-                      <span>{item.outputType}</span>
-                    </span>
+                    <span class="badge">{item.status}</span>
+                    <span class="badge">{item.visibility}</span>
+                    {item.outputTypes.map((outputType) => (
+                      <span class="badge badge--with-icon">
+                        <InlineLucideIcon className="badge__icon" icon={outputTypeIconForValue(outputType)} />
+                        <span>{outputType}</span>
+                      </span>
+                    ))}
                   </span>
                   <span class="card__details-toggle">Details</span>
                 </summary>

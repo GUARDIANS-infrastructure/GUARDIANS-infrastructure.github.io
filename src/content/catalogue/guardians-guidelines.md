@@ -4,7 +4,10 @@ summary: Founding guidance shared with partners to shape Phase I decision-making
 userValue: Gives partners and external readers a clear view of the principles guiding GUARDIANS implementation choices.
 capabilities:
   - Governance, policy and operations
-outputType: Documentation / guidance
+primaryCapability: Governance, policy and operations
+primaryOutputType: Documentation / guidance
+outputTypes:
+  - Documentation / guidance
 status: Available
 visibility: Public
 leadOrganisations:

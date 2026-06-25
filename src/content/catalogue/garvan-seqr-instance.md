@@ -4,7 +4,11 @@ summary: Controlled-access rare disease genomics platform for reviewing and anal
 userValue: Supports authorised clinical and research teams to work with rare disease genomic data in a shared analysis environment.
 capabilities:
   - Scalable analysis environments
-outputType: Service
+primaryCapability: Scalable analysis environments
+primaryOutputType: Service
+outputTypes:
+  - Service
+  - Data resource
 status: Available
 visibility: Public
 leadOrganisations:

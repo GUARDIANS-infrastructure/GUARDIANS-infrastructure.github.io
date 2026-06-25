@@ -5,7 +5,10 @@ userValue: Provides a trusted route for custodians to host sensitive datasets an
 capabilities:
   - Data commons and repositories
   - Scalable analysis environments
-outputType: Data resource
+primaryCapability: Data commons and repositories
+primaryOutputType: Data resource
+outputTypes:
+  - Data resource
 status: In development
 visibility: Internal
 leadOrganisations:

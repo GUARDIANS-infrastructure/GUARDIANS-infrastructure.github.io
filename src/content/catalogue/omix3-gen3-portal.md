@@ -5,7 +5,11 @@ userValue: Will support authorised researchers to discover, access and work with
 capabilities:
   - Data commons and repositories
   - Data access management
-outputType: Service
+primaryCapability: Data commons and repositories
+primaryOutputType: Data resource
+outputTypes:
+  - Service
+  - Data resource
 status: In development
 visibility: Public
 leadOrganisations:

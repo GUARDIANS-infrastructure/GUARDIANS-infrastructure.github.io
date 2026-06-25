@@ -4,7 +4,10 @@ summary: Design document describing representative user stories for national hum
 userValue: Helps partners, product owners and delivery teams align on user roles, common workflows, system scope and future sources of value.
 capabilities:
   - Governance, policy and operations
-outputType: Documentation / guidance
+primaryCapability: Governance, policy and operations
+primaryOutputType: Documentation / guidance
+outputTypes:
+  - Documentation / guidance
 status: Available
 visibility: Public
 leadOrganisations:
