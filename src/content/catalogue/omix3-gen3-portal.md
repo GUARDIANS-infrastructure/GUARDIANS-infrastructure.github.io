@@ -4,7 +4,7 @@ summary: Gen3 data commons for clinically accredited human multi-omics datasets.
 userValue: Will support authorised researchers to discover, access and work with integrated multi-omics data through a national data platform.
 capabilities:
   - Data commons and repositories
-  - Data access management
+  - Data access and authorisation
 outputType: Service
 status: In development
 visibility: Public

@@ -7,6 +7,6 @@ leadOrganisations:
 description: The National Computational Infrastructure is developing a national repository capability for controlled-access human genomics data connected to high-performance computing.
 capabilityAreas:
   - Data commons and repositories
-  - Data access management
+  - Data access and authorisation
   - Scalable analysis environments
 ---

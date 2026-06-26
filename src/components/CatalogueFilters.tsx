@@ -50,6 +50,7 @@ type FilterName = keyof typeof emptyFilterState;
 type FilterState = typeof emptyFilterState;
 
 type QuickFilter = {
+  id: string;
   label: string;
   description: string;
   icon: LucideIconName;
@@ -104,16 +105,6 @@ const sortFeaturedFirst = (items: CatalogueItem[]) =>
 
     return first.title.localeCompare(second.title);
   });
-
-const badgeClassForValue = (value: string) => {
-  const className = value
-    .toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-
-  return `badge badge--${className}`;
-};
 
 const linkLabelForItem = (item: CatalogueItem) => {
   const href = item.href;
@@ -207,6 +198,7 @@ function InlineLucideIcon(props: { className: string; icon: LucideIconName }) {
 
 const quickFilters: QuickFilter[] = [
   {
+    id: "find-data",
     label: "Find data",
     description: "Discover available and pilot data records and repository capabilities.",
     icon: "database-search",
@@ -216,6 +208,7 @@ const quickFilters: QuickFilter[] = [
     },
   },
   {
+    id: "use-service",
     label: "Use a service",
     description: "Browse available and pilot services.",
     icon: "workflow",
@@ -225,6 +218,7 @@ const quickFilters: QuickFilter[] = [
     },
   },
   {
+    id: "build-infrastructure",
     label: "Build infrastructure",
     description: "Find available tools and infrastructure components for delivery teams.",
     icon: "blocks",
@@ -234,6 +228,7 @@ const quickFilters: QuickFilter[] = [
     },
   },
   {
+    id: "access-guidance",
     label: "Access guidance",
     description: "Find available guidance for governance, access, and operations.",
     icon: "book-open-check",
@@ -362,6 +357,12 @@ export default function CatalogueFilters(props: Props) {
   ) as Record<string, string>;
   const displayValueForFilter = (name: FilterName, value: string) =>
     name === "project" ? (projectLabelByValue[value] ?? value) : value;
+  const activeQuickFilter = quickFilters.find((quickFilter) =>
+    quickFilterIsActive(filters, quickFilter),
+  );
+  const activePathwayClass = activeQuickFilter
+    ? `card--pathway-${activeQuickFilter.id}`
+    : "";
 
   return (
     <div class="filters">
@@ -378,7 +379,7 @@ export default function CatalogueFilters(props: Props) {
 
             return (
               <button
-                class={`filters__quick-card${isActive ? " is-active" : ""}`}
+                class={`filters__quick-card filters__quick-card--${quickFilter.id}${isActive ? " is-active" : ""}`}
                 type="button"
                 aria-pressed={isActive}
                 onClick={() => applyQuickFilter(quickFilter)}
@@ -472,7 +473,7 @@ export default function CatalogueFilters(props: Props) {
       ) : (
         <div class="grid grid-2">
           {filteredItems.map((item) => (
-            <article class="card card--catalogue" id={item.slug}>
+            <article class={`card card--catalogue ${activePathwayClass}`} id={item.slug}>
               <div class="stack-md">
                 <div class="card__heading">
                   <h3>{item.title}</h3>
@@ -499,8 +500,8 @@ export default function CatalogueFilters(props: Props) {
               <details class="card__details">
                 <summary>
                   <span class="card__meta-row">
-                    <span class={badgeClassForValue(item.status)}>{item.status}</span>
-                    <span class={badgeClassForValue(item.visibility)}>{item.visibility}</span>
+                    <span class="badge">{item.status}</span>
+                    <span class="badge">{item.visibility}</span>
                     <span class="badge badge--with-icon">
                       <InlineLucideIcon className="badge__icon" icon={outputTypeIconForItem(item)} />
                       <span>{item.outputType}</span>

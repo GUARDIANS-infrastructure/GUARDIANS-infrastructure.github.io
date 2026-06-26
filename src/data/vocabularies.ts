@@ -26,10 +26,10 @@ export const capabilities = [
       "Researcher identity, trust, and assurance capabilities that support access across national services.",
   },
   {
-    name: "Data access management",
+    name: "Data access and authorisation",
     icon: "key-round",
     summary:
-      "Technical and governance workflows for requests, approvals, entitlements, and controlled access.",
+      "Technical and governance pathways for requests, approvals, entitlements, and authorised data access.",
   },
   {
     name: "Governance, policy and operations",

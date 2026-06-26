@@ -11,5 +11,5 @@ description: The University of Melbourne OMIX3 data platform is establishing inf
 capabilityAreas:
   - Data commons and repositories
   - Scalable analysis environments
-  - Data access management
+  - Data access and authorisation
 ---

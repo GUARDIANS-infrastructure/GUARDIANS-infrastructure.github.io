@@ -77,7 +77,7 @@ title: Short catalogue item title
 summary: One sentence describing what the item is.
 userValue: One sentence explaining what this helps users do.
 capabilities:
-  - Data access management
+  - Data access and authorisation
 outputType: Software / tool
 status: Available
 visibility: Public
@@ -138,7 +138,7 @@ collaboratingOrganisations:
 description: One sentence describing the partner contribution.
 capabilityAreas:
   - Trusted researcher identity
-  - Data access management
+  - Data access and authorisation
 ---
 ```
 
@@ -168,7 +168,7 @@ Partner contribution slugs are defined by the `projectSlug` values present in `s
 - `Data commons and repositories`
 - `Scalable analysis environments`
 - `Trusted researcher identity`
-- `Data access management`
+- `Data access and authorisation`
 - `Governance, policy and operations`
 
 ### Output Types

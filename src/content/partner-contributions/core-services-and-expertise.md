@@ -7,6 +7,6 @@ leadOrganisations:
 description: Australian BioCommons is leading the Core Services and Expertise Platform, spanning leadership and coordination, technical expertise, supporting infrastructure, training and community development.
 capabilityAreas:
   - Data discovery
-  - Data access management
+  - Data access and authorisation
   - Governance, policy and operations
 ---

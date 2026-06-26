@@ -10,5 +10,5 @@ description: Garvan Institute of Medical Research is contributing open, connecte
 capabilityAreas:
   - Data discovery
   - Scalable analysis environments
-  - Data access management
+  - Data access and authorisation
 ---

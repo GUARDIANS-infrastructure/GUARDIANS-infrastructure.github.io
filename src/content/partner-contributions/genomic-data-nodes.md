@@ -10,5 +10,5 @@ description: The Collaborative Centre for Genomic Cancer Medicine GDN project is
 capabilityAreas:
   - Data commons and repositories
   - Scalable analysis environments
-  - Data access management
+  - Data access and authorisation
 ---

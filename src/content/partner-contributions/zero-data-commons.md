@@ -8,5 +8,5 @@ description: The Children's Cancer Institute ZERO Data Commons project is develo
 capabilityAreas:
   - Data discovery
   - Data commons and repositories
-  - Data access management
+  - Data access and authorisation
 ---

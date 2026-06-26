@@ -7,6 +7,6 @@ leadOrganisations:
 description: The Australian Access Federation is contributing authentication and authorisation infrastructure, single sign-on, policy baselines and access pathways for researchers using GUARDIANS services.
 capabilityAreas:
   - Trusted researcher identity
-  - Data access management
+  - Data access and authorisation
   - Governance, policy and operations
 ---

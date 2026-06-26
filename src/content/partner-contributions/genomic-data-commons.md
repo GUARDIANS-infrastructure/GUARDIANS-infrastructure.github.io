@@ -8,5 +8,5 @@ description: QIMR Berghofer Medical Research Institute is establishing an Austra
 capabilityAreas:
   - Data discovery
   - Data commons and repositories
-  - Data access management
+  - Data access and authorisation
 ---

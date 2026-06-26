@@ -3,7 +3,7 @@ title: htsget-rs
 summary: Rust server implementation of the GA4GH htsget protocol for streaming genomic reads and variants.
 userValue: Helps infrastructure teams provide standards-based, region-level access to large BAM, CRAM, VCF and BCF files without requiring users to download full datasets.
 capabilities:
-  - Data access management
+  - Data access and authorisation
 outputType: Software / tool
 status: Available
 visibility: Public

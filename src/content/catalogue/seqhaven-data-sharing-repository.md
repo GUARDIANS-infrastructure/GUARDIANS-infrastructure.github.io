@@ -4,7 +4,7 @@ summary: Controlled-access platform for safely transferring large human genomics
 userValue: Helps verified researchers access and share large genomic datasets while maintaining data governance, privacy and participant confidentiality requirements.
 capabilities:
   - Data commons and repositories
-  - Data access management
+  - Data access and authorisation
 outputType: Service
 status: Available
 visibility: Controlled access

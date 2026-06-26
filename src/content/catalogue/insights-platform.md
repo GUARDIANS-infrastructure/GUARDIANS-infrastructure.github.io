@@ -4,7 +4,7 @@ summary: Explore ZERO Childhood Cancer cohort-level data through a rich user int
 userValue: Enables researchers and clinicians to explore detailed paediatric cancer cohort data and metadata.
 capabilities:
   - Data commons and repositories
-  - Data access management
+  - Data access and authorisation
 outputType: Service
 status: Pilot
 visibility: Public
