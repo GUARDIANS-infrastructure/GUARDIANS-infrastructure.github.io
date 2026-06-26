@@ -477,7 +477,12 @@ export default function CatalogueFilters(props: Props) {
               <div class="stack-md">
                 <div class="card__heading">
                   <h3>{item.title}</h3>
-                  <a class="card__link" href={withBase(item.href ?? "/contact")}>
+                  <a
+                    class="card__link"
+                    href={withBase(item.href ?? "/contact")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <InlineLucideIcon className="card__link-icon" icon={linkIconForItem(item)} />
                     {linkLabelForItem(item)}
                   </a>
