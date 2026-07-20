@@ -44,3 +44,7 @@ pnpm build
 ```
 
 Use `pnpm dev` for local preview and `pnpm build` before committing. The GitHub Pages workflow also runs the build on push.
+
+## Development Preview
+
+Do development work on the `develop` branch. Pushes to `develop` are deployed by the Cloudflare Pages project and can be reviewed at <https://guardians-infrastructure-github-io.pages.dev/>.
