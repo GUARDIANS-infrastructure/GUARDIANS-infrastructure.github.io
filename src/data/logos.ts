@@ -25,15 +25,15 @@ const projectLogo = (name: OrganisationName, className: string) => ({
 });
 
 export const partnerLogos = [
-  logoFor("Australian BioCommons", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("University of Melbourne", "logo-mark--uom-wall", "logo-tile--wide"),
-  logoFor("Australian Access Federation", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("Baker Heart & Diabetes Institute", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("Children's Cancer Institute / Zero Childhood Cancer", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("Garvan Institute of Medical Research", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("National Computational Infrastructure", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("QIMR Berghofer Medical Research Institute", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("University of Sydney", "logo-mark--wide", "logo-tile--wide"),
+  logoFor("Australian BioCommons", "logo-mark--wide"),
+  logoFor("University of Melbourne", "logo-mark--uom-wall"),
+  logoFor("Australian Access Federation", "logo-mark--wide"),
+  logoFor("Baker Heart & Diabetes Institute", "logo-mark--wide"),
+  logoFor("Children's Cancer Institute / Zero Childhood Cancer", "logo-mark--wide"),
+  logoFor("Garvan Institute of Medical Research", "logo-mark--wide"),
+  logoFor("National Computational Infrastructure", "logo-mark--wide"),
+  logoFor("QIMR Berghofer Medical Research Institute", "logo-mark--wide"),
+  logoFor("University of Sydney", "logo-mark--wide"),
 ];
 
 export const funderLogos = [
