@@ -87,6 +87,11 @@ export const organisations = [
     shortName: "AAF",
     logoSrc: "/assets/logos/aaf.png",
   },
+   {
+    name: "Baker Heart & Diabetes Institute",
+    shortName: "Baker",
+    logoSrc: "/assets/logos/baker.png",
+  },
   {
     name: "Bioplatforms Australia",
     shortName: "BPA",
