@@ -7,7 +7,7 @@ leadOrganisations:
 collaboratingOrganisations:
   - Australian BioCommons
   - University of Sydney
-description: The Australian Cardiovascular disease Data Commons (ACDC) connects researchers, clinicians, and data custodians to share data securely and collaboratively under FAIR (Findable, Accessible, Interoperable, and Reusable) and ethical principles. The ACDC project is lead by the Baker Heart & Diabetes Institute, and Australian BioCommons and the University of Sydney are the other main partners.
+description: The Australian Cardiovascular disease Data Commons (ACDC) connects researchers, clinicians, and data custodians to share data securely and collaboratively under FAIR (Findable, Accessible, Interoperable, and Reusable) and ethical principles.
 capabilityAreas:
   - Data commons and repositories
   - Data access and authorisation
