@@ -7,7 +7,7 @@ leadOrganisations:
 deliveryUnits:
   - Melbourne School of Psychological Sciences
   - Bio21 Institute
-description: The University of Melbourne OMIX3 data platform is establishing infrastructure for secure storage, sharing and analysis of clinically accredited human multi-omics datasets.
+description: The University of Melbourne PX4 data platform is establishing infrastructure for secure storage, sharing and analysis of clinically accredited human multi-omics datasets.
 capabilityAreas:
   - Data commons and repositories
   - Scalable analysis environments
