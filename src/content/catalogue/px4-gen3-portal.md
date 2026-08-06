@@ -1,5 +1,5 @@
 ---
-title: OMIX3 Gen3 portal
+title: PX4 Gen3 portal
 summary: Gen3 data commons for clinically accredited human multi-omics datasets.
 userValue: Will support authorised researchers to discover, access and work with integrated multi-omics data through a national data platform.
 capabilities:
@@ -22,6 +22,6 @@ intendedUsers:
   - Data stewards and custodians
 partnerContributions:
   - integrated-human-multi-omics-data-commons
-href: https://omix3.test.biocommons.org.au/
+href: https://px4.test.biocommons.org.au/
 featured: true
 ---

@@ -18,6 +18,6 @@ intendedUsers:
   - Funders and media
 partnerContributions:
   - core-services-and-expertise
-href: https://docs.google.com/document/d/1o0ReKR4oKwBRs3ylb9zb4jyxF5_tUBbWwmjs07lwh4w/edit?usp=sharing
+href: https://drive.google.com/file/d/1j4fBYqdPAMQByYKgCvVzUXDJ50C-lOdw/view?usp=drive_link 
 featured: false
 ---
