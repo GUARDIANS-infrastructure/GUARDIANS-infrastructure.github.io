@@ -24,6 +24,23 @@ const projectLogo = (name: OrganisationName, className: string) => ({
   className,
 });
 
+// Project and consortium marks belong on their contribution cards, not in the
+// organisation vocabulary or partner logo wall.
+export const projectMarks: Partial<
+  Record<string, { alt: string; src: string; className: string }>
+> = {
+  "biological-psychiatry-data-commons": {
+    alt: "Consortium for Preclinical Psychiatric Research (CPPR)",
+    src: "/assets/logos/cppr.png",
+    className: "project-logo--cppr",
+  },
+  "integrated-human-multi-omics-data-commons": {
+    alt: "PX4",
+    src: "/assets/logos/px4.png",
+    className: "project-logo--px4",
+  },
+};
+
 export const partnerLogos = [
   logoFor("Australian BioCommons", "logo-mark--wide", "logo-tile--wide"),
   logoFor(
@@ -78,19 +95,48 @@ export const funderLogos = [
   },
 ];
 
-export const projectOrganisationLogos: Partial<Record<OrganisationName, { alt: string; src: string; className: string }>> = {
-  "Australian BioCommons": projectLogo("Australian BioCommons", "project-logo--wide"),
-  "National Computational Infrastructure": projectLogo("National Computational Infrastructure", "project-logo--compact"),
-  "Australian Access Federation": projectLogo("Australian Access Federation", "project-logo--compact"),
-  "Baker Heart & Diabetes Institute": projectLogo("Baker Heart & Diabetes Institute", "project-logo--compact"),
+export const projectOrganisationLogos: Partial<
+  Record<OrganisationName, { alt: string; src: string; className: string }>
+> = {
+  "Australian BioCommons": projectLogo(
+    "Australian BioCommons",
+    "project-logo--wide",
+  ),
+  "National Computational Infrastructure": projectLogo(
+    "National Computational Infrastructure",
+    "project-logo--compact",
+  ),
+  "Australian Access Federation": projectLogo(
+    "Australian Access Federation",
+    "project-logo--aaf",
+  ),
+  "Baker Heart & Diabetes Institute": projectLogo(
+    "Baker Heart & Diabetes Institute",
+    "project-logo--baker",
+  ),
   "Monash University": projectLogo("Monash University", "project-logo--monash"),
   "Centre for Population Genomics": projectLogo(
     "Centre for Population Genomics",
     "project-logo--wide",
   ),
-  "University of Melbourne": projectLogo("University of Melbourne", "project-logo--seal"),
-  "University of Sydney": projectLogo("University of Sydney", "project-logo--compact"),
-  "Children's Cancer Institute / Zero Childhood Cancer": projectLogo("Children's Cancer Institute / Zero Childhood Cancer", "project-logo--wide"),
-  "QIMR Berghofer Medical Research Institute": projectLogo("QIMR Berghofer Medical Research Institute", "project-logo--wide"),
-  "Garvan Institute of Medical Research": projectLogo("Garvan Institute of Medical Research", "project-logo--wide"),
+  "University of Melbourne": projectLogo(
+    "University of Melbourne",
+    "project-logo--seal",
+  ),
+  "University of Sydney": projectLogo(
+    "University of Sydney",
+    "project-logo--compact",
+  ),
+  "Children's Cancer Institute / Zero Childhood Cancer": projectLogo(
+    "Children's Cancer Institute / Zero Childhood Cancer",
+    "project-logo--wide",
+  ),
+  "QIMR Berghofer Medical Research Institute": projectLogo(
+    "QIMR Berghofer Medical Research Institute",
+    "project-logo--wide",
+  ),
+  "Garvan Institute of Medical Research": projectLogo(
+    "Garvan Institute of Medical Research",
+    "project-logo--garvan",
+  ),
 };

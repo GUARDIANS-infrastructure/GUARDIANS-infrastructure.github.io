@@ -1,5 +1,5 @@
 ---
-import { projectOrganisationLogos } from "../data/logos";
+import { projectMarks, projectOrganisationLogos } from "../data/logos";
 import type { DeliveryUnitName, OrganisationName } from "../data/vocabularies";
 import { withBase } from "../utils/paths";
 
@@ -16,13 +16,14 @@ interface Props {
 }
 
 const { project } = Astro.props;
+const projectMark = projectMarks[project.projectSlug];
 const hasDeliveryUnits = Boolean(project.deliveryUnits?.length);
 const hasCollaboratingOrganisations = Boolean(project.collaboratingOrganisations?.length);
 ---
 
 <article class="project-card">
-  <div class="project-card__header">
-    <div class="project-card__logos" aria-label="Lead partner organisations">
+  <div class:list={["project-card__header", { "project-card__header--paired": projectMark || project.leadOrganisations.length > 1 }]}>
+    <div class="project-card__logos" aria-label={projectMark ? "Lead partner and project logos" : "Lead partner organisations"}>
       {project.leadOrganisations.map((organisation) => {
         const logo = projectOrganisationLogos[organisation];
 
@@ -36,6 +37,11 @@ const hasCollaboratingOrganisations = Boolean(project.collaboratingOrganisations
           </div>
         );
       })}
+      {projectMark && (
+        <div class="project-card__logo-tile">
+          <img class={projectMark.className} src={withBase(projectMark.src)} alt={projectMark.alt} />
+        </div>
+      )}
     </div>
     <div class="project-card__title">
       <h3>{project.title}</h3>
