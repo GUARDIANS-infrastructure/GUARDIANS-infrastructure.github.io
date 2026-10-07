@@ -6,7 +6,7 @@ This repo is the source of the GUARDIANS website. It is an [astro](https://astro
 
 The [deploy-pages](https://github.com/GUARDIANS-infrastructure/website/actions/workflows/deploy-pages.yml) action builds the site and deploys to GitHub pages.
 
-Development work should happen on the `develop` branch. Cloudflare Pages builds that branch and publishes the development preview at <https://guardians-infrastructure-github-io.pages.dev/>.
+Development work should happen in a feature branch and be pulled into `develop`. Cloudflare Pages builds that branch and publishes the development preview at <https://guardians-infrastructure-github-io.pages.dev/>. Once approved, merge from `develop` to `main`.
 
 ## Structure
 

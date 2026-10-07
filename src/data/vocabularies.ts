@@ -88,6 +88,11 @@ export const organisations = [
     logoSrc: "/assets/logos/aaf.png",
   },
   {
+    name: "Baker Heart & Diabetes Institute",
+    shortName: "Baker",
+    logoSrc: "/assets/logos/baker.png",
+  },
+  {
     name: "Bioplatforms Australia",
     shortName: "BPA",
     logoSrc: "/assets/logos/bpa.png",
@@ -95,6 +100,7 @@ export const organisations = [
   {
     name: "Centre for Population Genomics",
     shortName: "CPG",
+    logoSrc: "/assets/logos/cpg.png",
   },
   {
     name: "Children's Cancer Institute / Zero Childhood Cancer",
@@ -129,7 +135,9 @@ export const organisations = [
   {
     name: "University of Melbourne",
     shortName: "UniMelb",
-    logoSrc: "/assets/logos/uom.png",
+    // Official logo--alt artwork from the UoM Gen 3 Design System v15.14.0.
+    // https://designsystem.web.unimelb.edu.au/style-guide/logo/
+    logoSrc: "/assets/logos/uom-alt.svg",
   },
   {
     name: "University of Sydney",
