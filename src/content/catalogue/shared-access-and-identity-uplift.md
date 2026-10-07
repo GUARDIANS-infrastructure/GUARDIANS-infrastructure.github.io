@@ -4,6 +4,7 @@ summary: National trusted identity and access management capability supporting s
 userValue: Reduces access friction across participating services while keeping identity assurance and governance obligations visible.
 capabilities:
   - Trusted researcher identity
+  - Data access and authorisation
   - Governance, policy and operations
 outputType: Infrastructure component
 status: Available

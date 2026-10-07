@@ -43,8 +43,12 @@ pnpm dev
 pnpm build
 ```
 
-Use `pnpm dev` for local preview and `pnpm build` before committing. The GitHub Pages workflow also runs the build on push.
+Use `pnpm dev` for local preview, format changed files with Prettier, and run `pnpm build` before committing. Run the linter if one is configured. The GitHub Pages workflow also builds pull requests targeting `main` and deploys pushes to `main`.
 
-## Development Preview
+## Review, Preview, and Release
 
-Do development work on the `develop` branch. Pushes to `develop` are deployed by the Cloudflare Pages project and can be reviewed at <https://guardians-infrastructure-github-io.pages.dev/>.
+Follow `feature branch` → `develop` → `main`. Create each feature branch from the latest `origin/develop`, validate changes locally, and open a pull request targeting `develop`.
+
+After review and merge, Cloudflare Pages deploys `develop` to <https://guardians-infrastructure-github-io.pages.dev/>. Review the affected pages there. Once the release is approved, merge a separate pull request from `develop` into `main` to deploy the production site through GitHub Pages.
+
+See the [branch and release workflow](content-contribution-guide.md#branch-and-release-workflow) for the full process and example commands.

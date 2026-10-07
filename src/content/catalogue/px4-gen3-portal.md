@@ -22,6 +22,7 @@ intendedUsers:
   - Data stewards and custodians
 partnerContributions:
   - integrated-human-multi-omics-data-commons
+  - core-services-and-expertise
 href: https://px4.test.biocommons.org.au/
 featured: true
 ---

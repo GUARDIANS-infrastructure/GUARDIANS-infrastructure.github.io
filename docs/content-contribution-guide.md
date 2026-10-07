@@ -8,15 +8,15 @@ This guide is for contributors adding or updating website content. The goal is t
 
 Use this path if you are comfortable with Git and can run the site locally.
 
-1. Clone the repository and create a branch.
+1. Clone the repository if needed, then create a feature branch from the latest `origin/develop` (see [Branch and release workflow](#branch-and-release-workflow)).
 2. Run `pnpm install` if dependencies are not installed.
 3. Copy an existing Markdown file from the matching `src/content/...` directory.
 4. Rename the file using a short lowercase slug, for example `new-tool-name.md`.
 5. Edit only the frontmatter between the opening and closing `---` lines.
 6. Use controlled vocabulary values exactly as listed in this guide or in `src/data/vocabularies.ts`.
-7. Run `pnpm build`.
-8. Commit the new or updated Markdown file.
-9. Open a pull request or ask a maintainer to review and merge.
+7. Preview with `pnpm dev`, format the changed files, and run `pnpm build`.
+8. Commit the content and any supporting assets or data changes, then push the feature branch.
+9. Open a pull request with `develop` as the base branch. After review and merge, check the development preview before releasing through a separate `develop` → `main` pull request.
 
 Use `pnpm dev` if you want to preview the page locally while editing.
 
@@ -29,9 +29,27 @@ Use this path if you do not want to clone or run the website.
 3. Use the controlled vocabulary values exactly where possible.
 4. If a controlled value is missing, write the closest value and add a note explaining the new value needed.
 5. Send the draft to a website maintainer.
-6. The maintainer will convert the draft into a Markdown file, run `pnpm build`, and commit it.
+6. The maintainer will prepare the content on a feature branch, validate it, and follow the same review and release workflow below.
 
 Do not worry about exact file naming if you are not editing the repository directly. The maintainer can choose the final slug.
+
+## Branch and Release Workflow
+
+Use `feature branch` → `develop` → `main` for content, code, and documentation changes. Make edits on a feature branch; use `develop` for integration and preview, and `main` for production releases.
+
+1. Start with a clean working tree and fetch the latest remote branches. Create a descriptively named feature branch from `origin/develop`, for example:
+
+   ```bash
+   git fetch origin
+   git switch --no-track -c content/add-news origin/develop
+   ```
+
+2. Make and preview the changes locally. Run Prettier on the changed files, run the linter if one is configured, and run `pnpm build`. Before the first commit of the day, review overall site integrity as described in the [implementation brief](design/02.implementation-brief.md).
+3. Review the diff and commit the required files, including any new assets. Push the feature branch (for the example above, `git push -u origin content/add-news`).
+4. Open a pull request from the feature branch into `develop`. Describe the changes and validation performed. Resolve review feedback and any merge conflicts on the feature branch, then merge once approved.
+5. Wait for the Cloudflare Pages deployment of `develop`, then review the [development preview](https://guardians-infrastructure-github-io.pages.dev/). Check the affected pages, links, filters, and mobile layout as appropriate. Make follow-up fixes through feature branches into `develop`.
+6. When the changes in `develop` are ready for production, open a separate pull request with `main` as the base and `develop` as the source. Review the complete release diff, including any other changes accumulated in `develop`, and merge after approval and successful checks.
+7. The merge into `main` triggers the GitHub Pages production deployment. Confirm the deployment succeeds and check the published pages. Start subsequent work from the updated `origin/develop`.
 
 ## Content Locations
 
