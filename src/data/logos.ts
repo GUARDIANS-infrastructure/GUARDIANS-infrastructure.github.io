@@ -26,14 +26,49 @@ const projectLogo = (name: OrganisationName, className: string) => ({
 
 export const partnerLogos = [
   logoFor("Australian BioCommons", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("University of Melbourne", "logo-mark--uom-wall", "logo-tile--wide"),
   logoFor("Australian Access Federation", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("Baker Heart & Diabetes Institute", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("Children's Cancer Institute / Zero Childhood Cancer", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("Garvan Institute of Medical Research", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("National Computational Infrastructure", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("QIMR Berghofer Medical Research Institute", "logo-mark--wide", "logo-tile--wide"),
+  logoFor(
+    "Baker Heart & Diabetes Institute",
+    "logo-mark--baker",
+    "logo-tile--wide",
+  ),
   logoFor("University of Sydney", "logo-mark--wide", "logo-tile--wide"),
+  logoFor(
+    "Children's Cancer Institute / Zero Childhood Cancer",
+    "logo-mark--wide",
+    "logo-tile--wide",
+  ),
+  logoFor(
+    "Garvan Institute of Medical Research",
+    "logo-mark--wide",
+    "logo-tile--wide",
+  ),
+  logoFor(
+    "Centre for Population Genomics",
+    "logo-mark--cpg",
+    "logo-tile--wide",
+  ),
+  logoFor(
+    "QIMR Berghofer Medical Research Institute",
+    "logo-mark--wide",
+    "logo-tile--wide",
+  ),
+  logoFor(
+    "National Computational Infrastructure",
+    "logo-mark--wide",
+    "logo-tile--wide",
+  ),
+  // Keep the University of Melbourne last in the partner logo wall.
+  {
+    ...logoFor(
+      "University of Melbourne",
+      "logo-mark--uom-wall",
+      "logo-tile--wide",
+    ),
+    // Official logo--alt artwork from the UoM Gen 3 Design System v15.14.0.
+    // https://designsystem.web.unimelb.edu.au/style-guide/logo/
+    src: "/assets/logos/uom-alt.svg",
+  },
 ];
 
 export const funderLogos = [
@@ -56,6 +91,10 @@ export const projectOrganisationLogos: Partial<Record<OrganisationName, { alt: s
   "National Computational Infrastructure": projectLogo("National Computational Infrastructure", "project-logo--compact"),
   "Australian Access Federation": projectLogo("Australian Access Federation", "project-logo--compact"),
   "Baker Heart & Diabetes Institute": projectLogo("Baker Heart & Diabetes Institute", "project-logo--compact"),
+  "Centre for Population Genomics": projectLogo(
+    "Centre for Population Genomics",
+    "project-logo--wide",
+  ),
   "University of Melbourne": projectLogo("University of Melbourne", "project-logo--seal"),
   "University of Sydney": projectLogo("University of Sydney", "project-logo--compact"),
   "Children's Cancer Institute / Zero Childhood Cancer": projectLogo("Children's Cancer Institute / Zero Childhood Cancer", "project-logo--wide"),

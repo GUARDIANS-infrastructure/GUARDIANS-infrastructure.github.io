@@ -100,6 +100,7 @@ export const organisations = [
   {
     name: "Centre for Population Genomics",
     shortName: "CPG",
+    logoSrc: "/assets/logos/cpg.png",
   },
   {
     name: "Children's Cancer Institute / Zero Childhood Cancer",
