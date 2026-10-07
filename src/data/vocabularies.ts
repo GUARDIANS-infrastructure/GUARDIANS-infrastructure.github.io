@@ -113,6 +113,11 @@ export const organisations = [
     logoSrc: "/assets/logos/garvan.png",
   },
   {
+    name: "Monash University",
+    shortName: "Monash",
+    logoSrc: "/assets/logos/monash.svg",
+  },
+  {
     name: "Murdoch Children's Research Institute",
     shortName: "MCRI",
   },

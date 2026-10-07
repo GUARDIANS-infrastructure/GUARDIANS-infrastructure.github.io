@@ -9,6 +9,7 @@ collaboratingOrganisations:
   - University of Sydney
 description: The Australian Cardiovascular disease Data Commons (ACDC) connects researchers, clinicians, and data custodians to share data securely and collaboratively under FAIR (Findable, Accessible, Interoperable, and Reusable) and ethical principles.
 capabilityAreas:
+  - Data discovery
   - Data commons and repositories
   - Data access and authorisation
 ---
