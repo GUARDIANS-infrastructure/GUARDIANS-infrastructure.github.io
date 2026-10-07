@@ -1,12 +1,14 @@
 ---
 projectSlug: integrated-human-multi-omics-data-commons
-title: A Data Commons for Integrated Human Multi-Omics Data
+title: Data Commons for Integrated Human Multi-Omics Data
 order: 6
 leadOrganisations:
   - University of Melbourne
 deliveryUnits:
   - Melbourne School of Psychological Sciences
   - Bio21 Institute
+collaboratingOrganisations:
+  - Australian BioCommons
 description: The University of Melbourne PX4 data platform is establishing infrastructure for secure storage, sharing and analysis of clinically accredited human multi-omics datasets.
 capabilityAreas:
   - Data commons and repositories

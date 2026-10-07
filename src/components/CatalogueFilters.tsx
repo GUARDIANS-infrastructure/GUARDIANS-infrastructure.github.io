@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "preact/hooks";
+import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { lucideIconSegments, type LucideIconName } from "../icons/lucide";
 import { withBase } from "../utils/paths";
 
@@ -69,7 +69,9 @@ function FilterGroup(props: FilterGroupProps) {
   return (
     <fieldset class="filters__group">
       <legend>{props.label}</legend>
-      <div class={`filters__options${props.options.length > 3 ? " filters__options--columns" : ""}`}>
+      <div
+        class={`filters__options${props.options.length > 3 ? " filters__options--columns" : ""}`}
+      >
         {props.options.map((option) => {
           const id = `${props.name}-${option.replace(/\W+/g, "-").toLowerCase()}`;
 
@@ -200,7 +202,8 @@ const quickFilters: QuickFilter[] = [
   {
     id: "find-data",
     label: "Find data",
-    description: "Discover available and pilot data records and repository capabilities.",
+    description:
+      "Discover available and pilot data records and repository capabilities.",
     icon: "database-search",
     filters: {
       capability: ["Data discovery", "Data commons and repositories"],
@@ -220,7 +223,8 @@ const quickFilters: QuickFilter[] = [
   {
     id: "build-infrastructure",
     label: "Build infrastructure",
-    description: "Find available tools and infrastructure components for delivery teams.",
+    description:
+      "Find available tools and infrastructure components for delivery teams.",
     icon: "blocks",
     filters: {
       outputType: ["Software / tool", "Infrastructure component"],
@@ -230,7 +234,8 @@ const quickFilters: QuickFilter[] = [
   {
     id: "access-guidance",
     label: "Access guidance",
-    description: "Find available guidance for governance, access, and operations.",
+    description:
+      "Find available guidance for governance, access, and operations.",
     icon: "book-open-check",
     filters: {
       capability: ["Governance, policy and operations"],
@@ -253,8 +258,11 @@ const formatFilterLabel = (name: FilterName) =>
     project: "Project",
   })[name];
 
-const hasFilterValue = (filters: FilterState, name: FilterName, value: string) =>
-  filters[name].includes(value);
+const hasFilterValue = (
+  filters: FilterState,
+  name: FilterName,
+  value: string,
+) => filters[name].includes(value);
 
 const quickFilterIsActive = (filters: FilterState, quickFilter: QuickFilter) =>
   Object.entries(quickFilter.filters).every(([name, values]) =>
@@ -265,6 +273,7 @@ const quickFilterIsActive = (filters: FilterState, quickFilter: QuickFilter) =>
 
 export default function CatalogueFilters(props: Props) {
   const [filters, setFilters] = useState(emptyFilterState);
+  const hasUserChangedFilters = useRef(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -279,9 +288,15 @@ export default function CatalogueFilters(props: Props) {
   }, []);
 
   useEffect(() => {
+    // Keep the incoming URL and card fragment intact until a filter is changed.
+    if (!hasUserChangedFilters.current) return;
+
     const params = new URLSearchParams();
 
-    for (const [key, values] of Object.entries(filters) as [FilterName, string[]][]) {
+    for (const [key, values] of Object.entries(filters) as [
+      FilterName,
+      string[],
+    ][]) {
       for (const value of values) {
         params.append(filterParamNames[key], value);
       }
@@ -306,8 +321,15 @@ export default function CatalogueFilters(props: Props) {
     return sortFeaturedFirst(matchingItems);
   }, [filters, props.items]);
 
+  const updateFilters = (
+    next: FilterState | ((current: FilterState) => FilterState),
+  ) => {
+    hasUserChangedFilters.current = true;
+    setFilters(next);
+  };
+
   const toggleFilter = (name: FilterName, value: string) => {
-    setFilters((current) => {
+    updateFilters((current) => {
       const values = current[name];
       const nextValues = values.includes(value)
         ? values.filter((item) => item !== value)
@@ -318,7 +340,7 @@ export default function CatalogueFilters(props: Props) {
   };
 
   const applyQuickFilter = (quickFilter: QuickFilter) => {
-    setFilters((current) => {
+    updateFilters((current) => {
       const isActive = quickFilterIsActive(current, quickFilter);
       const next = { ...emptyFilterState };
 
@@ -338,7 +360,7 @@ export default function CatalogueFilters(props: Props) {
   };
 
   const removeFilter = (name: FilterName, value: string) => {
-    setFilters((current) => ({
+    updateFilters((current) => ({
       ...current,
       [name]: current[name].filter((item) => item !== value),
     }));
@@ -385,7 +407,10 @@ export default function CatalogueFilters(props: Props) {
                 onClick={() => applyQuickFilter(quickFilter)}
               >
                 <span class="filters__quick-title">
-                  <InlineLucideIcon className="filters__quick-icon" icon={quickFilter.icon} />
+                  <InlineLucideIcon
+                    className="filters__quick-icon"
+                    icon={quickFilter.icon}
+                  />
                   <span>{quickFilter.label}</span>
                 </span>
                 <small>{quickFilter.description}</small>
@@ -412,7 +437,10 @@ export default function CatalogueFilters(props: Props) {
                   type="button"
                   onClick={() => removeFilter(name, value)}
                 >
-                  <span>{formatFilterLabel(name)}: {displayValueForFilter(name, value)}</span>
+                  <span>
+                    {formatFilterLabel(name)}:{" "}
+                    {displayValueForFilter(name, value)}
+                  </span>
                   <span aria-hidden="true">×</span>
                 </button>
               ))}
@@ -423,7 +451,7 @@ export default function CatalogueFilters(props: Props) {
           <button
             class="filters__button"
             type="button"
-            onClick={() => setFilters(emptyFilterState)}
+            onClick={() => updateFilters(emptyFilterState)}
           >
             Clear filters
           </button>
@@ -466,14 +494,17 @@ export default function CatalogueFilters(props: Props) {
 
       {filteredItems.length === 0 ? (
         <div class="filters__empty">
-          No catalogue items match the current filters. Try removing one or
-          more filters, or contact the GUARDIANS team if you need help finding
-          the right pathway.
+          No catalogue items match the current filters. Try removing one or more
+          filters, or contact the GUARDIANS team if you need help finding the
+          right pathway.
         </div>
       ) : (
         <div class="grid grid-2">
           {filteredItems.map((item) => (
-            <article class={`card card--catalogue ${activePathwayClass}`} id={item.slug}>
+            <article
+              class={`card card--catalogue ${activePathwayClass}`}
+              id={item.slug}
+            >
               <div class="stack-md">
                 <div class="card__heading">
                   <h3>{item.title}</h3>
@@ -483,7 +514,10 @@ export default function CatalogueFilters(props: Props) {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <InlineLucideIcon className="card__link-icon" icon={linkIconForItem(item)} />
+                    <InlineLucideIcon
+                      className="card__link-icon"
+                      icon={linkIconForItem(item)}
+                    />
                     {linkLabelForItem(item)}
                   </a>
                 </div>
@@ -508,7 +542,10 @@ export default function CatalogueFilters(props: Props) {
                     <span class="badge">{item.status}</span>
                     <span class="badge">{item.visibility}</span>
                     <span class="badge badge--with-icon">
-                      <InlineLucideIcon className="badge__icon" icon={outputTypeIconForItem(item)} />
+                      <InlineLucideIcon
+                        className="badge__icon"
+                        icon={outputTypeIconForItem(item)}
+                      />
                       <span>{item.outputType}</span>
                     </span>
                   </span>
@@ -516,15 +553,23 @@ export default function CatalogueFilters(props: Props) {
                 </summary>
                 <div class="card__details-body">
                   <p>
-                    <strong>Capabilities:</strong> {item.capabilities.join(", ")}
+                    <strong>Capabilities:</strong>{" "}
+                    {item.capabilities.join(", ")}
                   </p>
                   <p>
-                    <strong>Lead organisation{item.leadOrganisations.length === 1 ? "" : "s"}:</strong>{" "}
+                    <strong>
+                      Lead organisation
+                      {item.leadOrganisations.length === 1 ? "" : "s"}:
+                    </strong>{" "}
                     {item.leadOrganisations.join(", ")}
                   </p>
                   {item.contributingOrganisations.length > 0 && (
                     <p>
-                      <strong>Contributing organisation{item.contributingOrganisations.length === 1 ? "" : "s"}:</strong>{" "}
+                      <strong>
+                        Contributing organisation
+                        {item.contributingOrganisations.length === 1 ? "" : "s"}
+                        :
+                      </strong>{" "}
                       {item.contributingOrganisations.join(", ")}
                     </p>
                   )}

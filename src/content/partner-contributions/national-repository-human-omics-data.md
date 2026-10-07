@@ -1,6 +1,6 @@
 ---
 projectSlug: national-repository-human-omics-data
-title: A National Repository For Human Omics Research Data Connected To Computing Resources
+title: National Repository For Human Omics Research Data Connected To Computing Resources
 order: 2
 leadOrganisations:
   - National Computational Infrastructure

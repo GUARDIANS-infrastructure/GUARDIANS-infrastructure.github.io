@@ -1,7 +1,9 @@
-type TextSegment = string | {
-  text: string;
-  href: string;
-};
+type TextSegment =
+  | string
+  | {
+      text: string;
+      href: string;
+    };
 
 export const site = {
   title: "GUARDIANS",
@@ -25,6 +27,16 @@ export const site = {
       },
       ", ",
       {
+        text: "Baker Heart & Diabetes Institute",
+        href: "https://baker.edu.au/",
+      },
+      ", ",
+      {
+        text: "Centre for Population Genomics",
+        href: "https://populationgenomics.org.au/",
+      },
+      ", ",
+      {
         text: "Children’s Cancer Institute Australia",
         href: "https://www.ccia.org.au/",
       },
@@ -32,6 +44,11 @@ export const site = {
       {
         text: "Garvan Institute of Medical Research",
         href: "https://www.garvan.org.au/",
+      },
+      ", ",
+      {
+        text: "Monash University",
+        href: "https://www.monash.edu/",
       },
       ", ",
       {
@@ -45,13 +62,13 @@ export const site = {
       },
       ", ",
       {
-        text: "The University of Melbourne",
-        href: "https://www.unimelb.edu.au/",
+        text: "The University of Sydney",
+        href: "https://www.sydney.edu.au/",
       },
       ", and ",
       {
-        text: "The University of Sydney",
-        href: "https://www.sydney.edu.au/",
+        text: "The University of Melbourne",
+        href: "https://www.unimelb.edu.au/",
       },
       ".",
     ],

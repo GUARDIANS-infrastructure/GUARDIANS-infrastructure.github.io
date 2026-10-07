@@ -18,7 +18,6 @@ intendedUsers:
   - Data stewards and custodians
 partnerContributions:
   - genomic-data-nodes
-  - integrated-human-multi-omics-data-commons
 href: https://github.com/elsa-data/htsget-elsa-rs
 featured: false
 ---

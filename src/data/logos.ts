@@ -26,13 +26,17 @@ const projectLogo = (name: OrganisationName, className: string) => ({
 
 export const partnerLogos = [
   logoFor("Australian BioCommons", "logo-mark--wide", "logo-tile--wide"),
-  logoFor("Australian Access Federation", "logo-mark--wide", "logo-tile--wide"),
   logoFor(
     "Baker Heart & Diabetes Institute",
     "logo-mark--baker",
     "logo-tile--wide",
   ),
-  logoFor("University of Sydney", "logo-mark--wide", "logo-tile--wide"),
+  logoFor("Australian Access Federation", "logo-mark--wide", "logo-tile--wide"),
+  logoFor(
+    "National Computational Infrastructure",
+    "logo-mark--wide",
+    "logo-tile--wide",
+  ),
   logoFor(
     "Children's Cancer Institute / Zero Childhood Cancer",
     "logo-mark--wide",
@@ -53,11 +57,8 @@ export const partnerLogos = [
     "logo-mark--wide",
     "logo-tile--wide",
   ),
-  logoFor(
-    "National Computational Infrastructure",
-    "logo-mark--wide",
-    "logo-tile--wide",
-  ),
+  logoFor("University of Sydney", "logo-mark--wide", "logo-tile--wide"),
+  logoFor("Monash University", "logo-mark--monash", "logo-tile--wide"),
   // Keep the University of Melbourne last in the partner logo wall.
   logoFor("University of Melbourne", "logo-mark--uom-wall", "logo-tile--wide"),
 ];
@@ -82,6 +83,7 @@ export const projectOrganisationLogos: Partial<Record<OrganisationName, { alt: s
   "National Computational Infrastructure": projectLogo("National Computational Infrastructure", "project-logo--compact"),
   "Australian Access Federation": projectLogo("Australian Access Federation", "project-logo--compact"),
   "Baker Heart & Diabetes Institute": projectLogo("Baker Heart & Diabetes Institute", "project-logo--compact"),
+  "Monash University": projectLogo("Monash University", "project-logo--monash"),
   "Centre for Population Genomics": projectLogo(
     "Centre for Population Genomics",
     "project-logo--wide",
