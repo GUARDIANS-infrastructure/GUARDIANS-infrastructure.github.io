@@ -59,16 +59,7 @@ export const partnerLogos = [
     "logo-tile--wide",
   ),
   // Keep the University of Melbourne last in the partner logo wall.
-  {
-    ...logoFor(
-      "University of Melbourne",
-      "logo-mark--uom-wall",
-      "logo-tile--wide",
-    ),
-    // Official logo--alt artwork from the UoM Gen 3 Design System v15.14.0.
-    // https://designsystem.web.unimelb.edu.au/style-guide/logo/
-    src: "/assets/logos/uom-alt.svg",
-  },
+  logoFor("University of Melbourne", "logo-mark--uom-wall", "logo-tile--wide"),
 ];
 
 export const funderLogos = [

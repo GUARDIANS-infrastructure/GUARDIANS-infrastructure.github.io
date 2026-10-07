@@ -135,7 +135,9 @@ export const organisations = [
   {
     name: "University of Melbourne",
     shortName: "UniMelb",
-    logoSrc: "/assets/logos/uom.png",
+    // Official logo--alt artwork from the UoM Gen 3 Design System v15.14.0.
+    // https://designsystem.web.unimelb.edu.au/style-guide/logo/
+    logoSrc: "/assets/logos/uom-alt.svg",
   },
   {
     name: "University of Sydney",
