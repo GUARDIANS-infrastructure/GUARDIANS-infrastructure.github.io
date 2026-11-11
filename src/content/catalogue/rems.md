@@ -5,7 +5,7 @@ userValue: Provides a catalogue of resources that researchers may request access
 capabilities:
   - Data access and authorisation
 outputType: Service
-status: Pilot
+status: Available
 visibility: Public
 leadOrganisations:
   - Australian BioCommons
@@ -20,5 +20,5 @@ intendedUsers:
 partnerContributions:
   - core-services-and-expertise 
 featured: false
-href: https://rems.test.biocommons.org.au
+href: https://rems.biocommons.org.au
 ---

@@ -5,7 +5,7 @@ userValue: Helps researchers discover relevant datasets and understand the next 
 capabilities:
   - Data discovery
 outputType: Service
-status: Pilot
+status: Available 
 visibility: Public
 leadOrganisations:
   - Australian BioCommons
@@ -25,5 +25,5 @@ partnerContributions:
   - scalable-open-connected-genomics-infrastructure
   - zero-data-commons
 featured: true
-href: https://bn.test.biocommons.org.au/
+href: https://bn.biocommons.org.au/
 ---
